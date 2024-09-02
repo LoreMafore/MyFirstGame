@@ -1,0 +1,136 @@
+[gd_scene load_steps=15 format=3 uid="uid://ehjxneckwwep"]
+
+[ext_resource type="Script" path="res://scripts/purple_slime.gd" id="1_3jmxb"]
+[ext_resource type="Texture2D" uid="uid://cbn83eajcial4" path="res://brackeys_platformer_assets/sprites/slime_green.png" id="2_cha1m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_658lr"]
+atlas = ExtResource("2_cha1m")
+region = Rect2(48, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8e2r8"]
+atlas = ExtResource("2_cha1m")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxclh"]
+atlas = ExtResource("2_cha1m")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dto4"]
+atlas = ExtResource("2_cha1m")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjwvh"]
+atlas = ExtResource("2_cha1m")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_71wj2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_658lr")
+}],
+"loop": true,
+"name": &"Damaged",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8e2r8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxclh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0dto4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjwvh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n1ss1"]
+size = Vector2(8, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8o5ai"]
+size = Vector2(12, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w6mdi"]
+size = Vector2(10, 0.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_an12s"]
+size = Vector2(2, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3lsc0"]
+size = Vector2(2, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ljmvk"]
+size = Vector2(0, 8.5)
+
+[node name="PurpleSlime" type="CharacterBody2D"]
+collision_mask = 2
+script = ExtResource("1_3jmxb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_71wj2")
+autoplay = "default"
+frame = 1
+frame_progress = 0.869736
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_n1ss1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_8o5ai")
+
+[node name="BottomLeft" type="RayCast2D" parent="."]
+position = Vector2(-6, 5)
+target_position = Vector2(0, 13)
+
+[node name="BottomRight" type="RayCast2D" parent="."]
+position = Vector2(6, 5)
+target_position = Vector2(0, 13)
+
+[node name="TopChecker" type="Area2D" parent="."]
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopChecker"]
+position = Vector2(0, -2.25)
+shape = SubResource("RectangleShape2D_w6mdi")
+
+[node name="SidesCheckers" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SidesCheckers"]
+position = Vector2(-7, 8)
+shape = SubResource("RectangleShape2D_an12s")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="SidesCheckers"]
+position = Vector2(7, 8)
+shape = SubResource("RectangleShape2D_3lsc0")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="SidesCheckers"]
+position = Vector2(-5, 6.25)
+shape = SubResource("RectangleShape2D_ljmvk")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="SidesCheckers"]
+position = Vector2(5, 6)
+shape = SubResource("RectangleShape2D_ljmvk")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="dead" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="body_entered" from="TopChecker" to="." method="_on_top_checker_body_entered"]
+[connection signal="body_entered" from="SidesCheckers" to="." method="_on_sides_checkers_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="dead" to="." method="_on_dead_timeout"]

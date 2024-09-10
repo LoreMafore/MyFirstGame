@@ -20,4 +20,3 @@ func _on_timer_timeout():
 		playerLevel2.position.y = Global.placeHolderPositionY
 		
 	
-

@@ -21,6 +21,5 @@ func _process(delta):
 	else:
 		press_e.visible = true
 	
-	if Input.is_action_pressed("Interact") or Input.is_action_just_pressed("Interact") and closeToDoor == true:
+	if Input.is_action_pressed("Interact") and closeToDoor == true or Input.is_action_just_pressed("Interact") and closeToDoor == true:
 		get_tree().change_scene_to_file("res://scences/level_2.tscn")
-

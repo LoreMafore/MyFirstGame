@@ -15,7 +15,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6bsq6"]
-radius = 20.5
+radius = 15.5
 height = 54.0
 
 [node name="Statue" type="Area2D"]

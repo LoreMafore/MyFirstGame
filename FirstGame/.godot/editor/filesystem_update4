@@ -1,0 +1,10 @@
+res://scences/Crumbling.tscn
+res://crumbling.gd
+res://scences/cumblingAnimation.gd
+res://scripts/cumblingAnimation.gd
+res://scences/level_1.tscn
+res://scences/level_2.tscn
+res://scences/cave_door.tscn
+res://scences/statue.tscn
+res://scences/PlayerCharcter.tscn
+res://scences/mushroom_jump.tscn

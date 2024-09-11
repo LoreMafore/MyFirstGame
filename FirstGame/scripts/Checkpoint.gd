@@ -9,4 +9,7 @@ func _on_body_entered(body):
 	
 	Global.placeHolderPositionX = body.position.x
 	Global.placeHolderPositionY = body.position.y
-	
+
+
+func _on_can_input_timeout(body) -> void:
+	body.canInput = false

@@ -240,7 +240,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_73s8i"]
 radius = 5.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 z_index = 5
 collision_layer = 10
 collision_mask = 9
@@ -272,10 +272,14 @@ wait_time = 0.5
 wait_time = 0.1
 
 [node name="JumpBuffer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.2
+
+[node name="InputTimer" type="Timer" parent="."]
+wait_time = 0.12
 
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="FallDamageTimer" to="." method="_on_fall_damage_timer_timeout"]
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
 [connection signal="timeout" from="JumpBuffer" to="." method="_on_jump_buffer_timeout"]
+[connection signal="timeout" from="InputTimer" to="." method="_on_input_timer_timeout"]

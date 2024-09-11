@@ -3,6 +3,7 @@ extends CharacterBody2D
 var isAlive = true
 var stopped = 1
 var ogPosition : Vector2
+var deltaTime : float = 0.00
 
 
 @export var SPEED = 45
@@ -32,6 +33,8 @@ func _ready():
 		$AnimatedSprite2D.flip_h = true
 
 func _physics_process(delta):
+	deltaTime = delta
+	
 	if isAlive == true:
 		if stayOnPlatform == true:
 			if is_on_wall() or not $BottomLeft.is_colliding() or not $BottomRight.is_colliding():

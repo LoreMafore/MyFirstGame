@@ -14,4 +14,7 @@ script = ExtResource("1_5gocu")
 position = Vector2(0, -45.5)
 shape = SubResource("RectangleShape2D_jiyx7")
 
+[node name="canInput" type="Timer" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="canInput" to="." method="_on_can_input_timeout"]

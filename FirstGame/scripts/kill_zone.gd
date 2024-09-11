@@ -15,6 +15,7 @@ func _on_timer_timeout():
 		player.position.x = Global.placeHolderPositionX
 		player.position.y = Global.placeHolderPositionY
 		
+		
 	elif Global.level == 2:
 		playerLevel2.position.x = Global.placeHolderPositionX
 		playerLevel2.position.y = Global.placeHolderPositionY

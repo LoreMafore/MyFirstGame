@@ -165,11 +165,11 @@ animations = [{
 size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_63u2k"]
-size = Vector2(16, 1.375)
+size = Vector2(15, 1.375)
 
 [node name="CrumblingBlock" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_vaear")
-animation = &"0"
+animation = &"crumbingNew"
 script = ExtResource("2_upo8n")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
@@ -183,7 +183,7 @@ shape = SubResource("RectangleShape2D_1l4qt")
 collision_mask = 2
 
 [node name="Checker" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -13.3125)
+position = Vector2(-0.5, -13.3125)
 shape = SubResource("RectangleShape2D_63u2k")
 
 [node name="Respawn" type="Timer" parent="."]

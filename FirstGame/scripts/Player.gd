@@ -15,6 +15,8 @@ var canDoubleJump: int = 0
 var lastFrame : int = -1
 var jumpBuffer : bool = false
 var canJump : bool 
+var canInput : bool = true
+var deltaTime : float = 0.00
 
 @export  var ifHasDoubleJump : bool 
 @export var doubleJumpMultiplfier : float = .5
@@ -26,73 +28,82 @@ var canJump : bool
 @onready var timer = $Timer
 @onready var fall_damage_timer = $FallDamageTimer
 @onready var coyote_timer = $CoyoteTimer
+@onready var input_timer: Timer = $InputTimer
+@onready var jump_buffer: Timer = $JumpBuffer
 
 func _physics_process(delta):
 	
-	if Input.is_action_just_pressed("Heal"):
-		if healthPoints >= 1 and healthPoints < MAX_HEALS and heals >= 1:
-			heal()
-		else:
-			set_modulate(Color(1,0,0,0))
+	deltaTime = delta
 	
-	#Gravity
-	if not is_on_floor():
-		#animated_sprite.play("Jump")
-		if canJump == true:
-			if coyote_timer.is_stopped():
-				coyote_timer.start()
-			
-		velocity.y += gravity * delta
-		if ifHasDoubleJump == true:
-			canDoubleJump += 1
-			doubleJump()
-			jumpBuffer = false
-	
-	else: 
-		canJump = true
-		coyote_timer.stop()
-		if jumpBuffer == true:
-			jump()
-			jumpBuffer = false
+	if canInput == true:
+		if Input.is_action_just_pressed("Heal"):
+			if healthPoints >= 1 and healthPoints < MAX_HEALS and heals >= 1:
+				heal()
+			else:
+				set_modulate(Color(1,0,0,0))
 		
-	if is_on_floor():
-		canDoubleJump = 0
-	
-	if Input.is_action_just_pressed("jump"):
-		if canJump == true:
-			jump()
-		else:
-			jumpBuffer = true
-	#facing
-	var direction = Input.get_axis("moveLeft", "moveRight")
-	
-	if direction > 0:
-		animated_sprite.flip_h = false
-	elif direction < 0:
-		animated_sprite.flip_h = true	
-
-	#moving left or right
-	if direction:
+		#Gravity
+		if not is_on_floor():
+			#animated_sprite.play("Jump")
+			if canJump == true:
+				if coyote_timer.is_stopped():
+					coyote_timer.start()
+				
+			velocity.y += gravity * delta
+			if ifHasDoubleJump == true:
+				canDoubleJump += 1
+				doubleJump()
+				jumpBuffer = false
+		
+		else: 
+			canJump = true
+			coyote_timer.stop()
+			if jumpBuffer == true:
+				jump()
+				jumpBuffer = false
 			
 		if is_on_floor():
-			currentSpeed = MOVESPD
-			velocity.x = direction * currentSpeed 
-			animated_sprite.play("Run")
+			canDoubleJump = 0
 		
-		else:	
-			velocity.x = direction * FALLSPD
-	else:
-		velocity.x = move_toward(velocity.x, 0, MOVESPD)
+		if Input.is_action_just_pressed("jump"):
+			if canJump == true:
+				jump()
+			else:
+				jumpBuffer = true
+				jump_buffer.start()
+		#facing
+		var direction = Input.get_axis("moveLeft", "moveRight")
+		
+		if direction > 0:
+			animated_sprite.flip_h = false
+		elif direction < 0:
+			animated_sprite.flip_h = true	
 
-		if is_on_floor() and direction == 0:
-			animated_sprite.play("Idle")
+		#moving left or right
+		if direction:
+				
+			if is_on_floor():
+				currentSpeed = MOVESPD
+				velocity.x = direction * currentSpeed 
+				animated_sprite.play("Run")
+			
+			else:	
+				velocity.x = direction * FALLSPD
+		else:
+			velocity.x = move_toward(velocity.x, 0, MOVESPD)
+
+			if is_on_floor() and direction == 0:
+				animated_sprite.play("Idle")
+			
 		
+		move_and_slide()
 	
-	move_and_slide()	
-	
+	else:
+		input_timer.start()
+		
 func jump():
-	velocity.y = JUMPSPD 
-	animated_sprite.play("Jump")
+		velocity.y = JUMPSPD 
+		animated_sprite.play("Jump")
 	
 func doubleJump():
 	
@@ -103,9 +114,12 @@ func doubleJump():
 		canDoubleJump = -1000
 	
 func bounce(JumpDamaged):
-	velocity.y = JumpDamaged
+	velocity.y = JumpDamaged 
 	
 func fallDamage():
+	#canInput = false
+	#input_timer.start()
+	
 	healthPoints -= 1
 	
 	if healthPoints == 2:
@@ -133,6 +147,8 @@ func heal():
 		hearts2_knight.texture = ResourceLoader.load("res://brackeys_platformer_assets/sprites/FullKnightHearts.png")
 	
 func damage(enemenyPosX):
+	#canInput = false
+	#input_timer.start()
 	healthPoints -= 1
 	
 	if healthPoints == 2:
@@ -161,6 +177,8 @@ func damage(enemenyPosX):
 		Input.action_release("moveLeft")
 
 func spikesDamage1(spikePosX, spikeBounce):
+	#canInput = false
+	#input_timer.start()
 	healthPoints -= 1
 	
 	if healthPoints == 2:
@@ -190,6 +208,8 @@ func spikesDamage1(spikePosX, spikeBounce):
 		Input.action_release("moveLeft")
 
 func spikesDamage2():
+	#canInput = false
+	#input_timer.start()
 	healthPoints -= 1
 	
 	if healthPoints == 2:
@@ -238,3 +258,7 @@ func _on_jump_buffer_timeout():
 	
 func doubleJumpOn():
 	ifHasDoubleJump = true
+
+
+func _on_input_timer_timeout() -> void:
+	canInput = true

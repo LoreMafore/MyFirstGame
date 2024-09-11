@@ -2,7 +2,7 @@ extends Area2D
 
 var closeToStatue: bool = false
 
-
+@onready var double_jump: Label = %"Double Jump"
 @onready var player = %Player
 
 func _process(delta):
@@ -14,7 +14,10 @@ func _process(delta):
 
 func _on_body_entered(body):
 	closeToStatue = true
+	double_jump.visible = true
+	
 
 
 func _on_body_exited(body):
 	closeToStatue = false
+	double_jump.visible = false

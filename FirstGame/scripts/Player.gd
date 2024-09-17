@@ -14,7 +14,7 @@ var currentSpeed : int = 0.00
 var canDoubleJump: int = 0
 var lastFrame : int = -1
 var jumpBuffer : bool = false
-var canJump : bool 
+var canJump : bool = false
 var canInput : bool = true
 var deltaTime : float = 0.00
 
@@ -251,6 +251,11 @@ func _on_fall_damage_timer_timeout():
 
 func _on_coyote_timer_timeout():
 	canJump = false
+	canDoubleJump = 2
+	doubleJump()
+	coyote_timer.stop()
+	#canDoubleJump = true
+					
 
 
 func _on_jump_buffer_timeout():

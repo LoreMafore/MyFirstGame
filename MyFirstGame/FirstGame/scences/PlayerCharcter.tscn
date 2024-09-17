@@ -1,0 +1,285 @@
+[gd_scene load_steps=36 format=3 uid="uid://bc2g8gck620ov"]
+
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_sppih"]
+[ext_resource type="Texture2D" uid="uid://vqcvs3pq3p2" path="res://brackeys_platformer_assets/sprites/knight.png" id="1_uiqyb"]
+[ext_resource type="Script" path="res://scripts/Camera2D.gd" id="2_euw08"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8f52"]
+atlas = ExtResource("1_uiqyb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pyfia"]
+atlas = ExtResource("1_uiqyb")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqm15"]
+atlas = ExtResource("1_uiqyb")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qds45"]
+atlas = ExtResource("1_uiqyb")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qtss"]
+atlas = ExtResource("1_uiqyb")
+region = Rect2(192, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8cde"]
+atlas = ExtResource("1_uiqyb")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6kip"]
+atlas = ExtResource("1_uiqyb")
+region = Rect2(32, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ey41g"]
+atlas = ExtResource("1_uiqyb")
+region = Rect2(64, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b66fl"]
+atlas = ExtResource("1_uiqyb")
+region = Rect2(96, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kovvq"]
+atlas = ExtResource("1_uiqyb")
+region = Rect2(128, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwkbk"]
+atlas = ExtResource("1_uiqyb")
+region = Rect2(160, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80var"]
+atlas = ExtResource("1_uiqyb")
+region = Rect2(192, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_agdu4"]
+atlas = ExtResource("1_uiqyb")
+region = Rect2(224, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7sw5"]
+atlas = ExtResource("1_uiqyb")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y04e1"]
+atlas = ExtResource("1_uiqyb")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uin5u"]
+atlas = ExtResource("1_uiqyb")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vb5n"]
+atlas = ExtResource("1_uiqyb")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hm6px"]
+atlas = ExtResource("1_uiqyb")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrw1p"]
+atlas = ExtResource("1_uiqyb")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcy0w"]
+atlas = ExtResource("1_uiqyb")
+region = Rect2(160, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkk50"]
+atlas = ExtResource("1_uiqyb")
+region = Rect2(192, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8k34"]
+atlas = ExtResource("1_uiqyb")
+region = Rect2(224, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdimx"]
+atlas = ExtResource("1_uiqyb")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwent"]
+atlas = ExtResource("1_uiqyb")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h78yi"]
+atlas = ExtResource("1_uiqyb")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6f5u4"]
+atlas = ExtResource("1_uiqyb")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4a18"]
+atlas = ExtResource("1_uiqyb")
+region = Rect2(128, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3o5l"]
+atlas = ExtResource("1_uiqyb")
+region = Rect2(160, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smuqs"]
+atlas = ExtResource("1_uiqyb")
+region = Rect2(192, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vdm8"]
+atlas = ExtResource("1_uiqyb")
+region = Rect2(224, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dtkjj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8f52")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pyfia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wqm15")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qds45")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qtss")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8cde")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6kip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ey41g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b66fl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kovvq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwkbk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80var")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agdu4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7sw5")
+}],
+"loop": false,
+"name": &"Roll",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y04e1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uin5u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vb5n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hm6px")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrw1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcy0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rkk50")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8k34")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdimx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwent")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h78yi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6f5u4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4a18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3o5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smuqs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vdm8")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_73s8i"]
+radius = 5.0
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+z_index = 5
+collision_layer = 10
+collision_mask = 9
+script = ExtResource("1_sppih")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+script = ExtResource("2_euw08")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -12)
+sprite_frames = SubResource("SpriteFrames_dtkjj")
+animation = &"Roll"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -5)
+shape = SubResource("CircleShape2D_73s8i")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="FallDamageTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="JumpBuffer" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="InputTimer" type="Timer" parent="."]
+wait_time = 0.12
+
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="FallDamageTimer" to="." method="_on_fall_damage_timer_timeout"]
+[connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
+[connection signal="timeout" from="JumpBuffer" to="." method="_on_jump_buffer_timeout"]
+[connection signal="timeout" from="InputTimer" to="." method="_on_input_timer_timeout"]

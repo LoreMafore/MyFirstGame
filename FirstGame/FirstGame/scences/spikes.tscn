@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://fdayry1fkrdn"]
+
+[ext_resource type="Script" path="res://scripts/spikes.gd" id="1_2davd"]
+[ext_resource type="Texture2D" uid="uid://xo2wqqdnlfom" path="res://brackeys_platformer_assets/sprites/Spikes.png" id="1_ncvyo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_leh0l"]
+atlas = ExtResource("1_ncvyo")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_prxka"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_leh0l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nv4ny"]
+size = Vector2(11, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nyfuy"]
+size = Vector2(11, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7d1xb"]
+size = Vector2(0, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3kntu"]
+size = Vector2(0, 2)
+
+[node name="Spikes" type="AnimatableBody2D"]
+script = ExtResource("1_2davd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_prxka")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 7)
+shape = SubResource("RectangleShape2D_nv4ny")
+
+[node name="Tips" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="Tips" type="CollisionShape2D" parent="Tips"]
+position = Vector2(-0.5, 4)
+shape = SubResource("RectangleShape2D_nyfuy")
+
+[node name="ShaftLeft" type="CollisionShape2D" parent="Tips"]
+position = Vector2(-7, 6)
+shape = SubResource("RectangleShape2D_7d1xb")
+
+[node name="ShaftRight" type="CollisionShape2D" parent="Tips"]
+position = Vector2(6, 6)
+shape = SubResource("RectangleShape2D_3kntu")
+
+[node name="TurnOffInput" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="body_entered" from="Tips" to="." method="_on_tips_body_entered"]
+[connection signal="timeout" from="TurnOffInput" to="." method="_on_turn_off_input_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://cd2joafrusdmq"]
+[gd_scene load_steps=34 format=4 uid="uid://cd2joafrusdmq"]
 
 [ext_resource type="PackedScene" uid="uid://bc2g8gck620ov" path="res://scences/PlayerCharcter.tscn" id="1_ssg6g"]
 [ext_resource type="Texture2D" uid="uid://c8bj1q33fyplm" path="res://brackeys_platformer_assets/sprites/world_tileset.png" id="2_4uc7m"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dehjrlr87tq00" path="res://scences/statue.tscn" id="9_t50hd"]
 [ext_resource type="PackedScene" uid="uid://10pdb8lo01dk" path="res://scences/Crumbling.tscn" id="10_frikg"]
 [ext_resource type="PackedScene" uid="uid://bayyhc3h1nl2b" path="res://brackeys_platformer_assets/sprites/GreenPlateform.tscn" id="11_ha46i"]
+[ext_resource type="PackedScene" uid="uid://5k0rlg2cp8gt" path="res://scences/change_camera.tscn" id="13_pb3gh"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dfnh5"]
 load_path = "res://.godot/imported/FullKnightHearts.png-01ba0fcb9066f48d622de1a686b4aef3.ctex"
@@ -307,6 +308,21 @@ _data = {
 "move": SubResource("Animation_glmvr")
 }
 
+[sub_resource type="Animation" id="Animation_vfvuo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_yatqn"]
 resource_name = "spin"
 length = 2.0
@@ -324,7 +340,13 @@ tracks/0/keys = {
 "values": [6.28319, 0.0, 6.28319, 0.0, 6.28319, 0.0, 0.0]
 }
 
-[sub_resource type="Animation" id="Animation_vfvuo"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iljt3"]
+_data = {
+"RESET": SubResource("Animation_vfvuo"),
+"spin": SubResource("Animation_yatqn")
+}
+
+[sub_resource type="Animation" id="Animation_6vwn5"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -337,12 +359,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_iljt3"]
-_data = {
-"RESET": SubResource("Animation_vfvuo"),
-"spin": SubResource("Animation_yatqn")
 }
 
 [sub_resource type="Animation" id="Animation_ao2k3"]
@@ -362,25 +378,48 @@ tracks/0/keys = {
 "values": [0.0, 0.0, 6.28319, 0.0, 6.28319, 0.0, 6.28319]
 }
 
-[sub_resource type="Animation" id="Animation_6vwn5"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6j7yp"]
+_data = {
+"RESET": SubResource("Animation_6vwn5"),
+"spin": SubResource("Animation_ao2k3")
+}
+
+[sub_resource type="Animation" id="Animation_j4c8n"]
+resource_name = "move"
+length = 1.1
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(4857, -774), Vector2(4857, -900), Vector2(4857, -900)]
+}
+
+[sub_resource type="Animation" id="Animation_e32pi"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [Vector2(4857, -774)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6j7yp"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tavxv"]
 _data = {
-"RESET": SubResource("Animation_6vwn5"),
-"spin": SubResource("Animation_ao2k3")
+"RESET": SubResource("Animation_e32pi"),
+"move": SubResource("Animation_j4c8n")
 }
 
 [node name="level_2" type="Node2D"]
@@ -600,6 +639,9 @@ position = Vector2(3483, -495)
 [node name="CheckPoint7" parent="CheckPoints" instance=ExtResource("3_n1ryo")]
 position = Vector2(3755, -791)
 
+[node name="CheckPoint8" parent="CheckPoints" instance=ExtResource("3_n1ryo")]
+position = Vector2(4731, -793)
+
 [node name="Platforms" type="Node" parent="."]
 
 [node name="AnimatedSprite2D" parent="Platforms" instance=ExtResource("10_frikg")]
@@ -719,10 +761,22 @@ rotation = -1.5708
 position = Vector2(4071, -773)
 rotation = -1.5708
 
+[node name="AnimatableBody2D10" parent="Platforms" instance=ExtResource("11_ha46i")]
+position = Vector2(4730, -773)
+
 [node name="AnimatableBody2D7" parent="Platforms" instance=ExtResource("11_ha46i")]
 position = Vector2(4340, -773)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/AnimatableBody2D7"]
+libraries = {
+"": SubResource("AnimationLibrary_iljt3")
+}
+autoplay = "spin"
+
+[node name="AnimatableBody2D9" parent="Platforms" instance=ExtResource("11_ha46i")]
+position = Vector2(4582, -773)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/AnimatableBody2D9"]
 libraries = {
 "": SubResource("AnimationLibrary_iljt3")
 }
@@ -736,3 +790,28 @@ libraries = {
 "": SubResource("AnimationLibrary_6j7yp")
 }
 autoplay = "spin"
+
+[node name="AnimatableBody2D8" parent="Platforms" instance=ExtResource("11_ha46i")]
+position = Vector2(4464, -773)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/AnimatableBody2D8"]
+libraries = {
+"": SubResource("AnimationLibrary_6j7yp")
+}
+autoplay = "spin"
+
+[node name="AnimatableBody2D11" parent="Platforms" instance=ExtResource("11_ha46i")]
+position = Vector2(4857, -774)
+rotation = -1.5708
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/AnimatableBody2D11"]
+libraries = {
+"": SubResource("AnimationLibrary_tavxv")
+}
+autoplay = "move"
+
+[node name="ChangeCamera" parent="." instance=ExtResource("13_pb3gh")]
+position = Vector2(3821, -795)
+collision_mask = 11
+level2 = true
+cameraMove = true

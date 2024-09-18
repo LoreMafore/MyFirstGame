@@ -17,6 +17,10 @@ func _process(delta):
 	elif Global.cameraMove == 0:
 		camera_2d.position.y = -16
 		camera_2d.zoom = Vector2(4,4)
+		
+	elif Global.cameraMove == 2:
+		camera_2d.zoom = Vector2(3,3)
+		camera_2d.position.y = 10
 	
 	if Input.is_action_pressed("LookDown"):
 		input_held_time_down += delta

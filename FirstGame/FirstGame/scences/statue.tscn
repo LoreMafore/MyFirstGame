@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://dehjrlr87tq00"]
+
+[ext_resource type="Script" path="res://scripts/statue.gd" id="1_52m3w"]
+[ext_resource type="Texture2D" uid="uid://d0y4b4uyk8bj" path="res://brackeys_platformer_assets/sprites/Statue.png" id="1_x2f7v"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x13l6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_x2f7v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6bsq6"]
+radius = 15.5
+height = 54.0
+
+[node name="Statue" type="Area2D"]
+collision_layer = 9
+collision_mask = 9
+script = ExtResource("1_52m3w")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_x13l6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 11.5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_6bsq6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -242,6 +242,7 @@ func _on_timer_timeout():
 func _on_fall_damage_timer_timeout():
 	if healthPoints <= 0:
 		Engine.time_scale = 1
+		Global.cameraMove = 0
 		get_tree().reload_current_scene()
 
 #func MushroomJump(mushroomJump):

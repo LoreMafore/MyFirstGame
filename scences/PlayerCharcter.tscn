@@ -249,8 +249,6 @@ script = ExtResource("1_sppih")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
 script = ExtResource("2_euw08")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

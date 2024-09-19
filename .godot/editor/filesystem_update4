@@ -1,5 +1,5 @@
-res://scences/level_2.tscn
 res://scences/level_1.tscn
+res://scences/level_2.tscn
 res://scences/cave_door.tscn
 res://scences/statue.tscn
 res://scences/PlayerCharcter.tscn
@@ -7,4 +7,10 @@ res://scences/mushroom_jump.tscn
 res://scences/Crumbling.tscn
 res://scences/Checkpoint.tscn
 res://scences/purple_slime.tscn
-res://brackeys_platformer_assets/sprites/GreenPlateform.tscn
+res://scences/lv_2_door.tscn
+res://scences/GreenPlateform.tscn
+res://scripts/lv_2_door.gd
+res://level_1_back.tscn
+res://scripts/Player.gd
+res://scences/level_1_back.tscn
+res://scripts/cave_door.gd

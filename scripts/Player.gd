@@ -18,7 +18,8 @@ var canJump : bool = false
 var canInput : bool = true
 var deltaTime : float = 0.00
 
-@export  var ifHasDoubleJump : bool 
+@export var facing: bool = false 
+@export var ifHasDoubleJump : bool 
 @export var doubleJumpMultiplfier : float = .5
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var hearts2_knight = $"../GameManager/UI/Life/Hearts2_Knight"
@@ -30,6 +31,13 @@ var deltaTime : float = 0.00
 @onready var coyote_timer = $CoyoteTimer
 @onready var input_timer: Timer = $InputTimer
 @onready var jump_buffer: Timer = $JumpBuffer
+
+func _ready():
+	if facing == true:
+		animated_sprite.flip_h = true
+		
+	else: 
+		animated_sprite.flip_h = false
 
 func _physics_process(delta):
 	

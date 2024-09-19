@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://xesv7nwobh7x"]
+
+[ext_resource type="Script" path="res://scripts/lv_2_door.gd" id="1_v057t"]
+[ext_resource type="Texture2D" uid="uid://dsdvq6yg1vmcv" path="res://brackeys_platformer_assets/sprites/Level2Door.png" id="2_2i438"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5hbo"]
+atlas = ExtResource("2_2i438")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0r3i6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5hbo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tpq3w"]
+radius = 16.0
+height = 74.0
+
+[node name="LV2Door" type="Area2D"]
+collision_layer = 3
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_v057t")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0r3i6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_tpq3w")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

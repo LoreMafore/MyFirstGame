@@ -1,8 +1,8 @@
+CollisionShape2D
+AnimatedSprite2D
+Area2D
 AnimationPlayer
 Label
 Timer
 Node
-CollisionShape2D
-Area2D
 CharacterBody2D
-AnimatedSprite2D

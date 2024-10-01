@@ -27,7 +27,6 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _ready():
 	
 	ogPosition = purple_slime.position
-	print(purple_slime.position)
 	
 	if direction < 0: 
 		$AnimatedSprite2D.flip_h = true
@@ -62,15 +61,6 @@ func _on_top_checker_body_entered(body):
 	set_collision_mask_value(1,false)
 
 	body.bounce(jumpDirection)
-
-	#top_checker.monitoring = false
-	#top_checker.monitorable = false
-	#top_checker.visible = false
-	#sides_checkers.monitoring = false
-	#sides_checkers.monitorable = false
-	#sides_checkers.visible = false
-	#collision_shape_2d.disabled = false
-	#collision_shape_2d_2.disabled = false
 		
 	dead.start()
 
@@ -78,15 +68,6 @@ func _on_sides_checkers_body_entered(body):
 	body.damage(position.x)
 
 func _on_timer_timeout():
-	#collision_shape_2d.disabled = true
-	#collision_shape_2d_2.disabled = true
-	
-	#top_checker.monitoring = true
-	#top_checker.monitorable = true
-	#top_checker.visible = true
-	#sides_checkers.monitoring = true
-	#sides_checkers.monitorable = true
-	#sides_checkers.visible = true
 	purple_slime.position = Vector2(ogPosition)
 	purple_slime.visible = true
 	print("Help me")

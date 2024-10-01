@@ -203,9 +203,15 @@ texture = ExtResource("3_mgnk1")
 5:15/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_wdau3"]
-physics_layer_0/collision_layer = 11
-physics_layer_0/collision_mask = 11
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_iosbc")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rr4qw"]
+size = Vector2(1075, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_82uyo"]
+size = Vector2(1061.75, 30)
 
 [sub_resource type="Animation" id="Animation_en8nk"]
 length = 0.001
@@ -245,19 +251,13 @@ _data = {
 "movement1": SubResource("Animation_quah8")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rr4qw"]
-size = Vector2(1075, 33)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_82uyo"]
-size = Vector2(1061.75, 30)
-
 [node name="Level 1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("2_h3by5")]
 unique_name_in_owner = true
 light_mask = 2
 visibility_layer = 9
-position = Vector2(626, -180)
+position = Vector2(-441.589, -23.5923)
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
@@ -402,6 +402,155 @@ position = Vector2(-240, -252)
 z_index = 1
 position = Vector2(-384, -397)
 
+[node name="Entities" type="Node" parent="CheckPoints"]
+
+[node name="MushroomJump" parent="CheckPoints/Entities" instance=ExtResource("7_7skc1")]
+position = Vector2(783, -170)
+mushroomYJump = 600
+
+[node name="MushroomJump3" parent="CheckPoints/Entities" instance=ExtResource("7_7skc1")]
+position = Vector2(1433, -407)
+mushroomYJump = 500
+
+[node name="MushroomJump4" parent="CheckPoints/Entities" instance=ExtResource("7_7skc1")]
+position = Vector2(1562, -399)
+mushroomYJump = 500
+
+[node name="MushroomJump5" parent="CheckPoints/Entities" instance=ExtResource("7_7skc1")]
+position = Vector2(1682, -398)
+mushroomYJump = 500
+
+[node name="MushroomJump7" parent="CheckPoints/Entities" instance=ExtResource("7_7skc1")]
+position = Vector2(1806, -391)
+motion_mode = 1
+mushroomYJump = 500
+
+[node name="MushroomJump6" parent="CheckPoints/Entities" instance=ExtResource("7_7skc1")]
+position = Vector2(1955, -367)
+mushroomYJump = 725
+mushroomXJump = 350.0
+
+[node name="MushroomJump2" parent="CheckPoints/Entities" instance=ExtResource("7_7skc1")]
+position = Vector2(833, -330)
+mushroomYJump = 550
+
+[node name="Spikes" parent="CheckPoints/Entities" instance=ExtResource("9_6j3c4")]
+position = Vector2(-335, -378)
+checkPoint = true
+
+[node name="Spikes2" parent="CheckPoints/Entities" instance=ExtResource("9_6j3c4")]
+position = Vector2(-320, -378)
+checkPoint = true
+
+[node name="Spikes3" parent="CheckPoints/Entities" instance=ExtResource("9_6j3c4")]
+position = Vector2(-304, -378)
+checkPoint = true
+
+[node name="Spikes4" parent="CheckPoints/Entities" instance=ExtResource("9_6j3c4")]
+position = Vector2(-288, -378)
+checkPoint = true
+
+[node name="Spikes5" parent="CheckPoints/Entities" instance=ExtResource("9_6j3c4")]
+position = Vector2(-272, -378)
+checkPoint = true
+
+[node name="Spikes6" parent="CheckPoints/Entities" instance=ExtResource("9_6j3c4")]
+position = Vector2(-256, -378)
+checkPoint = true
+
+[node name="Spikes7" parent="CheckPoints/Entities" instance=ExtResource("9_6j3c4")]
+position = Vector2(-240, -378)
+checkPoint = true
+
+[node name="Spikes8" parent="CheckPoints/Entities" instance=ExtResource("9_6j3c4")]
+position = Vector2(-224, -378)
+checkPoint = true
+
+[node name="Spikes9" parent="CheckPoints/Entities" instance=ExtResource("9_6j3c4")]
+position = Vector2(-208, -378)
+checkPoint = true
+
+[node name="Spikes10" parent="CheckPoints/Entities" instance=ExtResource("9_6j3c4")]
+position = Vector2(-192, -378)
+checkPoint = true
+
+[node name="Spikes11" parent="CheckPoints/Entities" instance=ExtResource("9_6j3c4")]
+position = Vector2(-176, -378)
+checkPoint = true
+
+[node name="Spikes12" parent="CheckPoints/Entities" instance=ExtResource("9_6j3c4")]
+position = Vector2(-160, -378)
+checkPoint = true
+
+[node name="Spikes13" parent="CheckPoints/Entities" instance=ExtResource("9_6j3c4")]
+position = Vector2(-144, -378)
+checkPoint = true
+
+[node name="Spikes14" parent="CheckPoints/Entities" instance=ExtResource("9_6j3c4")]
+position = Vector2(-128, -378)
+checkPoint = true
+
+[node name="Spikes15" parent="CheckPoints/Entities" instance=ExtResource("9_6j3c4")]
+position = Vector2(-112, -378)
+checkPoint = true
+
+[node name="Spikes16" parent="CheckPoints/Entities" instance=ExtResource("9_6j3c4")]
+position = Vector2(-96, -378)
+checkPoint = true
+
+[node name="Spikes17" parent="CheckPoints/Entities" instance=ExtResource("9_6j3c4")]
+position = Vector2(-80, -378)
+checkPoint = true
+
+[node name="Spikes18" parent="CheckPoints/Entities" instance=ExtResource("9_6j3c4")]
+position = Vector2(-64, -378)
+checkPoint = true
+
+[node name="Spikes19" parent="CheckPoints/Entities" instance=ExtResource("9_6j3c4")]
+position = Vector2(-48, -378)
+checkPoint = true
+
+[node name="Spikes20" parent="CheckPoints/Entities" instance=ExtResource("9_6j3c4")]
+position = Vector2(-32, -378)
+checkPoint = true
+
+[node name="Spikes22" parent="CheckPoints/Entities" instance=ExtResource("9_6j3c4")]
+position = Vector2(-16, -378)
+checkPoint = true
+
+[node name="Spikes25" parent="CheckPoints/Entities" instance=ExtResource("9_6j3c4")]
+position = Vector2(0, -378)
+checkPoint = true
+
+[node name="Spikes21" parent="CheckPoints/Entities" instance=ExtResource("9_6j3c4")]
+position = Vector2(80, -362)
+
+[node name="Spikes23" parent="CheckPoints/Entities" instance=ExtResource("9_6j3c4")]
+position = Vector2(32, -298)
+
+[node name="Spikes24" parent="CheckPoints/Entities" instance=ExtResource("9_6j3c4")]
+position = Vector2(64, -218)
+
+[node name="Spikes26" parent="CheckPoints/Entities" instance=ExtResource("9_6j3c4")]
+position = Vector2(145, -154)
+
+[node name="CaveDoor" parent="CheckPoints/Entities" instance=ExtResource("13_gblig")]
+position = Vector2(2360, -457)
+
+[node name="KillZone2" parent="CheckPoints/Entities" instance=ExtResource("4_t5ewk")]
+position = Vector2(1974.75, -572.78)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CheckPoints/Entities/KillZone2"]
+position = Vector2(-362.253, 292.28)
+shape = SubResource("RectangleShape2D_rr4qw")
+
+[node name="KillZone" parent="CheckPoints/Entities" instance=ExtResource("4_t5ewk")]
+position = Vector2(100, 195)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CheckPoints/Entities/KillZone"]
+position = Vector2(440.125, -247)
+shape = SubResource("RectangleShape2D_82uyo")
+
 [node name="CheckPoint3" parent="CheckPoints" instance=ExtResource("1_ypqe1")]
 z_index = 1
 position = Vector2(656, -172)
@@ -470,155 +619,6 @@ collision_mask = 3
 position = Vector2(1957, -339)
 collision_layer = 3
 collision_mask = 3
-
-[node name="Entities" type="Node" parent="."]
-
-[node name="MushroomJump" parent="Entities" instance=ExtResource("7_7skc1")]
-position = Vector2(783, -170)
-mushroomYJump = 600
-
-[node name="MushroomJump3" parent="Entities" instance=ExtResource("7_7skc1")]
-position = Vector2(1433, -407)
-mushroomYJump = 500
-
-[node name="MushroomJump4" parent="Entities" instance=ExtResource("7_7skc1")]
-position = Vector2(1562, -399)
-mushroomYJump = 500
-
-[node name="MushroomJump5" parent="Entities" instance=ExtResource("7_7skc1")]
-position = Vector2(1682, -398)
-mushroomYJump = 500
-
-[node name="MushroomJump7" parent="Entities" instance=ExtResource("7_7skc1")]
-position = Vector2(1806, -391)
-motion_mode = 1
-mushroomYJump = 500
-
-[node name="MushroomJump6" parent="Entities" instance=ExtResource("7_7skc1")]
-position = Vector2(1955, -367)
-mushroomYJump = 725
-mushroomXJump = 350.0
-
-[node name="MushroomJump2" parent="Entities" instance=ExtResource("7_7skc1")]
-position = Vector2(833, -330)
-mushroomYJump = 550
-
-[node name="Spikes" parent="Entities" instance=ExtResource("9_6j3c4")]
-position = Vector2(-335, -378)
-checkPoint = true
-
-[node name="Spikes2" parent="Entities" instance=ExtResource("9_6j3c4")]
-position = Vector2(-320, -378)
-checkPoint = true
-
-[node name="Spikes3" parent="Entities" instance=ExtResource("9_6j3c4")]
-position = Vector2(-304, -378)
-checkPoint = true
-
-[node name="Spikes4" parent="Entities" instance=ExtResource("9_6j3c4")]
-position = Vector2(-288, -378)
-checkPoint = true
-
-[node name="Spikes5" parent="Entities" instance=ExtResource("9_6j3c4")]
-position = Vector2(-272, -378)
-checkPoint = true
-
-[node name="Spikes6" parent="Entities" instance=ExtResource("9_6j3c4")]
-position = Vector2(-256, -378)
-checkPoint = true
-
-[node name="Spikes7" parent="Entities" instance=ExtResource("9_6j3c4")]
-position = Vector2(-240, -378)
-checkPoint = true
-
-[node name="Spikes8" parent="Entities" instance=ExtResource("9_6j3c4")]
-position = Vector2(-224, -378)
-checkPoint = true
-
-[node name="Spikes9" parent="Entities" instance=ExtResource("9_6j3c4")]
-position = Vector2(-208, -378)
-checkPoint = true
-
-[node name="Spikes10" parent="Entities" instance=ExtResource("9_6j3c4")]
-position = Vector2(-192, -378)
-checkPoint = true
-
-[node name="Spikes11" parent="Entities" instance=ExtResource("9_6j3c4")]
-position = Vector2(-176, -378)
-checkPoint = true
-
-[node name="Spikes12" parent="Entities" instance=ExtResource("9_6j3c4")]
-position = Vector2(-160, -378)
-checkPoint = true
-
-[node name="Spikes13" parent="Entities" instance=ExtResource("9_6j3c4")]
-position = Vector2(-144, -378)
-checkPoint = true
-
-[node name="Spikes14" parent="Entities" instance=ExtResource("9_6j3c4")]
-position = Vector2(-128, -378)
-checkPoint = true
-
-[node name="Spikes15" parent="Entities" instance=ExtResource("9_6j3c4")]
-position = Vector2(-112, -378)
-checkPoint = true
-
-[node name="Spikes16" parent="Entities" instance=ExtResource("9_6j3c4")]
-position = Vector2(-96, -378)
-checkPoint = true
-
-[node name="Spikes17" parent="Entities" instance=ExtResource("9_6j3c4")]
-position = Vector2(-80, -378)
-checkPoint = true
-
-[node name="Spikes18" parent="Entities" instance=ExtResource("9_6j3c4")]
-position = Vector2(-64, -378)
-checkPoint = true
-
-[node name="Spikes19" parent="Entities" instance=ExtResource("9_6j3c4")]
-position = Vector2(-48, -378)
-checkPoint = true
-
-[node name="Spikes20" parent="Entities" instance=ExtResource("9_6j3c4")]
-position = Vector2(-32, -378)
-checkPoint = true
-
-[node name="Spikes22" parent="Entities" instance=ExtResource("9_6j3c4")]
-position = Vector2(-16, -378)
-checkPoint = true
-
-[node name="Spikes25" parent="Entities" instance=ExtResource("9_6j3c4")]
-position = Vector2(0, -378)
-checkPoint = true
-
-[node name="Spikes21" parent="Entities" instance=ExtResource("9_6j3c4")]
-position = Vector2(80, -362)
-
-[node name="Spikes23" parent="Entities" instance=ExtResource("9_6j3c4")]
-position = Vector2(32, -298)
-
-[node name="Spikes24" parent="Entities" instance=ExtResource("9_6j3c4")]
-position = Vector2(64, -218)
-
-[node name="Spikes26" parent="Entities" instance=ExtResource("9_6j3c4")]
-position = Vector2(145, -154)
-
-[node name="CaveDoor" parent="Entities" instance=ExtResource("13_gblig")]
-position = Vector2(2360, -457)
-
-[node name="KillZone2" parent="Entities" instance=ExtResource("4_t5ewk")]
-position = Vector2(1974.75, -572.78)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/KillZone2"]
-position = Vector2(-362.253, 292.28)
-shape = SubResource("RectangleShape2D_rr4qw")
-
-[node name="KillZone" parent="Entities" instance=ExtResource("4_t5ewk")]
-position = Vector2(100, 195)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/KillZone"]
-position = Vector2(440.125, -247)
-shape = SubResource("RectangleShape2D_82uyo")
 
 [node name="Enemies" type="Node" parent="."]
 

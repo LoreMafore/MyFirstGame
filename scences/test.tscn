@@ -1,0 +1,909 @@
+[gd_scene load_steps=11 format=4 uid="uid://rohqqn5dx1o1"]
+
+[ext_resource type="PackedScene" uid="uid://bc2g8gck620ov" path="res://scences/PlayerCharcter.tscn" id="1_h4b5t"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="2_ncne8"]
+[ext_resource type="Texture2D" uid="uid://bnbcd843ikdg0" path="res://brackeys_platformer_assets/sprites/Heals.png" id="3_4vswv"]
+[ext_resource type="FontFile" uid="uid://jvbpo7ecvxt2" path="res://brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="4_o8qxu"]
+[ext_resource type="Texture2D" uid="uid://c8bj1q33fyplm" path="res://brackeys_platformer_assets/sprites/world_tileset.png" id="5_27byp"]
+[ext_resource type="PackedScene" uid="uid://10pdb8lo01dk" path="res://scences/Crumbling.tscn" id="6_i2ji4"]
+[ext_resource type="PackedScene" uid="uid://ehjxneckwwep" path="res://scences/purple_slime.tscn" id="6_wjdd0"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8ug12"]
+load_path = "res://.godot/imported/FullKnightHearts.png-01ba0fcb9066f48d622de1a686b4aef3.ctex"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_olsxq"]
+texture = ExtResource("5_27byp")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:0/0 = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:0/0 = 0
+9:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+11:0/0 = 0
+11:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:1/0 = 0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:1/0 = 0
+8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:1/0 = 0
+9:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+11:1/0 = 0
+11:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+9:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+11:2/0 = 0
+11:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+12:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+3:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+11:9/0 = 0
+14:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+10:11/0 = 0
+12:11/0 = 0
+14:11/0 = 0
+0:12/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+4:12/0 = 0
+5:12/0 = 0
+11:12/0 = 0
+12:12/0 = 0
+13:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+4:13/0 = 0
+5:13/0 = 0
+7:13/0 = 0
+9:13/0 = 0
+11:13/0 = 0
+12:13/0 = 0
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+4:14/0 = 0
+5:14/0 = 0
+11:14/0 = 0
+12:14/0 = 0
+0:15/0 = 0
+1:15/0 = 0
+2:15/0 = 0
+3:15/0 = 0
+4:15/0 = 0
+5:15/0 = 0
+7:15/0 = 0
+9:15/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_cuxuh"]
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
+sources/0 = SubResource("TileSetAtlasSource_olsxq")
+
+[node name="Test" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_h4b5t")]
+unique_name_in_owner = true
+position = Vector2(551, -102)
+doubleJumpMultiplfier = 0.1
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("2_ncne8")
+
+[node name="UI" type="CanvasLayer" parent="GameManager"]
+scale = Vector2(3, 3)
+transform = Transform2D(3, 0, 0, 3, 0, 0)
+
+[node name="Life" type="Control" parent="GameManager/UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Hearts1_Knight" type="TextureRect" parent="GameManager/UI/Life"]
+layout_mode = 0
+offset_left = -7.66667
+offset_top = -10.6667
+offset_right = 42.3333
+offset_bottom = 39.3333
+texture = SubResource("CompressedTexture2D_8ug12")
+
+[node name="Hearts2_Knight" type="TextureRect" parent="GameManager/UI/Life"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = -0.275
+anchor_right = 1.45
+anchor_bottom = 0.975
+offset_right = 7.62939e-05
+texture = SubResource("CompressedTexture2D_8ug12")
+metadata/_edit_use_anchors_ = true
+
+[node name="Hearts3_Knight" type="TextureRect" parent="GameManager/UI/Life"]
+layout_mode = 0
+offset_left = 24.3333
+offset_top = -11.0
+offset_right = 74.3333
+offset_bottom = 39.0
+texture = SubResource("CompressedTexture2D_8ug12")
+
+[node name="Heals" type="Control" parent="GameManager/UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="GameManager/UI/Heals"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 12.3333
+offset_right = 55.0
+offset_bottom = 60.3333
+texture = ExtResource("3_4vswv")
+
+[node name="HealsLabel" type="Label" parent="GameManager/UI/Heals"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 34.0
+offset_right = 24.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("4_o8qxu")
+theme_override_font_sizes/font_size = 8
+text = "xX"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Double Jump" type="Label" parent="GameManager"]
+unique_name_in_owner = true
+visible = false
+offset_left = 2127.0
+offset_top = -447.0
+offset_right = 2216.0
+offset_bottom = -405.0
+theme_override_fonts/font = ExtResource("4_o8qxu")
+theme_override_font_sizes/font_size = 8
+text = "Press E to Interact With The Statue"
+autowrap_mode = 2
+
+[node name="TileMap" type="TileMap" parent="GameManager"]
+tile_set = SubResource("TileSet_cuxuh")
+format = 2
+layer_0/name = "Layer1"
+
+[node name="Layer0" type="TileMapLayer" parent="GameManager/TileMap"]
+use_parent_material = true
+tile_map_data = PackedByteArray("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")
+tile_set = SubResource("TileSet_cuxuh")
+
+[node name="PurpleSlime" parent="GameManager/TileMap" instance=ExtResource("6_wjdd0")]
+position = Vector2(3444, -109)
+respawn = true
+
+[node name="PurpleSlime2" parent="GameManager/TileMap" instance=ExtResource("6_wjdd0")]
+position = Vector2(3509, -110)
+respawn = true
+
+[node name="PurpleSlime3" parent="GameManager/TileMap" instance=ExtResource("6_wjdd0")]
+position = Vector2(3577.41, -109.758)
+respawn = true
+
+[node name="PurpleSlime4" parent="GameManager/TileMap" instance=ExtResource("6_wjdd0")]
+position = Vector2(3637, -110)
+respawn = true
+
+[node name="PurpleSlime5" parent="GameManager/TileMap" instance=ExtResource("6_wjdd0")]
+position = Vector2(3704.24, -112.003)
+respawn = true
+
+[node name="PurpleSlime6" parent="GameManager/TileMap" instance=ExtResource("6_wjdd0")]
+position = Vector2(3765.98, -110.32)
+respawn = true
+
+[node name="PurpleSlime7" parent="GameManager/TileMap" instance=ExtResource("6_wjdd0")]
+position = Vector2(3824, -114)
+respawn = true
+
+[node name="PurpleSlime8" parent="GameManager/TileMap" instance=ExtResource("6_wjdd0")]
+position = Vector2(3890.57, -152.973)
+stayOnPlatform = true
+respawn = true
+
+[node name="PurpleSlime9" parent="GameManager/TileMap" instance=ExtResource("6_wjdd0")]
+position = Vector2(4002.82, -168.126)
+stayOnPlatform = true
+respawn = true
+
+[node name="PurpleSlime10" parent="GameManager/TileMap" instance=ExtResource("6_wjdd0")]
+position = Vector2(4093.18, -179.912)
+stayOnPlatform = true
+respawn = true
+
+[node name="PurpleSlime11" parent="GameManager/TileMap" instance=ExtResource("6_wjdd0")]
+position = Vector2(4196.44, -200.117)
+stayOnPlatform = true
+respawn = true
+
+[node name="PurpleSlime12" parent="GameManager/TileMap" instance=ExtResource("6_wjdd0")]
+position = Vector2(4310.94, -171.494)
+stayOnPlatform = true
+respawn = true
+
+[node name="PurpleSlime13" parent="GameManager/TileMap" instance=ExtResource("6_wjdd0")]
+position = Vector2(4391.75, -116.493)
+stayOnPlatform = true
+respawn = true
+
+[node name="PurpleSlime14" parent="GameManager/TileMap" instance=ExtResource("6_wjdd0")]
+position = Vector2(4524.2, -112.565)
+stayOnPlatform = true
+respawn = true
+
+[node name="PurpleSlime15" parent="GameManager/TileMap" instance=ExtResource("6_wjdd0")]
+position = Vector2(4609.51, -118.177)
+stayOnPlatform = true
+respawn = true
+
+[node name="PurpleSlime16" parent="GameManager/TileMap" instance=ExtResource("6_wjdd0")]
+position = Vector2(4695.94, -116.493)
+stayOnPlatform = true
+respawn = true
+
+[node name="PurpleSlime17" parent="GameManager/TileMap" instance=ExtResource("6_wjdd0")]
+position = Vector2(4783.81, -123.189)
+stayOnPlatform = true
+respawn = true
+
+[node name="PurpleSlime18" parent="GameManager/TileMap" instance=ExtResource("6_wjdd0")]
+position = Vector2(4847.79, -127.679)
+stayOnPlatform = true
+respawn = true
+
+[node name="PurpleSlime19" parent="GameManager/TileMap" instance=ExtResource("6_wjdd0")]
+position = Vector2(4931.98, -127.679)
+stayOnPlatform = true
+respawn = true
+
+[node name="CrumblingBlock" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(585, -100)
+
+[node name="CrumblingBlock" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1025, 0)
+
+[node name="CrumblingBlock2" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1041, 0)
+
+[node name="CrumblingBlock3" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1057, 0)
+
+[node name="CrumblingBlock4" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1073, 0)
+
+[node name="CrumblingBlock5" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1089, 0)
+
+[node name="CrumblingBlock6" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1105, 0)
+
+[node name="CrumblingBlock7" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1121, 0)
+
+[node name="CrumblingBlock8" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1137, 0)
+
+[node name="CrumblingBlock9" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1153, 0)
+
+[node name="CrumblingBlock10" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1169, 0)
+
+[node name="CrumblingBlock11" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1185, 0)
+
+[node name="CrumblingBlock12" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1201, 0)
+
+[node name="CrumblingBlock13" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1217, 0)
+
+[node name="CrumblingBlock14" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1233, 0)
+
+[node name="CrumblingBlock15" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1249, 0)
+
+[node name="CrumblingBlock16" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1265, 0)
+
+[node name="CrumblingBlock17" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1281, 0)
+
+[node name="CrumblingBlock18" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1297, 0)
+
+[node name="CrumblingBlock19" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1313, 0)
+
+[node name="CrumblingBlock20" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1329, 0)
+
+[node name="CrumblingBlock21" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1345, 0)
+
+[node name="CrumblingBlock22" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1361, 0)
+
+[node name="CrumblingBlock23" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1377, 0)
+
+[node name="CrumblingBlock24" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1393, 0)
+
+[node name="CrumblingBlock25" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1409, 0)
+
+[node name="CrumblingBlock26" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1425, 0)
+
+[node name="CrumblingBlock27" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1441, 0)
+
+[node name="CrumblingBlock28" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1457, 0)
+
+[node name="CrumblingBlock29" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1473, 0)
+
+[node name="CrumblingBlock30" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1489, 0)
+
+[node name="CrumblingBlock31" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1505, 0)
+
+[node name="CrumblingBlock32" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1521, 0)
+
+[node name="CrumblingBlock33" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1537, 0)
+
+[node name="CrumblingBlock34" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1553, 0)
+
+[node name="CrumblingBlock35" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1569, 0)
+
+[node name="CrumblingBlock36" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1585, 0)
+
+[node name="CrumblingBlock37" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1601, 0)
+
+[node name="CrumblingBlock38" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1617, 0)
+
+[node name="CrumblingBlock39" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1633, 0)
+
+[node name="CrumblingBlock40" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1649, 0)
+
+[node name="CrumblingBlock41" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1665, 0)
+
+[node name="CrumblingBlock42" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1681, 0)
+
+[node name="CrumblingBlock43" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1697, 0)
+
+[node name="CrumblingBlock44" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1713, 0)
+
+[node name="CrumblingBlock45" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1729, 0)
+
+[node name="CrumblingBlock46" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1745, 0)
+
+[node name="CrumblingBlock47" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1761, 0)
+
+[node name="CrumblingBlock48" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1777, 0)
+
+[node name="CrumblingBlock49" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1793, 0)
+
+[node name="CrumblingBlock50" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1809, 0)
+
+[node name="CrumblingBlock51" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1825, 0)
+
+[node name="CrumblingBlock52" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1841, 0)
+
+[node name="CrumblingBlock53" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1857, 0)
+
+[node name="CrumblingBlock54" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1873, 0)
+
+[node name="CrumblingBlock55" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1889, 0)
+
+[node name="CrumblingBlock56" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1905, 0)
+
+[node name="CrumblingBlock57" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1921, 0)
+
+[node name="CrumblingBlock58" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1937, 0)
+
+[node name="CrumblingBlock59" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1953, 0)
+
+[node name="CrumblingBlock60" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1969, 0)
+
+[node name="CrumblingBlock61" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(1985, 0)
+
+[node name="CrumblingBlock62" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2001, 0)
+
+[node name="CrumblingBlock63" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2017, 0)
+
+[node name="CrumblingBlock64" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2033, 0)
+
+[node name="CrumblingBlock65" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2049, 0)
+
+[node name="CrumblingBlock66" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2065, 0)
+
+[node name="CrumblingBlock67" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2081, 0)
+
+[node name="CrumblingBlock68" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2097, 0)
+
+[node name="CrumblingBlock69" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2113, 0)
+
+[node name="CrumblingBlock70" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2129, 0)
+
+[node name="CrumblingBlock71" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2145, 0)
+
+[node name="CrumblingBlock72" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2161, 0)
+
+[node name="CrumblingBlock73" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2177, 0)
+
+[node name="CrumblingBlock74" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2193, 0)
+
+[node name="CrumblingBlock75" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2209, 0)
+
+[node name="CrumblingBlock76" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2225, 0)
+
+[node name="CrumblingBlock77" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2241, 0)
+
+[node name="CrumblingBlock78" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2257, 0)
+
+[node name="CrumblingBlock79" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2273, 0)
+
+[node name="CrumblingBlock80" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2289, 0)
+
+[node name="CrumblingBlock81" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2305, 0)
+
+[node name="CrumblingBlock82" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2321, 0)
+
+[node name="CrumblingBlock83" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2337, 0)
+
+[node name="CrumblingBlock84" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2353, 0)
+
+[node name="CrumblingBlock85" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2369, 0)
+
+[node name="CrumblingBlock86" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2385, 0)
+
+[node name="CrumblingBlock87" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2401, 0)
+
+[node name="CrumblingBlock88" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2417, 0)
+
+[node name="CrumblingBlock89" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2433, 0)
+
+[node name="CrumblingBlock90" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2449, 0)
+
+[node name="CrumblingBlock91" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2465, 0)
+
+[node name="CrumblingBlock92" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2481, 0)
+
+[node name="CrumblingBlock93" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2497, 0)
+
+[node name="CrumblingBlock94" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2513, 0)
+
+[node name="CrumblingBlock95" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2529, 0)
+
+[node name="CrumblingBlock96" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2545, 0)
+
+[node name="CrumblingBlock97" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2561, 0)
+
+[node name="CrumblingBlock98" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2577, 0)
+
+[node name="CrumblingBlock99" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2593, 0)
+
+[node name="CrumblingBlock100" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2609, 0)
+
+[node name="CrumblingBlock101" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2625, 0)
+
+[node name="CrumblingBlock102" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2641, 0)
+
+[node name="CrumblingBlock103" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2657, 0)
+
+[node name="CrumblingBlock104" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2673, 0)
+
+[node name="CrumblingBlock105" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2689, 0)
+
+[node name="CrumblingBlock106" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2705, 0)
+
+[node name="CrumblingBlock107" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2721, 0)
+
+[node name="CrumblingBlock108" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2737, 0)
+
+[node name="CrumblingBlock109" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2753, 0)
+
+[node name="CrumblingBlock110" parent="CrumblingBlock" instance=ExtResource("6_i2ji4")]
+position = Vector2(2769, 0)
+
+[node name="CrumblingBlock2" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(601, -100)
+
+[node name="CrumblingBlock3" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(617, -100)
+
+[node name="CrumblingBlock4" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(633, -100)
+
+[node name="CrumblingBlock5" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(649, -100)
+
+[node name="CrumblingBlock6" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(665, -100)
+
+[node name="CrumblingBlock7" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(681, -100)
+
+[node name="CrumblingBlock8" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(697, -100)
+
+[node name="CrumblingBlock9" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(713, -100)
+
+[node name="CrumblingBlock10" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(729, -100)
+
+[node name="CrumblingBlock11" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(745, -100)
+
+[node name="CrumblingBlock12" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(761, -100)
+
+[node name="CrumblingBlock13" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(777, -100)
+
+[node name="CrumblingBlock14" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(793, -100)
+
+[node name="CrumblingBlock15" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(809, -100)
+
+[node name="CrumblingBlock16" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(825, -100)
+
+[node name="CrumblingBlock17" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(841, -100)
+
+[node name="CrumblingBlock18" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(857, -100)
+
+[node name="CrumblingBlock19" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(873, -100)
+
+[node name="CrumblingBlock20" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(889, -100)
+
+[node name="CrumblingBlock21" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(905, -100)
+
+[node name="CrumblingBlock22" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(921, -100)
+
+[node name="CrumblingBlock23" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(937, -100)
+
+[node name="CrumblingBlock24" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(953, -100)
+
+[node name="CrumblingBlock25" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(969, -100)
+
+[node name="CrumblingBlock26" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(985, -100)
+
+[node name="CrumblingBlock27" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(1001, -100)
+
+[node name="CrumblingBlock28" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(1017, -100)
+
+[node name="CrumblingBlock29" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(1033, -100)
+
+[node name="CrumblingBlock30" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(1049, -100)
+
+[node name="CrumblingBlock31" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(1065, -100)
+
+[node name="CrumblingBlock32" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(1081, -100)
+
+[node name="CrumblingBlock33" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(1097, -100)
+
+[node name="CrumblingBlock34" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(1113, -100)
+
+[node name="CrumblingBlock35" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(1129, -100)
+
+[node name="CrumblingBlock36" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(1145, -100)
+
+[node name="CrumblingBlock37" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(1161, -100)
+
+[node name="CrumblingBlock38" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(1177, -100)
+
+[node name="CrumblingBlock39" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(1193, -100)
+
+[node name="CrumblingBlock40" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(1209, -100)
+
+[node name="CrumblingBlock41" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(1225, -100)
+
+[node name="CrumblingBlock42" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(1241, -100)
+
+[node name="CrumblingBlock43" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(1257, -100)
+
+[node name="CrumblingBlock44" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(1273, -100)
+
+[node name="CrumblingBlock45" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(1289, -100)
+
+[node name="CrumblingBlock46" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(1305, -100)
+
+[node name="CrumblingBlock47" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(1321, -100)
+
+[node name="CrumblingBlock48" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(1337, -100)
+
+[node name="CrumblingBlock49" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(1353, -100)
+
+[node name="CrumblingBlock50" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(1369, -100)
+
+[node name="CrumblingBlock51" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(1385, -100)
+
+[node name="CrumblingBlock52" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(1401, -100)
+
+[node name="CrumblingBlock53" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(1417, -100)
+
+[node name="CrumblingBlock54" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(1433, -100)
+
+[node name="CrumblingBlock55" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(1449, -100)
+
+[node name="CrumblingBlock56" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(1465, -100)
+
+[node name="CrumblingBlock57" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(1481, -100)
+
+[node name="CrumblingBlock58" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(1497, -100)
+
+[node name="CrumblingBlock59" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(1513, -100)
+
+[node name="CrumblingBlock60" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(1529, -100)
+
+[node name="CrumblingBlock61" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(1545, -100)
+
+[node name="CrumblingBlock62" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(1561, -100)
+
+[node name="CrumblingBlock63" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(1577, -100)
+
+[node name="CrumblingBlock64" parent="." instance=ExtResource("6_i2ji4")]
+position = Vector2(1593, -100)

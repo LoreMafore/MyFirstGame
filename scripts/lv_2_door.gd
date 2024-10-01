@@ -9,6 +9,6 @@ func _on_body_entered(body):
 func _on_body_exited(body):
 	closeToDoor = false
 	
-func _process(delta):
-	if Input.is_action_just_pressed("Interact") and closeToDoor == true:
-		get_tree().change_scene_to_file("res://scences/level_1_back.tscn")
+#func _process(delta):
+	#if Input.is_action_just_pressed("Interact") and closeToDoor == true:
+		#get_tree().change_scene_to_file("res://scences/level_1_back.tscn")

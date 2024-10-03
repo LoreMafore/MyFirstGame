@@ -600,9 +600,6 @@ shape = SubResource("RectangleShape2D_ksl6k")
 position = Vector2(110, 60)
 shape = SubResource("RectangleShape2D_lpv8d")
 
-[node name="Statue" parent="Entities" instance=ExtResource("9_t50hd")]
-position = Vector2(2209, -412)
-
 [node name="Enemies" type="Node" parent="."]
 
 [node name="PurpleSlime6" parent="Enemies" instance=ExtResource("7_8ph5g")]
@@ -774,7 +771,7 @@ position = Vector2(-587, -17)
 position = Vector2(-521, -32)
 
 [node name="AnimatedSprite2D4" parent="Platforms" instance=ExtResource("10_frikg")]
-position = Vector2(-505, -32)
+position = Vector2(-647, -128)
 
 [node name="AnimatedSprite2D5" parent="Platforms" instance=ExtResource("10_frikg")]
 position = Vector2(-439, -46)
@@ -955,3 +952,6 @@ autoplay = "move"
 [node name="LV2Door" parent="." instance=ExtResource("13_no0p1")]
 position = Vector2(-770, -33)
 closeToDoor = true
+
+[node name="Statue" parent="." instance=ExtResource("9_t50hd")]
+position = Vector2(2264, -400)

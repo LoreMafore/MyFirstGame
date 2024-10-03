@@ -4,10 +4,14 @@ var closeToStatue: bool = false
 
 @onready var double_jump: Label = %"Double Jump"
 @onready var player = %Player
+@onready var animated_sprite_2d = $AnimatedSprite2D
+
+func _ready():
+	animated_sprite_2d.play("default")
 
 func _process(delta):
 	if Input.is_action_just_pressed("Interact") and closeToStatue == true:
-		print("I am gay")
+		animated_sprite_2d.play("Falling_apart")
 		player.doubleJumpOn()
 
 

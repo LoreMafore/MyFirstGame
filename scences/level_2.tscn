@@ -482,7 +482,6 @@ position = Vector2(-47, -5)
 [node name="Player" parent="." instance=ExtResource("1_ssg6g")]
 unique_name_in_owner = true
 position = Vector2(2198.8, -407.468)
-ifHasDoubleJump = true
 doubleJumpMultiplfier = 0.1
 
 [node name="GameManager" type="Node" parent="."]
@@ -954,4 +953,4 @@ position = Vector2(-770, -33)
 closeToDoor = true
 
 [node name="Statue" parent="." instance=ExtResource("9_t50hd")]
-position = Vector2(2264, -400)
+position = Vector2(2264, -399)

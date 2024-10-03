@@ -33,6 +33,9 @@ var deltaTime : float = 0.00
 @onready var jump_buffer: Timer = $JumpBuffer
 
 func _ready():
+	if Global.hasDoubleJump == true:
+		ifHasDoubleJump = true
+	
 	if facing == true:
 		animated_sprite.flip_h = true
 		

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dehjrlr87tq00"]
+[gd_scene load_steps=16 format=3 uid="uid://dehjrlr87tq00"]
 
 [ext_resource type="Script" path="res://scripts/statue.gd" id="1_52m3w"]
 [ext_resource type="Texture2D" uid="uid://deifv2qbj712x" path="res://brackeys_platformer_assets/sprites/StatueSpriteSheet.png" id="2_gll3e"]
@@ -43,6 +43,10 @@ region = Rect2(384, 0, 48, 48)
 atlas = ExtResource("2_gll3e")
 region = Rect2(0, 0, 48, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vf6a3"]
+atlas = ExtResource("2_gll3e")
+region = Rect2(384, 0, 48, 48)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_x13l6"]
 animations = [{
 "frames": [{
@@ -84,6 +88,14 @@ animations = [{
 "loop": false,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vf6a3")
+}],
+"loop": true,
+"name": &"felled",
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6bsq6"]
@@ -97,7 +109,7 @@ script = ExtResource("1_52m3w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_x13l6")
-animation = &"Falling_apart"
+animation = &"felled"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-8, 7)

@@ -1,3 +1,6 @@
+Node
+TileMapLayer
+Node2D
 TileMap
 CollisionShape2D
 AnimatedSprite2D
@@ -5,5 +8,4 @@ Area2D
 AnimationPlayer
 Label
 Timer
-Node
 CharacterBody2D

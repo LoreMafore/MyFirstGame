@@ -1,5 +1,5 @@
+res://scences/level_3.tscn
 res://scences/level_1.tscn
-res://scripts/statue.gd
 res://scences/level_2.tscn
 res://scences/PlayerCharcter.tscn
 res://scences/mushroom_jump.tscn
@@ -8,4 +8,3 @@ res://scences/Checkpoint.tscn
 res://scences/purple_slime.tscn
 res://scences/level_1_back.tscn
 res://scences/test.tscn
-res://scences/statue.tscn

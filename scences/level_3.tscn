@@ -1,0 +1,129 @@
+[gd_scene load_steps=11 format=4 uid="uid://chrc8syle2hdn"]
+
+[ext_resource type="PackedScene" uid="uid://bc2g8gck620ov" path="res://scences/PlayerCharcter.tscn" id="1_vcc35"]
+[ext_resource type="Texture2D" uid="uid://bnbcd843ikdg0" path="res://brackeys_platformer_assets/sprites/Heals.png" id="2_p6ni1"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="2_t10rw"]
+[ext_resource type="FontFile" uid="uid://jvbpo7ecvxt2" path="res://brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="3_gcfwp"]
+[ext_resource type="Texture2D" uid="uid://cpdpbutbordri" path="res://brackeys_platformer_assets/sprites/Level3Tilemap.png" id="4_legrm"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bgabo"]
+load_path = "res://.godot/imported/FullKnightHearts.png-01ba0fcb9066f48d622de1a686b4aef3.ctex"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3q5yd"]
+texture = ExtResource("4_legrm")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_hyp5w"]
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
+sources/0 = SubResource("TileSetAtlasSource_3q5yd")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8xnjq"]
+texture = ExtResource("4_legrm")
+0:0/0 = 0
+2:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+3:1/0 = 0
+1:2/0 = 0
+4:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_mut1o"]
+sources/0 = SubResource("TileSetAtlasSource_8xnjq")
+
+[node name="level_3" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_vcc35")]
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("2_t10rw")
+
+[node name="UI" type="CanvasLayer" parent="GameManager"]
+scale = Vector2(3, 3)
+transform = Transform2D(3, 0, 0, 3, 0, 0)
+
+[node name="Life" type="Control" parent="GameManager/UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Hearts1_Knight" type="TextureRect" parent="GameManager/UI/Life"]
+layout_mode = 0
+offset_left = -7.66667
+offset_top = -10.6667
+offset_right = 42.3333
+offset_bottom = 39.3333
+texture = SubResource("CompressedTexture2D_bgabo")
+
+[node name="Hearts2_Knight" type="TextureRect" parent="GameManager/UI/Life"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = -0.275
+anchor_right = 1.45
+anchor_bottom = 0.975
+offset_right = 7.62939e-05
+texture = SubResource("CompressedTexture2D_bgabo")
+metadata/_edit_use_anchors_ = true
+
+[node name="Hearts3_Knight" type="TextureRect" parent="GameManager/UI/Life"]
+layout_mode = 0
+offset_left = 24.3333
+offset_top = -11.0
+offset_right = 74.3333
+offset_bottom = 39.0
+texture = SubResource("CompressedTexture2D_bgabo")
+
+[node name="Heals" type="Control" parent="GameManager/UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="GameManager/UI/Heals"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 12.3333
+offset_right = 55.0
+offset_bottom = 60.3333
+texture = ExtResource("2_p6ni1")
+metadata/_edit_use_anchors_ = true
+
+[node name="HealsLabel" type="Label" parent="GameManager/UI/Heals"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 34.0
+offset_right = 24.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("3_gcfwp")
+theme_override_font_sizes/font_size = 8
+text = "xX"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TileMaps" type="Node2D" parent="GameManager"]
+
+[node name="Physical" type="TileMapLayer" parent="GameManager/TileMaps"]
+tile_map_data = PackedByteArray("AAD//wAAAAABAAIAAAAAAAAAAAABAAIAAAABAAAAAAABAAIAAAACAAAAAAABAAIAAAADAAAAAAABAAIAAAAEAAAAAAABAAIAAAAFAAAAAAABAAIAAAAGAAAAAAABAAIAAAAHAAAAAAABAAIAAAAIAAAAAAABAAIAAAAJAAAAAAABAAIAAAAKAAAAAAABAAIAAAALAAAAAAADAAEAAAAMAAAAAAADAAEAAAANAAAAAAADAAEAAAAOAAAAAAADAAEAAAAPAAAAAAADAAEAAAAQAAAAAAADAAEAAAA=")
+tile_set = SubResource("TileSet_hyp5w")
+
+[node name="Background" type="TileMapLayer" parent="GameManager/TileMaps"]
+tile_map_data = PackedByteArray("AAARAAAAAAAEAAIAAAASAAAAAAAEAAIAAAATAAAAAAAEAAIAAAAUAAAAAAAEAAIAAAAVAAAAAAAEAAIAAAAWAAAAAAAEAAIAAAAXAAAAAAAEAAIAAAAYAAAAAAAEAAIAAAAQAAAAAAAEAAIAAAAPAAAAAAAEAAIAAAAOAAAAAAAEAAIAAAANAAAAAAAEAAIAAAAMAAAAAAAEAAIAAAALAAAAAAAEAAIAAAA=")
+tile_set = SubResource("TileSet_mut1o")

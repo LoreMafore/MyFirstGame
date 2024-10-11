@@ -132,5 +132,5 @@ tile_set = SubResource("TileSet_mut1o")
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Soldier" parent="Enemies" instance=ExtResource("6_mqsnp")]
-position = Vector2(245, -28)
+position = Vector2(209, -12)
 isFacingRight = true

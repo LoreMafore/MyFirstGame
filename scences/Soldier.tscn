@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://gvxovxhon861"]
+[gd_scene load_steps=43 format=3 uid="uid://gvxovxhon861"]
 
 [ext_resource type="Script" path="res://scripts/soldier.gd" id="1_l3rdm"]
 [ext_resource type="Texture2D" uid="uid://j33rmysg5k3" path="res://brackeys_platformer_assets/sprites/Boss.png" id="1_o6lcg"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cwgx00fxnaaxp" path="res://brackeys_platformer_assets/sprites/SoliderVerticalSlash.png" id="3_5u4c8"]
 [ext_resource type="Texture2D" uid="uid://wjajmqryj4k3" path="res://brackeys_platformer_assets/sprites/SoldierSpriteSheet.png" id="4_ltdws"]
 [ext_resource type="Script" path="res://scences/soldier_state_machine.gd" id="6_n07mb"]
+[ext_resource type="Script" path="res://scripts/SoldierIdle.gd" id="7_qmvdo"]
+[ext_resource type="Script" path="res://scripts/SoldierSees.gd" id="8_esi1r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_skhpx"]
 atlas = ExtResource("1_o6lcg")
@@ -263,11 +265,22 @@ script = ExtResource("1_l3rdm")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_wvasj")
-animation = &"Default"
+animation = &"HorizantalAttack"
+frame = 8
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_k3u74")
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("intialState")]
 script = ExtResource("6_n07mb")
+intialState = NodePath("SoldierSees")
+
+[node name="SoldierWalking" type="Node" parent="StateMachine" node_paths=PackedStringArray("soldier")]
+script = ExtResource("7_qmvdo")
+soldier = NodePath("../..")
+
+[node name="SoldierSees" type="Node" parent="StateMachine" node_paths=PackedStringArray("soldier")]
+script = ExtResource("8_esi1r")
+soldier = NodePath("../..")

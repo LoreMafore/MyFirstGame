@@ -13,7 +13,10 @@ func _ready():
 
 
 func _physics_process(delta):
+	move_and_slide()
+	
 	if not is_on_floor():
 		velocity.y = gravity * delta
-
-	move_and_slide()
+		
+	if velocity.x != 0:
+		animated_sprite_2d.play("Walking")

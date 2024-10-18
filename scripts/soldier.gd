@@ -24,3 +24,7 @@ func _physics_process(delta):
 		
 	if velocity.x != 0:
 		animated_sprite_2d.play("Walking")
+
+
+func _on_hozintal_attack_body_entered(body):
+	body.damage(soldier.global_position.x)

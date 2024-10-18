@@ -1,13 +1,14 @@
+CollisionShape2D
 Node
+Area2D
+SoldierHAttack
 SoldierSees
 SoldierIdle
 AnimatedSprite2D
-CollisionShape2D
 CharacterBody2D
 TileMapLayer
 Node2D
 TileMap
-Area2D
 AnimationPlayer
 Label
 Timer

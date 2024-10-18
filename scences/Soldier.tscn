@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c8c1jgbilldul" path="res://brackeys_platformer_assets/sprites/SoliderHorizantalSlash.png" id="2_r3gpg"]
 [ext_resource type="Texture2D" uid="uid://cwgx00fxnaaxp" path="res://brackeys_platformer_assets/sprites/SoliderVerticalSlash.png" id="3_5u4c8"]
 [ext_resource type="Texture2D" uid="uid://wjajmqryj4k3" path="res://brackeys_platformer_assets/sprites/SoldierSpriteSheet.png" id="4_ltdws"]
-[ext_resource type="Script" path="res://scences/soldier_state_machine.gd" id="6_n07mb"]
+[ext_resource type="Script" path="res://scripts/soldier_state_machine.gd" id="6_n07mb"]
 [ext_resource type="Script" path="res://scripts/SoldierIdle.gd" id="7_qmvdo"]
 [ext_resource type="Script" path="res://scripts/SoldierSees.gd" id="8_esi1r"]
 
@@ -259,8 +259,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_k3u74"]
 radius = 5.0
 
-[node name="Soldier" type="CharacterBody2D"]
+[node name="Soldier" type="CharacterBody2D" node_paths=PackedStringArray("soldier")]
 script = ExtResource("1_l3rdm")
+soldier = NodePath(".")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -15)
@@ -275,7 +276,7 @@ shape = SubResource("CircleShape2D_k3u74")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("intialState")]
 script = ExtResource("6_n07mb")
-intialState = NodePath("SoldierSees")
+intialState = NodePath("SoldierWalking")
 
 [node name="SoldierWalking" type="Node" parent="StateMachine" node_paths=PackedStringArray("soldier")]
 script = ExtResource("7_qmvdo")
@@ -284,3 +285,4 @@ soldier = NodePath("../..")
 [node name="SoldierSees" type="Node" parent="StateMachine" node_paths=PackedStringArray("soldier")]
 script = ExtResource("8_esi1r")
 soldier = NodePath("../..")
+moveSpeed = 45.0

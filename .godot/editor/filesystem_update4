@@ -8,6 +8,8 @@ res://scences/Checkpoint.tscn
 res://scences/purple_slime.tscn
 res://scences/test.tscn
 res://scences/Soldier.tscn
-res://scripts/SoldierIdle.gd
-res://scripts/soldier.gd
 res://scripts/SoldierSees.gd
+res://scripts/soldier.gd
+res://scripts/SoldierIdle.gd
+res://scences/change_camera.tscn
+res://scripts/SoldierHAttack.gd

@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1729215806
+::res://::1729495724
 default_bus_layout.tres::AudioBusLayout::7683578641428933076::1726614918::0::1::::<><>::
 icon.svg::CompressedTexture2D::6234205406312011441::1726614918::1726615330::1::::<><>::
 ::res://addons/::1726694270
@@ -57,7 +57,7 @@ Statue.png::CompressedTexture2D::263685068879118655::1726614918::1726615330::1::
 StatueSpriteSheet.png::CompressedTexture2D::7456874977205821765::1727969349::1727969352::1::::<><>::
 world_tileset-Recovered.png::CompressedTexture2D::1824254233497825429::1726614918::1726615330::1::::<><>::
 world_tileset.png::CompressedTexture2D::7091731353679716558::1727794702::1727794710::1::::<><>::
-::res://scences/::1729215674
+::res://scences/::1729216549
 better_platform.tscn::PackedScene::348351078199594218::1726614918::0::1::::<><>::uid://bm3len4psnvi1::::res://brackeys_platformer_assets/sprites/platforms.png
 cave_door.tscn::PackedScene::5579438798662934827::1727737955::0::1::::<><>::res://scripts/cave_door.gd<>uid://b5oletgtds5ld::::res://brackeys_platformer_assets/sprites/CaveDoor.png
 change_camera.tscn::PackedScene::2127857958252849243::1729215435::0::1::::<><>::res://scripts/ChangeCamera.gd
@@ -78,12 +78,12 @@ music.tscn::PackedScene::6794344259302626820::1726614918::0::1::::<><>::uid://cl
 platform.tscn::PackedScene::6951955541951147356::1726614918::0::1::::<><>::uid://bm3len4psnvi1::::res://brackeys_platformer_assets/sprites/platforms.png
 PlayerCharcter.tscn::PackedScene::2582960122210821085::1729215435::0::1::::<><>::res://scripts/Player.gd<>uid://vqcvs3pq3p2::::res://brackeys_platformer_assets/sprites/knight.png<>res://scripts/Camera2D.gd
 purple_slime.tscn::PackedScene::295794234113152767::1729215435::0::1::::<><>::res://scripts/purple_slime.gd<>uid://cbn83eajcial4::::res://brackeys_platformer_assets/sprites/slime_green.png
-Soldier.tscn::PackedScene::465907625469908260::1729215674::0::1::::<><>::res://scripts/soldier.gd<>uid://j33rmysg5k3::::res://brackeys_platformer_assets/sprites/Boss.png<>uid://c8c1jgbilldul::::res://brackeys_platformer_assets/sprites/SoliderHorizantalSlash.png<>uid://cwgx00fxnaaxp::::res://brackeys_platformer_assets/sprites/SoliderVerticalSlash.png<>uid://wjajmqryj4k3::::res://brackeys_platformer_assets/sprites/SoldierSpriteSheet.png<>res://scripts/soldier_state_machine.gd<>res://scripts/SoldierIdle.gd<>res://scripts/SoldierSees.gd
+Soldier.tscn::PackedScene::465907625469908260::1729216549::0::1::::<><>::res://scripts/soldier.gd<>uid://j33rmysg5k3::::res://brackeys_platformer_assets/sprites/Boss.png<>uid://c8c1jgbilldul::::res://brackeys_platformer_assets/sprites/SoliderHorizantalSlash.png<>uid://cwgx00fxnaaxp::::res://brackeys_platformer_assets/sprites/SoliderVerticalSlash.png<>uid://wjajmqryj4k3::::res://brackeys_platformer_assets/sprites/SoldierSpriteSheet.png<>res://scripts/soldier_state_machine.gd<>res://scripts/SoldierIdle.gd<>res://scripts/SoldierSees.gd<>res://scripts/SoldierHAttack.gd
 spikes.tscn::PackedScene::357181141666732695::1726614918::0::1::::<><>::res://scripts/spikes.gd<>uid://xo2wqqdnlfom::::res://brackeys_platformer_assets/sprites/Spikes.png
 statue.tscn::PackedScene::7455045486902557091::1728536860::0::1::::<><>::res://scripts/statue.gd<>uid://deifv2qbj712x::::res://brackeys_platformer_assets/sprites/StatueSpriteSheet.png
 test.tscn::PackedScene::1222566083879296966::1729215435::0::1::::<><>::uid://bc2g8gck620ov::::res://scences/PlayerCharcter.tscn<>res://scripts/game_manager.gd<>uid://bnbcd843ikdg0::::res://brackeys_platformer_assets/sprites/Heals.png<>uid://jvbpo7ecvxt2::::res://brackeys_platformer_assets/fonts/PixelOperator8.ttf<>uid://c8bj1q33fyplm::::res://brackeys_platformer_assets/sprites/world_tileset.png<>uid://10pdb8lo01dk::::res://scences/Crumbling.tscn<>uid://ehjxneckwwep::::res://scences/purple_slime.tscn
 UI.tscn::PackedScene::842008063534199036::1726614918::0::1::::<><>::uid://b3nwu4ipwjob0::::res://brackeys_platformer_assets/sprites/FullKnightHearts.png
-::res://scripts/::1729215674
+::res://scripts/::1729216549
 Camera2D.gd::GDScript::-1::1726774238::0::1::::<>Camera2D<>::
 cave_door.gd::GDScript::-1::1726784927::0::1::::<>Area2D<>::
 ChangeCamera.gd::GDScript::-1::1726694270::0::1::::<>Area2D<>::
@@ -98,8 +98,8 @@ lv_2_door.gd::GDScript::-1::1727795719::0::1::::<>Area2D<>::
 mushroom_jump.gd::GDScript::-1::1726614918::0::1::::<>CharacterBody2D<>::
 Player.gd::GDScript::-1::1728536860::0::1::::<>CharacterBody2D<>::
 purple_slime.gd::GDScript::-1::1727641108::0::1::::<>CharacterBody2D<>::
-soldier.gd::GDScript::-1::1729212877::0::1::::<>CharacterBody2D<>::
-SoldierHAttack.gd::GDScript::-1::1729215674::0::1::::SoldierHAttack<>State<>::
+soldier.gd::GDScript::-1::1729216289::0::1::::<>CharacterBody2D<>::
+SoldierHAttack.gd::GDScript::-1::1729216549::0::1::::SoldierHAttack<>State<>::
 SoldierIdle.gd::GDScript::-1::1729214653::0::1::::SoldierIdle<>State<>::
 SoldierSees.gd::GDScript::-1::1729214653::0::1::::SoldierSees<>State<>::
 soldier_state_machine.gd::GDScript::-1::1728590814::0::1::::<>Node<>::

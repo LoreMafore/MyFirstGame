@@ -287,26 +287,25 @@ animation = &"Default"
 [node name="Hitboxes" type="Node" parent="AnimatedSprite2D"]
 
 [node name="HozintalAttack" type="Area2D" parent="AnimatedSprite2D/Hitboxes"]
-visible = false
 position = Vector2(0, -15)
+collision_layer = 10
+collision_mask = 10
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/HozintalAttack"]
-position = Vector2(9, 13)
+[node name="Attack1A" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/HozintalAttack"]
+position = Vector2(9, 11)
 shape = SubResource("CircleShape2D_33y2k")
+disabled = true
 debug_color = Color(0, 0.639216, 0.388235, 0.419608)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/HozintalAttack"]
+[node name="Attack1B" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/HozintalAttack"]
 position = Vector2(15, 11)
 shape = SubResource("CircleShape2D_33y2k")
+disabled = true
 debug_color = Color(8.18223e-07, 0.637649, 0.389301, 0.42)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4)
-shape = SubResource("CircleShape2D_k3u74")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("intialState")]
 script = ExtResource("6_n07mb")
-intialState = NodePath("SoldierWalking")
+intialState = NodePath("SoldierSees")
 
 [node name="SoldierWalking" type="Node" parent="StateMachine" node_paths=PackedStringArray("soldier")]
 script = ExtResource("7_qmvdo")
@@ -319,5 +318,9 @@ moveSpeed = 45.0
 
 [node name="SoldierHAttack" type="Node" parent="StateMachine"]
 script = ExtResource("9_oi05r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_k3u74")
 
 [connection signal="body_entered" from="AnimatedSprite2D/Hitboxes/HozintalAttack" to="." method="_on_hozintal_attack_body_entered"]

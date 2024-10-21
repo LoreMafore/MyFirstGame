@@ -32,15 +32,13 @@ func physicsUpdate(delta: float):
 		
 		if soldier.global_position.x >=  soldier.soldierInitPosition + soldier.lengthOfPath:
 			animated_sprite_2d.flip_h = true
-			#moveSpeed = 0
+			movementDirection = -1
+			
 			
 		if soldier.global_position.x <= soldier.soldierInitPosition - soldier.lengthOfPath:
 			animated_sprite_2d.flip_h = false
-			#moveSpeed = 0
+			movementDirection = 1
 			
-		
 			
-		
-			
-			#I just flip it becaus e you =can tell what direction it is facing and change the movement direction
+			#I just flip it because you can tell what direction it is facing and change the movement direction
 		

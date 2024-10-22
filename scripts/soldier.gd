@@ -34,12 +34,12 @@ func _physics_process(delta):
 		animated_sprite_2d.play("Walking")
 		
 	if animated_sprite_2d.flip_h == false:
-		attack_1a.position = Vector2(soldier.global_position.x + 9, soldier.global_position.y - 3)
-		attack_1b.position = Vector2(soldier.global_position.x + 15, soldier.global_position.y - 3)
+		attack_1a.position = Vector2(soldier.global_position.x + 9, soldier.global_position.y + 8)
+		attack_1b.position = Vector2(soldier.global_position.x + 15, soldier.global_position.y +8)
 	
 	if animated_sprite_2d.flip_h == true:
-		attack_1a.position = Vector2(soldier.global_position.x - 9, soldier.global_position.y - 3)
-		attack_1b.position = Vector2(soldier.global_position.x - 15, soldier.global_position.y - 3)
+		attack_1a.position = Vector2(soldier.global_position.x - 9, soldier.global_position.y  + 8)
+		attack_1b.position = Vector2(soldier.global_position.x - 15, soldier.global_position.y + 8)
 
 func _on_hozintal_attack_body_entered(body):
 	body.damage(soldier.global_position.x)     

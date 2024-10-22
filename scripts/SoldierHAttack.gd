@@ -9,6 +9,8 @@ var soldier : CharacterBody2D
 
 
 func Enter():
+	animated_sprite_2d.play("HorizantalAttack")
+	#if frame => 5:
 	attack_1a.disabled = false
 	attack_1b.disabled = false
-	animated_sprite_2d.play("HorizantalAttack")
+	

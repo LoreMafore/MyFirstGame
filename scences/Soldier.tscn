@@ -282,7 +282,7 @@ soldier = NodePath(".")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_wvasj")
-animation = &"Default"
+animation = &"HorizantalAttack"
 
 [node name="Hitboxes" type="Node" parent="AnimatedSprite2D"]
 

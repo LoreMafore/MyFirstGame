@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://gvxovxhon861"]
+[gd_scene load_steps=50 format=3 uid="uid://gvxovxhon861"]
 
 [ext_resource type="Script" path="res://scripts/soldier.gd" id="1_l3rdm"]
 [ext_resource type="Texture2D" uid="uid://j33rmysg5k3" path="res://brackeys_platformer_assets/sprites/Boss.png" id="1_o6lcg"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://scripts/SoldierIdle.gd" id="7_qmvdo"]
 [ext_resource type="Script" path="res://scripts/SoldierSees.gd" id="8_esi1r"]
 [ext_resource type="Script" path="res://scripts/SoldierHAttack.gd" id="9_oi05r"]
+[ext_resource type="Script" path="res://scripts/SoldierVAttack.gd" id="10_fhjlw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_skhpx"]
 atlas = ExtResource("1_o6lcg")
@@ -138,7 +139,11 @@ region = Rect2(192, 96, 32, 32)
 atlas = ExtResource("4_ltdws")
 region = Rect2(224, 96, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_82g5c"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4an82"]
+atlas = ExtResource("3_5u4c8")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqb1x"]
 atlas = ExtResource("2_r3gpg")
 region = Rect2(320, 0, 64, 64)
 
@@ -262,15 +267,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_82g5c")
+"texture": SubResource("AtlasTexture_4an82")
 }],
 "loop": true,
 "name": &"new_animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqb1x")
+}],
+"loop": true,
+"name": &"new_animation_1",
 "speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_33y2k"]
 radius = 3.16228
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jx0ka"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yp46x"]
+radius = 3.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k3u74"]
 radius = 5.0
@@ -282,7 +301,7 @@ soldier = NodePath(".")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_wvasj")
-animation = &"HorizantalAttack"
+animation = &"new_animation"
 
 [node name="Hitboxes" type="Node" parent="AnimatedSprite2D"]
 
@@ -303,6 +322,44 @@ shape = SubResource("CircleShape2D_33y2k")
 disabled = true
 debug_color = Color(8.18223e-07, 0.637649, 0.389301, 0.42)
 
+[node name="VericalAttack" type="Area2D" parent="AnimatedSprite2D/Hitboxes"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/VericalAttack"]
+position = Vector2(12, -14)
+shape = SubResource("CircleShape2D_jx0ka")
+disabled = true
+debug_color = Color(0.879932, 0.314298, 0.337483, 0.42)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/VericalAttack"]
+position = Vector2(7, -18)
+shape = SubResource("CircleShape2D_yp46x")
+disabled = true
+debug_color = Color(0.879932, 0.314298, 0.337483, 0.42)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/VericalAttack"]
+position = Vector2(2, -19)
+shape = SubResource("CircleShape2D_yp46x")
+disabled = true
+debug_color = Color(0.879932, 0.314298, 0.337483, 0.42)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/VericalAttack"]
+position = Vector2(-3, -19)
+shape = SubResource("CircleShape2D_yp46x")
+disabled = true
+debug_color = Color(0.879932, 0.314298, 0.337483, 0.42)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/VericalAttack"]
+position = Vector2(-8, -17)
+shape = SubResource("CircleShape2D_yp46x")
+disabled = true
+debug_color = Color(0.879932, 0.314298, 0.337483, 0.42)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/VericalAttack"]
+position = Vector2(-12, -14)
+shape = SubResource("CircleShape2D_yp46x")
+disabled = true
+debug_color = Color(0.879932, 0.314298, 0.337483, 0.42)
+
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("intialState")]
 script = ExtResource("6_n07mb")
 intialState = NodePath("SoldierSees")
@@ -319,8 +376,15 @@ moveSpeed = 45.0
 [node name="SoldierHAttack" type="Node" parent="StateMachine"]
 script = ExtResource("9_oi05r")
 
+[node name="SoldierVAttack" type="Node" parent="StateMachine"]
+script = ExtResource("10_fhjlw")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_k3u74")
 
+[node name="canAttack" type="Timer" parent="."]
+wait_time = 3.0
+
 [connection signal="body_entered" from="AnimatedSprite2D/Hitboxes/HozintalAttack" to="." method="_on_hozintal_attack_body_entered"]
+[connection signal="timeout" from="canAttack" to="." method="_on_can_attack_timeout"]

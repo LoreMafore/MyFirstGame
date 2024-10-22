@@ -17,9 +17,6 @@ func Enter():
 func physicsUpdate(delta : float):
 	
 	var directionX = player.global_position.x - soldier.global_position.x
-	print("Player Position: ",player.global_position.x)
-	print("Enemy Position: ",soldier.position.x)
-	print(directionX)
 	var directionY = player.global_position.y - soldier.position.y
 	
 	if soldier.global_position.x > player.global_position.x:

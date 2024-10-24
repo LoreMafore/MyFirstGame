@@ -209,7 +209,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_4idwa")
 }],
 "loop": false,
-"name": &"Vertical Attack",
+"name": &"VerticalAttack",
 "speed": 10.0
 }, {
 "frames": [{
@@ -301,7 +301,7 @@ soldier = NodePath(".")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_wvasj")
-animation = &"new_animation"
+animation = &"VerticalAttack"
 
 [node name="Hitboxes" type="Node" parent="AnimatedSprite2D"]
 
@@ -324,37 +324,37 @@ debug_color = Color(8.18223e-07, 0.637649, 0.389301, 0.42)
 
 [node name="VericalAttack" type="Area2D" parent="AnimatedSprite2D/Hitboxes"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/VericalAttack"]
+[node name="V_Attack_a" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/VericalAttack"]
 position = Vector2(12, -14)
 shape = SubResource("CircleShape2D_jx0ka")
 disabled = true
 debug_color = Color(0.879932, 0.314298, 0.337483, 0.42)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/VericalAttack"]
+[node name="V_Attack_b" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/VericalAttack"]
 position = Vector2(7, -18)
 shape = SubResource("CircleShape2D_yp46x")
 disabled = true
 debug_color = Color(0.879932, 0.314298, 0.337483, 0.42)
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/VericalAttack"]
+[node name="V_Attack_c" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/VericalAttack"]
 position = Vector2(2, -19)
 shape = SubResource("CircleShape2D_yp46x")
 disabled = true
 debug_color = Color(0.879932, 0.314298, 0.337483, 0.42)
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/VericalAttack"]
+[node name="V_Attack_d" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/VericalAttack"]
 position = Vector2(-3, -19)
 shape = SubResource("CircleShape2D_yp46x")
 disabled = true
 debug_color = Color(0.879932, 0.314298, 0.337483, 0.42)
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/VericalAttack"]
+[node name="V_Attack_e" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/VericalAttack"]
 position = Vector2(-8, -17)
 shape = SubResource("CircleShape2D_yp46x")
 disabled = true
 debug_color = Color(0.879932, 0.314298, 0.337483, 0.42)
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/VericalAttack"]
+[node name="V_Attack_f" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/VericalAttack"]
 position = Vector2(-12, -14)
 shape = SubResource("CircleShape2D_yp46x")
 disabled = true
@@ -362,7 +362,7 @@ debug_color = Color(0.879932, 0.314298, 0.337483, 0.42)
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("intialState")]
 script = ExtResource("6_n07mb")
-intialState = NodePath("SoldierSees")
+intialState = NodePath("SoldierWalking")
 
 [node name="SoldierWalking" type="Node" parent="StateMachine" node_paths=PackedStringArray("soldier")]
 script = ExtResource("7_qmvdo")

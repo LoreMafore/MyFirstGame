@@ -18,7 +18,8 @@ func physicsUpdate(delta : float):
 	
 	var directionX = player.global_position.x - soldier.global_position.x
 	var directionY = player.global_position.y - soldier.position.y
-	
+	print("Player: ", player.global_position.y)
+	print(soldier.position.y)
 	if soldier.global_position.x > player.global_position.x:
 		animated_sprite_2d.flip_h = true
 		
@@ -27,9 +28,14 @@ func physicsUpdate(delta : float):
 		
 	if soldier:
 		
+		if abs(directionX) > 0 and abs(directionX) < 15 and abs(directionY) > 1.5:
+			soldier.velocity.x *= 0
+			Transitioned.emit(self, "soldiervattack")
+			
 		if abs(directionX) > 0 and abs(directionX) < 15:
 			soldier.velocity.x *= 0
 			Transitioned.emit(self, "soldierhattack")
+			
 		
 		if abs(directionX) > 50:
 			print(following)

@@ -1,7 +1,5 @@
-res://scences/Soldier.tscn
-res://scripts/SoldierIdle.gd
-res://scripts/SoldierSees.gd
 res://scences/level_1.tscn
+res://scripts/soldier.gd
 res://scences/level_2.tscn
 res://scences/level_3.tscn
 res://scences/PlayerCharcter.tscn
@@ -10,5 +8,4 @@ res://scences/Crumbling.tscn
 res://scences/Checkpoint.tscn
 res://scences/purple_slime.tscn
 res://scences/test.tscn
-res://scripts/soldier.gd
-res://scripts/SoldierHAttack.gd
+res://scences/Soldier.tscn

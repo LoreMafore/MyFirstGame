@@ -6,6 +6,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var attack_1a = $AnimatedSprite2D/Hitboxes/HozintalAttack/Attack1A
 @onready var attack_1b = $AnimatedSprite2D/Hitboxes/HozintalAttack/Attack1B
 @onready var can_attack_timer: Timer = $canAttack
+@onready var vertical_attack_timer: Timer = $verticalAttack
 @onready var v_attack_a: CollisionShape2D = $AnimatedSprite2D/Hitboxes/VericalAttack/V_Attack_a
 @onready var v_attack_b: CollisionShape2D = $AnimatedSprite2D/Hitboxes/VericalAttack/V_Attack_b
 @onready var v_attack_c: CollisionShape2D = $AnimatedSprite2D/Hitboxes/VericalAttack/V_Attack_c
@@ -41,6 +42,7 @@ func _physics_process(delta):
 	_vertical_attack_collison_position()
 		
 	_horizantal_attack()
+	_vertical_attack()
 
 func _vertical_attack_collison_position():
 	if animated_sprite_2d.flip_h == false:
@@ -71,22 +73,42 @@ func _horizantal_attack_collison_position():
 func _on_hozintal_attack_body_entered(body):
 	body.damage(soldier.global_position.x)     
 	
+func _on_verical_attack_body_entered(body):
+	body.damage(soldier.global_position.x)
+	
+	
 func _horizantal_attack():
 	if animated_sprite_2d.animation == "HorizantalAttack" and canAttack == true:
 		# Check if the current frame is between 5 and 7
 		if animated_sprite_2d.frame >= 5 and animated_sprite_2d.frame <= 7:
 			attack_1a.disabled = false
 			attack_1b.disabled = false
-			
-		else:
-			attack_1a.disabled = true
-			attack_1b.disabled = true
-			
-		if attack_1a.disabled == false:
+			canAttack = false
 			can_attack_timer.start()
 
-
-
+func _vertical_attack():
+	if animated_sprite_2d.animation == "VerticalAttack" and canAttack == true:
+		
+		if animated_sprite_2d.frame >= 2 and animated_sprite_2d.frame <=3:
+			v_attack_a.disabled = false
+			v_attack_b.disabled = false
+			v_attack_c.disabled = false
+			v_attack_d.disabled = false
+			v_attack_e.disabled = false
+			v_attack_f.disabled = false
+			vertical_attack_timer.start()
 
 func _on_can_attack_timeout() -> void:
+	#canAttack = true
+	attack_1a.disabled = true
+	attack_1b.disabled = true
+	canAttack = true
+
+func _on_vertical_attack_timeout() -> void:
+	v_attack_a.disabled = true
+	v_attack_b.disabled = true
+	v_attack_c.disabled = true
+	v_attack_d.disabled = true
+	v_attack_e.disabled = true
+	v_attack_f.disabled = true
 	canAttack = true

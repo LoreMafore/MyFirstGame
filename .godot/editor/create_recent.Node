@@ -1,12 +1,12 @@
-CollisionShape2D
 Node
+CollisionShape2D
+TileMapLayer
 Area2D
 SoldierHAttack
 SoldierSees
 SoldierIdle
 AnimatedSprite2D
 CharacterBody2D
-TileMapLayer
 Node2D
 TileMap
 AnimationPlayer

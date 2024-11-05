@@ -1,54 +1,196 @@
-[gd_scene load_steps=13 format=4 uid="uid://chrc8syle2hdn"]
+[gd_scene load_steps=14 format=4 uid="uid://chrc8syle2hdn"]
 
 [ext_resource type="PackedScene" uid="uid://bc2g8gck620ov" path="res://scences/PlayerCharcter.tscn" id="1_vcc35"]
 [ext_resource type="Texture2D" uid="uid://bnbcd843ikdg0" path="res://brackeys_platformer_assets/sprites/Heals.png" id="2_p6ni1"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="2_t10rw"]
 [ext_resource type="FontFile" uid="uid://jvbpo7ecvxt2" path="res://brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="3_gcfwp"]
-[ext_resource type="Texture2D" uid="uid://cpdpbutbordri" path="res://brackeys_platformer_assets/sprites/Level3Tilemap.png" id="4_legrm"]
+[ext_resource type="Texture2D" uid="uid://08xg3ajcpac0" path="res://brackeys_platformer_assets/sprites/world_tileset-Recovered.png" id="5_5ue0e"]
+[ext_resource type="PackedScene" uid="uid://bx6doxwmyklov" path="res://scences/Checkpoint.tscn" id="6_b24ap"]
 [ext_resource type="PackedScene" uid="uid://gvxovxhon861" path="res://scences/Soldier.tscn" id="6_mqsnp"]
-[ext_resource type="PackedScene" uid="uid://5k0rlg2cp8gt" path="res://scences/change_camera.tscn" id="7_s0wr1"]
+[ext_resource type="PackedScene" uid="uid://bubvbihgoc282" path="res://scences/kill_zone.tscn" id="8_emml2"]
+[ext_resource type="PackedScene" uid="uid://10pdb8lo01dk" path="res://scences/Crumbling.tscn" id="9_hiw7i"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bgabo"]
 load_path = "res://.godot/imported/FullKnightHearts.png-01ba0fcb9066f48d622de1a686b4aef3.ctex"
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3q5yd"]
-texture = ExtResource("4_legrm")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_71e30"]
+texture = ExtResource("5_5ue0e")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
 2:0/0 = 0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
 4:0/0 = 0
 4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0 = 0
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+11:0/0 = 0
+13:0/0 = 0
+13:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+14:0/0 = 0
+14:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+15:0/0 = 0
+15:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:1/0 = 0
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-1:2/0 = 0
-1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:1/0 = 0
-3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:1/0 = 0
+6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:1/0 = 0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:1/0 = 0
+9:1/0 = 0
+11:1/0 = 0
+13:1/0 = 0
+13:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+14:1/0 = 0
+14:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+15:1/0 = 0
+15:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:2/0 = 0
 4:2/0 = 0
-4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+11:2/0 = 0
+13:2/0 = 0
+13:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+14:2/0 = 0
+14:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+15:2/0 = 0
+15:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+12:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+3:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+11:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+0:12/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+4:12/0 = 0
+5:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+4:13/0 = 0
+5:13/0 = 0
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+4:14/0 = 0
+5:14/0 = 0
+0:15/0 = 0
+1:15/0 = 0
+2:15/0 = 0
+3:15/0 = 0
+4:15/0 = 0
+5:15/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_hyp5w"]
+[sub_resource type="TileSet" id="TileSet_pys2u"]
 physics_layer_0/collision_layer = 3
 physics_layer_0/collision_mask = 3
-sources/0 = SubResource("TileSetAtlasSource_3q5yd")
+sources/0 = SubResource("TileSetAtlasSource_71e30")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8xnjq"]
-texture = ExtResource("4_legrm")
-0:0/0 = 0
-2:0/0 = 0
-4:0/0 = 0
-0:1/0 = 0
-3:1/0 = 0
-1:2/0 = 0
-4:2/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_mut1o"]
-sources/0 = SubResource("TileSetAtlasSource_8xnjq")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ccgda"]
+size = Vector2(626, 20)
 
 [node name="level_3" type="Node2D"]
+position = Vector2(709, -21)
 
 [node name="Player" parent="." instance=ExtResource("1_vcc35")]
+position = Vector2(-612.175, -299.07)
+ifHasDoubleJump = true
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("2_t10rw")
@@ -71,6 +213,7 @@ offset_top = -10.6667
 offset_right = 42.3333
 offset_bottom = 39.3333
 texture = SubResource("CompressedTexture2D_bgabo")
+metadata/_edit_use_anchors_ = true
 
 [node name="Hearts2_Knight" type="TextureRect" parent="GameManager/UI/Life"]
 layout_mode = 1
@@ -90,6 +233,7 @@ offset_top = -11.0
 offset_right = 74.3333
 offset_bottom = 39.0
 texture = SubResource("CompressedTexture2D_bgabo")
+metadata/_edit_use_anchors_ = true
 
 [node name="Heals" type="Control" parent="GameManager/UI"]
 layout_mode = 3
@@ -121,25 +265,43 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="TileMaps" type="Node2D" parent="GameManager"]
+position = Vector2(709, -21)
 
-[node name="Physical" type="TileMapLayer" parent="GameManager/TileMaps"]
-tile_map_data = PackedByteArray("AAD//wAAAAABAAIAAAAAAAAAAAABAAIAAAABAAAAAAABAAIAAAACAAAAAAABAAIAAAADAAAAAAABAAIAAAAEAAAAAAABAAIAAAAFAAAAAAABAAIAAAAGAAAAAAABAAIAAAAHAAAAAAABAAIAAAAIAAAAAAABAAIAAAAJAAAAAAABAAIAAAAKAAAAAAABAAIAAAALAAAAAAADAAEAAAAMAAAAAAADAAEAAAANAAAAAAADAAEAAAAOAAAAAAADAAEAAAAPAAAAAAADAAEAAAAQAAAAAAADAAEAAAARAAAAAAAEAAIAAAASAAAAAAAEAAIAAAATAAAAAAAEAAIAAAAUAAAAAAAEAAIAAAAVAAAAAAAEAAIAAAD+/wAAAAABAAIAAAD+////AAABAAIAAAD9////AAABAAIAAAD8////AAABAAIAAAD7////AAABAAIAAAD6////AAABAAIAAAD5////AAABAAIAAAD4////AAABAAIAAAD3////AAABAAIAAAD2////AAABAAIAAAD1////AAABAAIAAAD0////AAABAAIAAAAWAAAAAAAEAAIAAAAXAAAAAAAEAAIAAAAYAAAAAAAEAAIAAAAZAAAAAAAEAAIAAAAaAAAAAAAEAAIAAAAbAAAAAAAEAAIAAAA=")
-tile_set = SubResource("TileSet_hyp5w")
-
-[node name="Background" type="TileMapLayer" parent="GameManager/TileMaps"]
-tile_set = SubResource("TileSet_mut1o")
+[node name="TileMapLayer" type="TileMapLayer" parent="GameManager/TileMaps"]
+tile_map_data = PackedByteArray("AADU//j/AAABAAAAAADV//j/AAABAAEAAADW//j/AAABAAEAAADX//j/AAABAAAAAADY//j/AAABAAEAAADZ//j/AAABAAEAAADa//j/AAABAAEAAADb//j/AAABAAAAAADc//j/AAABAAAAAADd//j/AAAAAAEAAADd//n/AAAAAAEAAADd//r/AAAAAAEAAADd//v/AAAAAAEAAADd//z/AAAAAAEAAADd//7/AAAAAAEAAADd////AAAAAAEAAADd/wAAAAAAAAEAAADd/wEAAAAAAAEAAADd//3/AAAAAAEAAADd/wIAAAAAAAEAAADU//n/AAABAAAAAADU//r/AAABAAAAAADU//v/AAABAAAAAADV//n/AAABAAEAAADV//r/AAABAAAAAADV//v/AAABAAAAAADY//3/AAABAAEAAADY//7/AAABAAEAAADY////AAABAAEAAADY/wAAAAABAAEAAADZ//3/AAABAAEAAADZ//7/AAABAAEAAADZ////AAABAAEAAADZ/wAAAAABAAEAAADa//3/AAABAAEAAADa//7/AAABAAAAAADa////AAABAAEAAADa/wAAAAABAAEAAADb//3/AAABAAEAAADb//7/AAABAAEAAADb////AAABAAEAAADb/wAAAAABAAEAAADX//r/AAABAAEAAADX//v/AAABAAEAAADY//r/AAABAAAAAADY//v/AAABAAAAAADZ//r/AAABAAAAAADZ//v/AAABAAAAAADa//r/AAABAAEAAADa//v/AAABAAEAAADZ/wEAAAABAAAAAADa/wEAAAABAAAAAADb/wEAAAABAAAAAADc/wEAAAABAAAAAADc////AAABAAAAAADc/wAAAAABAAAAAADW//r/AAABAAEAAADW//v/AAABAAEAAADW//z/AAABAAAAAADX//z/AAABAAEAAADY//z/AAABAAEAAADZ//z/AAABAAAAAADY//n/AAABAAEAAADZ//n/AAABAAEAAADa//n/AAABAAAAAADa//z/AAABAAEAAADb//n/AAABAAAAAADb//r/AAABAAEAAADb//v/AAABAAEAAADb//z/AAABAAEAAADc//n/AAABAAAAAADc//r/AAABAAAAAADc//v/AAABAAAAAADc//z/AAABAAAAAADU//z/AAABAAEAAADU//3/AAABAAEAAADU//7/AAABAAEAAADU////AAABAAEAAADU/wAAAAABAAEAAADU/wEAAAABAAEAAADV//z/AAABAAEAAADV//3/AAABAAEAAADV//7/AAABAAAAAADV////AAABAAAAAADV/wAAAAABAAAAAADV/wEAAAABAAEAAADW//3/AAABAAEAAADW//7/AAABAAAAAADW////AAABAAAAAADW/wAAAAABAAAAAADW/wEAAAABAAEAAADX//3/AAABAAEAAADX//7/AAABAAAAAADX////AAABAAAAAADX/wAAAAABAAEAAADX/wEAAAABAAEAAADY/wEAAAABAAEAAADc//3/AAABAAAAAADc//7/AAABAAAAAADW//n/AAABAAAAAADX//n/AAABAAAAAADU/wIAAAABAAEAAADV/wIAAAABAAEAAADW/wIAAAABAAAAAADX/wIAAAABAAAAAADY/wIAAAABAAAAAADZ/wIAAAABAAEAAADa/wIAAAABAAEAAADb/wIAAAABAAEAAADc/wIAAAABAAEAAADd//f/AAAAAAEAAADd//b/AAAAAAEAAADd//X/AAAAAAEAAADd//T/AAAAAAEAAADd//P/AAAAAAEAAADd//L/AAAAAAEAAADd//H/AAAAAAEAAADd//D/AAAAAAEAAADd/+//AAAAAAEAAADU/+//AAAAAAEAAADV/+//AAAAAAEAAADW/+//AAAAAAEAAADX/+//AAAAAAEAAADY/+//AAAAAAEAAADZ/+//AAAAAAEAAADa/+//AAAAAAEAAADb/+//AAAAAAEAAADc/+//AAAAAAEAAADU//D/AAABAAEAAADU//H/AAABAAEAAADU//L/AAABAAAAAADU//P/AAABAAAAAADU//T/AAABAAAAAADU//X/AAABAAAAAADU//b/AAABAAAAAADU//f/AAABAAEAAADV//D/AAABAAEAAADV//H/AAABAAEAAADV//L/AAABAAEAAADV//P/AAABAAAAAADV//T/AAABAAEAAADV//X/AAABAAEAAADV//b/AAABAAAAAADV//f/AAABAAEAAADW//D/AAABAAEAAADW//H/AAABAAAAAADW//L/AAABAAAAAADW//P/AAABAAAAAADW//T/AAABAAAAAADW//X/AAABAAAAAADW//b/AAABAAEAAADW//f/AAABAAEAAADX//D/AAABAAAAAADX//H/AAABAAEAAADX//L/AAABAAAAAADX//P/AAABAAAAAADX//T/AAABAAAAAADX//X/AAABAAAAAADX//b/AAABAAAAAADX//f/AAABAAAAAADY//D/AAABAAEAAADY//H/AAABAAAAAADY//L/AAABAAAAAADY//P/AAABAAEAAADY//T/AAABAAAAAADY//X/AAABAAAAAADY//b/AAABAAAAAADY//f/AAABAAAAAADZ//D/AAABAAEAAADZ//H/AAABAAAAAADZ//L/AAABAAAAAADZ//P/AAABAAAAAADZ//T/AAABAAEAAADZ//X/AAABAAEAAADZ//b/AAABAAAAAADZ//f/AAABAAEAAADa//D/AAABAAAAAADa//H/AAABAAEAAADa//L/AAABAAEAAADa//P/AAABAAEAAADa//T/AAABAAAAAADa//X/AAABAAAAAADa//b/AAABAAEAAADa//f/AAABAAEAAADb//D/AAABAAAAAADb//H/AAABAAAAAADb//L/AAABAAEAAADb//P/AAABAAEAAADb//T/AAABAAEAAADb//X/AAABAAEAAADb//b/AAABAAAAAADb//f/AAABAAAAAADc//D/AAABAAAAAADc//H/AAABAAAAAADc//L/AAABAAAAAADc//P/AAABAAAAAADc//T/AAABAAEAAADc//X/AAABAAEAAADc//b/AAABAAAAAADc//f/AAABAAAAAAAJAAAAAAAAAAAAAAAJAAEAAAAAAAAAAAAJAAIAAAAAAAAAAAAJAAMAAAAAAAAAAAAKAAAAAAAAAAAAAAAKAAEAAAAAAAAAAAAKAAIAAAAAAAAAAAAKAAMAAAAAAAAAAAALAAAAAAAAAAAAAAALAAEAAAAAAAAAAAALAAIAAAAAAAAAAAALAAMAAAAAAAAAAAAMAAAAAAAAAAAAAAAMAAEAAAAAAAAAAAAMAAIAAAAAAAAAAAAMAAMAAAAAAAAAAAANAAAAAAAAAAAAAAANAAEAAAAAAAAAAAANAAIAAAAAAAAAAAANAAMAAAAAAAAAAAAOAAAAAAAAAAAAAAAOAAEAAAAAAAAAAAAOAAIAAAAAAAAAAAAOAAMAAAAAAAAAAAAPAAAAAAAAAAAAAAAPAAEAAAAAAAAAAAAPAAIAAAAAAAAAAAAPAAMAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAEAAAAAAAAAAAAQAAIAAAAAAAAAAAAQAAMAAAAAAAAAAAARAAAAAAAAAAAAAAARAAEAAAAAAAAAAAARAAIAAAAAAAAAAAARAAMAAAAAAAAAAAASAAAAAAAAAAAAAAASAAEAAAAAAAAAAAASAAIAAAAAAAAAAAASAAMAAAAAAAAAAAATAAAAAAAAAAAAAAATAAEAAAAAAAAAAAATAAIAAAAAAAAAAAATAAMAAAAAAAAAAAAUAAAAAAAAAAAAAAAUAAEAAAAAAAAAAAAUAAIAAAAAAAAAAAAUAAMAAAAAAAAAAAAVAAAAAAAAAAAAAAAVAAEAAAAAAAAAAAAVAAIAAAAAAAAAAAAVAAMAAAAAAAAAAAAWAAAAAAAAAAAAAAAWAAEAAAAAAAAAAAAWAAIAAAAAAAAAAAAWAAMAAAAAAAAAAAAXAAAAAAAAAAAAAAAXAAEAAAAAAAAAAAAXAAIAAAAAAAAAAAAXAAMAAAAAAAAAAAAYAAAAAAAAAAAAAAAYAAEAAAAAAAAAAAAYAAIAAAAAAAAAAAAYAAMAAAAAAAAAAAAZAAAAAAAAAAAAAAAZAAEAAAAAAAAAAAAZAAIAAAAAAAAAAAAZAAMAAAAAAAAAAAAaAAAAAAAAAAAAAAAaAAEAAAAAAAAAAAAaAAIAAAAAAAAAAAAaAAMAAAAAAAAAAAAbAAAAAAAAAAAAAAAbAAEAAAAAAAAAAAAbAAIAAAAAAAAAAAAbAAMAAAAAAAAAAAAcAAAAAAAAAAAAAAAcAAEAAAAAAAAAAAAcAAIAAAAAAAAAAAAcAAMAAAAAAAAAAAAdAAAAAAAAAAAAAAAdAAEAAAAAAAAAAAAdAAIAAAAAAAAAAAAdAAMAAAAAAAAAAAAeAAAAAAAAAAAAAAAeAAEAAAAAAAAAAAAeAAIAAAAAAAAAAAAeAAMAAAAAAAAAAAAfAAAAAAAAAAAAAAAfAAEAAAAAAAAAAAAfAAIAAAAAAAAAAAAfAAMAAAAAAAAAAAAGAAAAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAMAAAAAAAAAAAAHAAAAAAAAAAAAAAAHAAEAAAAAAAAAAAAHAAIAAAAAAAAAAAAHAAMAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAAEAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAMAAAAAAAAAAAD8/+//AAAAAAEAAADx//X/AAAAAAEAAADy//X/AAAAAAEAAADz//X/AAAAAAEAAAD9/+//AAAAAAEAAAD0//X/AAAAAAEAAAD+/+//AAAAAAEAAAD//+//AAAAAAEAAAA=")
+tile_set = SubResource("TileSet_pys2u")
 
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Soldier" parent="Enemies" instance=ExtResource("6_mqsnp")]
-position = Vector2(209, -12)
+position = Vector2(918, -33)
 isFacingRight = true
 lengthOfPath = 100.0
 
 [node name="VFX" type="Node" parent="."]
 
-[node name="ChangeCamera" parent="." instance=ExtResource("7_s0wr1")]
-position = Vector2(-97, -29)
-collision_layer = 3
-collision_mask = 3
-cameraMove = true
+[node name="CheckPoints" type="Node" parent="."]
+
+[node name="CheckPoint" parent="CheckPoints" instance=ExtResource("6_b24ap")]
+position = Vector2(142, -303)
+
+[node name="KillZones" type="Node" parent="."]
+
+[node name="KillZone" parent="KillZones" instance=ExtResource("8_emml2")]
+position = Vector2(250, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZones/KillZone"]
+position = Vector2(232, 0)
+shape = SubResource("RectangleShape2D_ccgda")
+
+[node name="CrumblingBlock2" parent="." instance=ExtResource("9_hiw7i")]
+position = Vector2(-392, -66)
+
+[node name="CrumblingBlock4" parent="." instance=ExtResource("9_hiw7i")]
+position = Vector2(-360, -66)
+
+[node name="CrumblingBlock3" parent="." instance=ExtResource("9_hiw7i")]
+position = Vector2(-376, -66)
+
+[node name="CrumblingBlock" parent="." instance=ExtResource("9_hiw7i")]
+position = Vector2(-408, -66)

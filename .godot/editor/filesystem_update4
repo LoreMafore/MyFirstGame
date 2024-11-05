@@ -1,5 +1,4 @@
 res://scences/level_1.tscn
-res://scripts/soldier.gd
 res://scences/level_2.tscn
 res://scences/level_3.tscn
 res://scences/PlayerCharcter.tscn

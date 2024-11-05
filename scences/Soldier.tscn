@@ -294,7 +294,7 @@ radius = 3.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_k3u74"]
 radius = 5.0
 
-[node name="Soldier" type="CharacterBody2D" node_paths=PackedStringArray("soldier")]
+[node name="Soldier" type="CharacterBody2D" node_paths=PackedStringArray("soldier") groups=["Enemies"]]
 script = ExtResource("1_l3rdm")
 soldier = NodePath(".")
 

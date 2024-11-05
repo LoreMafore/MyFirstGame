@@ -18,6 +18,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var isFacingRight : bool = false
 @export var soldier : CharacterBody2D
 @export var lengthOfPath : float = 25.0
+@export var stayOnPlatform : float = true
 
 var soldierInitPosition : float = 0.00
 var canAttack : bool = true

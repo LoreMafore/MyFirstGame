@@ -51,7 +51,8 @@ func _physics_process(delta):
 			if healthPoints >= 1 and healthPoints < MAX_HEALS and heals >= 1:
 				heal()
 			else:
-				set_modulate(Color(1,0,0,0))
+				print("Heal")
+				#set_modulate(Color(1,0,0,0))
 		
 		#Gravity
 		if not is_on_floor():

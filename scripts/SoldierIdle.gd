@@ -3,6 +3,7 @@ class_name SoldierIdle
 
 @onready var animated_sprite_2d = $"../../AnimatedSprite2D"
 
+
 @export var soldier : CharacterBody2D
 @export var moveSpeed: float = 45.0 
 
@@ -22,7 +23,11 @@ func Update(delta: float):
 func physicsUpdate(delta: float):
 	
 	if soldier:
+		
 		soldier.velocity.x = moveSpeed * movementDirection
+		
+		
+		#distance between player and enemy
 		var directionX = player.global_position.x - soldier.global_position.x
 		
 		if abs(directionX) >= 30 and abs(directionX) <= 50:

@@ -13,6 +13,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var v_attack_d: CollisionShape2D = $AnimatedSprite2D/Hitboxes/VericalAttack/V_Attack_d
 @onready var v_attack_e: CollisionShape2D = $AnimatedSprite2D/Hitboxes/VericalAttack/V_Attack_e
 @onready var v_attack_f: CollisionShape2D = $AnimatedSprite2D/Hitboxes/VericalAttack/V_Attack_f
+@onready var left = $Left
+@onready var right = $Right
 
 
 @export var isFacingRight : bool = false
@@ -22,6 +24,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var soldierInitPosition : float = 0.00
 var canAttack : bool = true
+var moveDirection = 1
 
 func _ready():
 	
@@ -33,6 +36,10 @@ func _ready():
 func _physics_process(delta):
 	move_and_slide()
 	
+	if is_on_wall() or not left.is_colliding() or not right.is_colliding():
+		animated_sprite_2d.flip_h = not animated_sprite_2d.flip_h
+		
+		
 	if not is_on_floor():
 		velocity.y = gravity * delta * 100
 		
@@ -98,6 +105,11 @@ func _vertical_attack():
 			v_attack_e.disabled = false
 			v_attack_f.disabled = false
 			vertical_attack_timer.start()
+
+func _stay_on_platform(moveDirection):
+	if is_on_wall() or not left.is_colliding() or not right.is_colliding():
+		animated_sprite_2d.flip_h = not animated_sprite_2d.flip_h
+		moveDirection *= -1
 
 func _on_can_attack_timeout() -> void:
 	#canAttack = true

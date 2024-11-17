@@ -70,7 +70,6 @@ func _on_sides_checkers_body_entered(body):
 func _on_timer_timeout():
 	purple_slime.position = Vector2(ogPosition)
 	purple_slime.visible = true
-	print("Help me")
 	isAlive = true
 	stopped = 1
 

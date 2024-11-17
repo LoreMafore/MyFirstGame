@@ -5,6 +5,7 @@ class_name SoldierHAttack
 @onready var attack_1a = $"../../AnimatedSprite2D/Hitboxes/HozintalAttack/Attack1A"
 @onready var attack_1b = $"../../AnimatedSprite2D/Hitboxes/HozintalAttack/Attack1B"
 @onready var soldier1: CharacterBody2D = $"../.."
+@onready var h_attack = $HAttack
 
 var player : CharacterBody2D
 var soldier : CharacterBody2D
@@ -15,11 +16,10 @@ func Enter():
 	
 	if soldier1.canAttack == true: 
 		animated_sprite_2d.play("HorizantalAttack")
+		h_attack.start()
 		
 	else:
 		Transitioned.emit(self, "soldiersees")
-	
-	
-func physicsUpdate(delta : float):
+
+func _on_h_attack_timeout():
 	Transitioned.emit(self, "soldiersees")
-	

@@ -7,6 +7,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var attack_1b = $AnimatedSprite2D/Hitboxes/HozintalAttack/Attack1B
 @onready var can_attack_timer: Timer = $canAttack
 @onready var vertical_attack_timer: Timer = $verticalAttack
+@onready var touch_wall_timer: Timer = $touchWall
 @onready var v_attack_a: CollisionShape2D = $AnimatedSprite2D/Hitboxes/VericalAttack/V_Attack_a
 @onready var v_attack_b: CollisionShape2D = $AnimatedSprite2D/Hitboxes/VericalAttack/V_Attack_b
 @onready var v_attack_c: CollisionShape2D = $AnimatedSprite2D/Hitboxes/VericalAttack/V_Attack_c
@@ -20,11 +21,13 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var isFacingRight : bool = false
 @export var soldier : CharacterBody2D
 @export var lengthOfPath : float = 25.0
-@export var stayOnPlatform : float = true
+@export var stayOnPlatform : bool = true
+@export var moveSpeed: float = 45.0 
 
 var soldierInitPosition : float = 0.00
 var canAttack : bool = true
-var moveDirection = 1
+var movementDirection = 1
+var soldierMovement : int  
 
 func _ready():
 	
@@ -32,13 +35,18 @@ func _ready():
 		animated_sprite_2d.flip_h = true
 		
 	soldierInitPosition = soldier.global_position.x 
+	
+func _process(delta):
+	if animated_sprite_2d.flip_h == true:
+			movementDirection = -1
+			
+	elif animated_sprite_2d.flip_h == false:
+			movementDirection = 1
 
 func _physics_process(delta):
 	move_and_slide()
 	
-	if is_on_wall() or not left.is_colliding() or not right.is_colliding():
-		animated_sprite_2d.flip_h = not animated_sprite_2d.flip_h
-		
+	soldierMovement = soldier.moveSpeed * soldier.movementDirection
 		
 	if not is_on_floor():
 		velocity.y = gravity * delta * 100
@@ -107,9 +115,11 @@ func _vertical_attack():
 			vertical_attack_timer.start()
 
 func _stay_on_platform(moveDirection):
+	#remove/change this probably
 	if is_on_wall() or not left.is_colliding() or not right.is_colliding():
 		animated_sprite_2d.flip_h = not animated_sprite_2d.flip_h
-		moveDirection *= -1
+		moveDirection = -1
+		touch_wall_timer.start()
 
 func _on_can_attack_timeout() -> void:
 	#canAttack = true

@@ -280,3 +280,4 @@ func doubleJumpOn():
 
 func _on_input_timer_timeout() -> void:
 	canInput = true
+	

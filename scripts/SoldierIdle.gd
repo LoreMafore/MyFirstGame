@@ -2,8 +2,8 @@ extends State
 class_name SoldierIdle
 
 @onready var animated_sprite_2d = $"../../AnimatedSprite2D"
-@onready var left = $"../../Left"
-@onready var right = $"../../Right"
+@onready var right = $"../../RayCast/Right"
+@onready var left = $"../../RayCast/Left"
 
 
 @export var soldier : CharacterBody2D
@@ -25,7 +25,7 @@ func physicsUpdate(delta: float):
 		var directionX = player.global_position.x - soldier.global_position.x
 		var directionY = player.global_position.y - soldier.position.y
 		
-		if abs(directionX) >= 21 and abs(directionX) <= 50 and abs(directionY) < 50:
+		if abs(directionX) >= 21 and abs(directionX) <= 100 and abs(directionY) < 50:
 			Transitioned.emit(self, "soldiersees")
 			
 		

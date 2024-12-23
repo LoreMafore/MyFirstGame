@@ -1,5 +1,6 @@
+res://scences/minion.tscn
 res://scences/level_1.tscn
-res://scripts/SoldierIdle.gd
+res://scripts/minion.gd
 res://scences/level_2.tscn
 res://scences/level_3.tscn
 res://scences/PlayerCharcter.tscn
@@ -7,11 +8,7 @@ res://scences/mushroom_jump.tscn
 res://scences/Crumbling.tscn
 res://scences/Checkpoint.tscn
 res://scences/purple_slime.tscn
-res://scences/test.tscn
 res://scences/Soldier.tscn
-res://scripts/SoldierSees.gd
-res://scripts/soldier.gd
-res://scripts/SoldierHAttack.gd
-res://scripts/SoldierVAttack.gd
-res://scripts/purple_slime.gd
-res://scripts/lv_2_door.gd
+res://scences/test.tscn
+res://scences/cave_door.tscn
+res://scripts/Player.gd

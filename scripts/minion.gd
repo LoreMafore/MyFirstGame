@@ -13,7 +13,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var v_attack_d: CollisionShape2D = $AnimatedSprite2D/Hitboxes/VericalAttack/V_Attack_d
 @onready var v_attack_e: CollisionShape2D = $AnimatedSprite2D/Hitboxes/VericalAttack/V_Attack_e
 @onready var v_attack_f: CollisionShape2D = $AnimatedSprite2D/Hitboxes/VericalAttack/V_Attack_f
-@onready var left = $Raycast/Left
+@onready var wall = $Raycast/Wall
 @onready var right = $Raycast/Right
 @onready var v_timer = $Timers/vTimer
 @onready var h_timer = $Timers/hTimer
@@ -29,7 +29,6 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var stayOnPlatform : bool = true
 @export var moveSpeed: float = 45.0 
 
-
 #initalizing variables
 var minionInitPositionX : float = 0.00
 var canAttack : bool = true
@@ -40,58 +39,71 @@ var player : CharacterBody2D
 var directionX : float = 0.00
 var directionY : float = 0.00
 
-
 func _ready():
-		
+		minionInitPositionX = minion.global_position.x
+		print("minionInitPosition: ", minionInitPositionX)
 		player = get_tree().get_first_node_in_group("Player")
 		if player == null:
 			print("Player node not found!")
 			
 func _process(delta):
-	if animated_sprite_2d.flip_h == true:
-			movementDirection = -1
-			
-	elif animated_sprite_2d.flip_h == false:
-			movementDirection = 1
-			
+	print("Global Position: ",minion.global_position.x)
+	print("Length of Path: ", lengthOfPath)
+	print("minionInitPosition: ", minionInitPositionX)
 	if velocity.x != 0:
 		animated_sprite_2d.play("Walking")
-
+		
+	_dontFall()
+	_hitWall()
 			
 func _physics_process(delta):
 	move_and_slide()
 	
-	#if isWalking == true:
 	minionMovement = moveSpeed * movementDirection
-		#velocity.x = minionMovement
-	
+
 	directionX = player.global_position.x- minion.global_position.x
 	directionY = player.global_position.y - minion.global_position.y
 	
 	_horizantal_attack_collison_position()
 	_vertical_attack_collison_position()
 	_hitboxs()
+	_raycast_position()
 	
 	if not is_on_floor():
 		velocity.y = gravity * delta * 100
 	
-	#facing 
-	#if player.global_position.x > minion.global_position.x and player.position.y:
-		#animated_sprite_2d.flip_h = false
-		#movementDirection *= -1 
-	#
-	#elif player.global_position.x < minion.global_position.x and player.position.y:
-		#animated_sprite_2d.flip_h = true
-		#movementDirection *= -1 
-		
-#call this when leaving seeing area 2d
-func _normalMovement():
-	if minion.global_position.x < minionInitPositionX - lengthOfPath:
-		animated_sprite_2d.flip_h == false 
-		
-	elif minion.global_position.x > minionInitPositionX + lengthOfPath:
-		animated_sprite_2d.flip_h == true
+func _flipSprite():
+	if player.global_position.x > minion.global_position.x:
+		print("Player is to the right.")
+		minion.animated_sprite_2d.flip_h = false
+		if minionMovement < 0:
+			minionMovement *= -1 
 	
+	if player.global_position.x < minion.global_position.x:
+		print("Player is to the left.")
+		minion.animated_sprite_2d.flip_h = true
+		if minionMovement > 0:
+			minionMovement *= -1 
+
+func _normalMovement():
+	if minion.animated_sprite_2d.flip_h == false:
+		if minionMovement < 0:
+			minionMovement *= -1 
+			
+	if minion.animated_sprite_2d.flip_h == true:
+		if minionMovement > 0:
+			minionMovement *= -1
+	
+	velocity.x = minionMovement
+	
+func _on_seeing_body_exited(body):
+	if body.is_in_group("Player"):
+		velocity.x = 0
+		if animated_sprite_2d.animation == "Walking":
+			animated_sprite_2d.stop()
+			animated_sprite_2d.play("Default")
+			animated_sprite_2d.stop()
+		_normalMovement()
 
 func _on_v_detect_body_entered(body: Node2D) -> void:	
 	#print("Help me V")
@@ -106,14 +118,9 @@ func _on_h_detect_body_entered(body: Node2D) -> void:
 		minion._horizantal_attack()
 		
 func _on_seeing_body_entered(body):
-		if body.is_in_group("Player") and not animated_sprite_2d.is_playing():
-			if player.global_position.x > minion.global_position.x and player.position.y:
-				animated_sprite_2d.flip_h = false
-				movementDirection *= -1 
-	
-			elif player.global_position.x < minion.global_position.x and player.position.y:
-				animated_sprite_2d.flip_h = true
-				movementDirection *= -1 
+		if body.is_in_group("Player") and not animated_sprite_2d.animation == "HorizantalAttack" and not animated_sprite_2d.animation == "VerticalAttack":
+			print("Player detected!")
+			_flipSprite()
 				
 			velocity.x = minionMovement
 
@@ -147,15 +154,26 @@ func _horizantal_attack_collison_position():
 
 func _hitboxs():
 	if animated_sprite_2d.flip_h == false:
-		h_detect.position = Vector2(global_position.x + 0, minion.global_position.y - 1)
-		v_detect.position = Vector2(global_position.x + 0, minion.global_position.y + 10)
-		seeing.position   = Vector2(global_position.x + 0, minion.global_position.y + 0)
+		h_detect.position = Vector2(minion.global_position.x + 0, minion.global_position.y - 1)
+		v_detect.position = Vector2(minion.global_position.x + 0, minion.global_position.y + 10)
+		seeing.position   = Vector2(minion.global_position.x + 0, minion.global_position.y + 0)
 		
 	if animated_sprite_2d.flip_h == true:
-		h_detect.position = Vector2(global_position.x - 30, minion.global_position.y - 1)
-		v_detect.position = Vector2(global_position.x + 0, minion.global_position.y +10)
-		seeing.position   = Vector2(global_position.x + 0, minion.global_position.y + 0)
+		h_detect.position = Vector2(minion.global_position.x - 30, minion.global_position.y - 1)
+		v_detect.position = Vector2(minion.global_position.x + 0, minion.global_position.y +10)
+		seeing.position   = Vector2(minion.global_position.x + 0, minion.global_position.y + 0)
+
+func _raycast_position():
+	if animated_sprite_2d.flip_h == false:
+		right.position = Vector2(minion.global_position.x + 10, minion.global_position.y + 0)
+		wall.position  = Vector2(minion.global_position.x + 1, minion.global_position.y - 4)
+		wall.rotation = 0
 		
+	if animated_sprite_2d.flip_h == true:
+		right.position = Vector2(minion.global_position.x - 10, minion.global_position.y + 0)
+		wall.position  = Vector2(minion.global_position.x - 1, minion.global_position.y - 4)
+		wall.rotation = 135.1
+
 func _on_hozintal_attack_body_entered(body):
 	body.damage(minion.global_position.x)     
 	
@@ -211,10 +229,20 @@ func _on_animated_sprite_2d_frame_changed():
 			v_attack_f.disabled = true
 
 func _on_animated_sprite_2d_animation_finished():
-	print("Hi")
 	if animated_sprite_2d.animation == "HorizantalAttack":
-		print("Bye")
+		_flipSprite()
 		velocity.x = minionMovement
 		
 	elif animated_sprite_2d.animation == "VerticalAttack":
+		_flipSprite()
 		velocity.x = minionMovement
+
+func _dontFall():
+	if not right.is_colliding():
+		animated_sprite_2d.flip_h = not animated_sprite_2d.flip_h
+		_normalMovement()
+
+func _hitWall():
+	if wall.is_colliding():
+		animated_sprite_2d.flip_h = not animated_sprite_2d.flip_h
+		_normalMovement()

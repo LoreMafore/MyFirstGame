@@ -1,6 +1,4 @@
-res://scences/minion.tscn
 res://scences/level_1.tscn
-res://scripts/minion.gd
 res://scences/level_2.tscn
 res://scences/level_3.tscn
 res://scences/PlayerCharcter.tscn
@@ -9,6 +7,8 @@ res://scences/Crumbling.tscn
 res://scences/Checkpoint.tscn
 res://scences/purple_slime.tscn
 res://scences/Soldier.tscn
+res://scences/minion.tscn
 res://scences/test.tscn
 res://scences/cave_door.tscn
+res://scripts/minion.gd
 res://scripts/Player.gd

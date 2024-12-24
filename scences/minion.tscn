@@ -306,7 +306,7 @@ script = ExtResource("1_8he6h")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_qclrr")
-animation = &"HorizantalAttack"
+animation = &"Default"
 
 [node name="Hitboxes" type="Node" parent="AnimatedSprite2D"]
 
@@ -406,14 +406,12 @@ shape = SubResource("CircleShape2D_1orcw")
 [node name="Raycast" type="Node" parent="."]
 
 [node name="Right" type="RayCast2D" parent="Raycast"]
-position = Vector2(29, -5)
+position = Vector2(10, -4)
 target_position = Vector2(0, 11)
-collision_mask = 10
 
-[node name="Left" type="RayCast2D" parent="Raycast"]
-position = Vector2(-19, -4)
-target_position = Vector2(0, 11)
-collision_mask = 10
+[node name="Wall" type="RayCast2D" parent="Raycast"]
+position = Vector2(0, -4)
+target_position = Vector2(24, 0)
 
 [node name="Timers" type="Node" parent="."]
 
@@ -427,4 +425,5 @@ wait_time = 0.5
 [connection signal="body_entered" from="AnimatedSprite2D/Hitboxes/hDetect" to="." method="_on_h_detect_body_entered"]
 [connection signal="body_entered" from="AnimatedSprite2D/Hitboxes/vDetect" to="." method="_on_v_detect_body_entered"]
 [connection signal="body_entered" from="AnimatedSprite2D/Hitboxes/Seeing" to="." method="_on_seeing_body_entered"]
+[connection signal="body_exited" from="AnimatedSprite2D/Hitboxes/Seeing" to="." method="_on_seeing_body_exited"]
 [connection signal="timeout" from="Timers/canAttackTimer" to="." method="_on_can_attack_timer_timeout"]

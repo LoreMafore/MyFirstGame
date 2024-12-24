@@ -6,7 +6,6 @@ const JUMPSPD = -250
 const JUMP_DAMAGED = -190.0
 var MAX_HEALS = 3
 
-
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var healthPoints : int = 3
 var heals: int = 3
@@ -52,7 +51,6 @@ func _physics_process(delta):
 				heal()
 			else:
 				print("Heal")
-				#set_modulate(Color(1,0,0,0))
 		
 		#Gravity
 		if not is_on_floor():
@@ -118,7 +116,6 @@ func jump():
 		animated_sprite.play("Jump")
 	
 func doubleJump():
-	
 	if canDoubleJump >= 1 and Input.is_action_just_pressed("jump"):
 		if velocity.y > JUMPSPD:
 			velocity.y = JUMPSPD
@@ -129,9 +126,6 @@ func bounce(JumpDamaged):
 	velocity.y = JumpDamaged 
 	
 func fallDamage():
-	#canInput = false
-	#input_timer.start()
-	
 	healthPoints -= 1
 	
 	if healthPoints == 2:
@@ -159,8 +153,7 @@ func heal():
 		hearts2_knight.texture = ResourceLoader.load("res://brackeys_platformer_assets/sprites/FullKnightHearts.png")
 	
 func damage(enemenyPosX):
-	#canInput = false
-	#input_timer.start()
+
 	healthPoints -= 1
 	
 	if healthPoints == 2:
@@ -176,7 +169,6 @@ func damage(enemenyPosX):
 		get_node("CollisionShape2D").queue_free()
 		
 	timer.start()
-	#animated_sprite.play("Damaged")
 	set_modulate(Color(1,0.3,0.3,1))
 	velocity.y = JUMP_DAMAGED * 0.5
 	
@@ -189,8 +181,6 @@ func damage(enemenyPosX):
 		Input.action_release("moveLeft")
 
 func spikesDamage1(spikePosX, spikeBounce):
-	#canInput = false
-	#input_timer.start()
 	healthPoints -= 1
 	
 	if healthPoints == 2:
@@ -206,8 +196,7 @@ func spikesDamage1(spikePosX, spikeBounce):
 		get_node("CollisionShape2D").queue_free()
 		
 	timer.start()
-	#animated_sprite.play("Damaged")
-	#set_process_input(false)
+
 	set_modulate(Color(1,0.3,0.3,1))
 	velocity.y = JUMP_DAMAGED * 0.5
 	
@@ -235,11 +224,8 @@ func spikesDamage2():
 		print("YOU DIED")
 		Engine.time_scale = 0.5
 		get_node("CollisionShape2D").queue_free()
-	
-	#set_process_input(false)
+
 	timer.start()
-	#animated_sprite.play("Damaged")
-	#set_modulate(Color(1,0.3,0.3,1))
 
 func _on_timer_timeout():
 
@@ -249,18 +235,11 @@ func _on_timer_timeout():
 		Engine.time_scale = 1
 		get_tree().reload_current_scene()
 
-
-
 func _on_fall_damage_timer_timeout():
 	if healthPoints <= 0:
 		Engine.time_scale = 1
 		Global.cameraMove = 0
 		get_tree().reload_current_scene()
-
-#func MushroomJump(mushroomJump):
-	
-	#velocity.y -= mushroomJump
-
 
 func _on_coyote_timer_timeout():
 	canJump = false
@@ -269,14 +248,11 @@ func _on_coyote_timer_timeout():
 	coyote_timer.stop()
 	#canDoubleJump = true
 					
-
-
 func _on_jump_buffer_timeout():
 	jumpBuffer = false
 	
 func doubleJumpOn():
 	ifHasDoubleJump = true
-
 
 func _on_input_timer_timeout() -> void:
 	canInput = true

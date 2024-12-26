@@ -10,5 +10,3 @@ res://scences/Soldier.tscn
 res://scences/minion.tscn
 res://scences/test.tscn
 res://scences/cave_door.tscn
-res://scripts/minion.gd
-res://scripts/Player.gd

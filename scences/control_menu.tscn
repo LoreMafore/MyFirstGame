@@ -1,0 +1,91 @@
+[gd_scene load_steps=5 format=3 uid="uid://d225exdhv3erq"]
+
+[ext_resource type="FontFile" uid="uid://jvbpo7ecvxt2" path="res://brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="1_556rb"]
+[ext_resource type="Script" path="res://scences/background.gd" id="1_yk3c5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_el1ya"]
+bg_color = Color(0.380392, 0.647059, 0.701961, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yp71u"]
+bg_color = Color(0.380392, 0.647059, 0.701961, 0)
+
+[node name="Control-Menu" type="Control"]
+layout_mode = 3
+anchor_right = 0.236
+anchor_bottom = 0.25
+offset_right = 0.127991
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Panel" parent="."]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_el1ya")
+script = ExtResource("1_yk3c5")
+
+[node name="SettingButtons" type="Panel" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -33.0
+offset_right = 48.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yp71u")
+
+[node name="Audio_Visual" type="Button" parent="Background/SettingButtons"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -39.5
+offset_right = 39.5
+offset_bottom = 16.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_556rb")
+theme_override_font_sizes/font_size = 8
+text = "Audio/Video"
+
+[node name="Gameplay" type="Button" parent="Background/SettingButtons"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.5
+offset_top = -8.0
+offset_right = 39.5
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_556rb")
+theme_override_font_sizes/font_size = 8
+text = "Gameplay"
+
+[node name="Quit" type="Button" parent="Background/SettingButtons"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -39.5
+offset_top = -16.0
+offset_right = 39.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_556rb")
+theme_override_font_sizes/font_size = 8
+text = "Quit
+"

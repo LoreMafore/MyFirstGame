@@ -1,3 +1,4 @@
+res://scences/control_menu.tscn
 res://scences/level_1.tscn
 res://scences/level_2.tscn
 res://scences/level_3.tscn
@@ -10,3 +11,5 @@ res://scences/Soldier.tscn
 res://scences/minion.tscn
 res://scences/test.tscn
 res://scences/cave_door.tscn
+res://scences/background.gd
+res://scripts/Camera2D.gd

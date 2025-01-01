@@ -1,5 +1,5 @@
 extends Camera2D
-@onready var camera_2d = $"."
+@onready var camera_2d = $"../SettingCamera"
 
 var input_held_time_up = 0.0
 var input_held_time_down = 0.0
@@ -9,6 +9,8 @@ var hold_threshold = .5    # Time in seconds to trigger action
 var cameraOffset: int = 50
 
 func _process(delta):
+	
+	print("Camera Position: ", self.position)
 	
 	if Global.cameraMove == 1:
 		camera_2d.zoom = Vector2(3,3)

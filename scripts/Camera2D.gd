@@ -1,5 +1,5 @@
 extends Camera2D
-@onready var camera_2d = $"../SettingCamera"
+@onready var camera_2d: Camera2D = $"."
 
 var input_held_time_up = 0.0
 var input_held_time_down = 0.0

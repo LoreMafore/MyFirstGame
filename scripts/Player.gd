@@ -256,4 +256,8 @@ func doubleJumpOn():
 
 func _on_input_timer_timeout() -> void:
 	canInput = true
-	
+
+func _death():
+	print("Death Stuff")
+	#put death stuff here
+	#put transition to death screen

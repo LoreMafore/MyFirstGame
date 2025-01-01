@@ -1,17 +1,105 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4wtiwarled14"]
+[gd_scene load_steps=5 format=3 uid="uid://c4wtiwarled14"]
 
 [ext_resource type="FontFile" uid="uid://jvbpo7ecvxt2" path="res://brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="1_0kcgs"]
+[ext_resource type="Script" path="res://scripts/death_screen.gd" id="1_m0dh0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8l8nb"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q2lil"]
+bg_color = Color(0.16446, 0.16446, 0.16446, 1)
 
 [node name="DeathScreen" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 525.0
-offset_bottom = 355.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_m0dh0")
+metadata/_edit_vertical_guides_ = [82.0]
+
+[node name="Respawn" type="Panel" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.384321
+anchor_top = 0.569801
+anchor_right = 0.617591
+anchor_bottom = 0.683761
+offset_left = 26.262
+offset_top = -2.23077
+offset_right = -28.4647
+offset_bottom = -2.07693
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8l8nb")
+
+[node name="Respawntext" type="Label" parent="Respawn"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -30.9694
+offset_top = -23.5
+offset_right = 27.0306
+offset_bottom = -0.5
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.545098, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_0kcgs")
+theme_override_font_sizes/font_size = 8
+text = "Respawn?"
+
+[node name="Yes" type="Button" parent="Respawn"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -1.96942
+offset_top = -31.5
+offset_right = 27.0306
+offset_bottom = -15.5
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.545098, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_0kcgs")
+theme_override_font_sizes/font_size = 8
+text = "Yes"
+
+[node name="No" type="Button" parent="Respawn"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -30.9694
+offset_top = -31.5
+offset_right = -1.96942
+offset_bottom = -15.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.545098, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_0kcgs")
+theme_override_font_sizes/font_size = 8
+text = "No
+"
 
 [node name="GameOver" type="Panel" parent="."]
-layout_mode = 0
-offset_right = 523.0
-offset_bottom = 351.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -261.5
+offset_top = -175.5
+offset_right = 261.5
+offset_bottom = 175.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_q2lil")
 
 [node name="Text" type="Label" parent="GameOver"]
 layout_mode = 1
@@ -20,12 +108,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -46.5
-offset_top = -11.5
-offset_right = 46.5
-offset_bottom = 11.5
+offset_left = -63.9694
+offset_top = -35.0
+offset_right = 60.0306
+offset_bottom = -12.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.545098, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_0kcgs")
+theme_override_font_sizes/font_size = 16
 text = "GAME OVER"
+
+[connection signal="pressed" from="Respawn/Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="Respawn/No" to="." method="_on_no_pressed"]

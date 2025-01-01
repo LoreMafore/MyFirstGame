@@ -140,6 +140,7 @@ func fallDamage():
 		Engine.time_scale = 0.5
 		get_node("CollisionShape2D").queue_free()
 		
+		
 	fall_damage_timer.start()
 	
 func heal():
@@ -259,5 +260,6 @@ func _on_input_timer_timeout() -> void:
 
 func _death():
 	print("Death Stuff")
-	#put death stuff here
-	#put transition to death screen
+	if healthPoints <= 0:
+		Engine.time_scale = 1
+		get_tree().reload_current_scene()

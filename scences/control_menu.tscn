@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://d225exdhv3erq"]
 
 [ext_resource type="FontFile" uid="uid://jvbpo7ecvxt2" path="res://brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="1_556rb"]
-[ext_resource type="Script" path="res://scences/background.gd" id="1_yk3c5"]
+[ext_resource type="Script" path="res://scripts/background.gd" id="1_yk3c5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eyvtt"]
 bg_color = Color(0.380392, 0.647059, 0.701961, 0.356863)

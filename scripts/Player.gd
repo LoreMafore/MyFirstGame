@@ -30,6 +30,7 @@ var deltaTime : float = 0.00
 @onready var coyote_timer = $CoyoteTimer
 @onready var input_timer: Timer = $InputTimer
 @onready var jump_buffer: Timer = $JumpBuffer
+@onready var death_screen: Control = $Camera2D/DeathScreen
 
 func _ready():
 	if Global.hasDoubleJump == true:
@@ -110,7 +111,6 @@ func _physics_process(delta):
 	
 	else:
 		input_timer.start()
-		
 func jump():
 		velocity.y = JUMPSPD 
 		animated_sprite.play("Jump")
@@ -136,10 +136,8 @@ func fallDamage():
 	
 	elif healthPoints <= 0:
 		hearts1_knight.texture = ResourceLoader.load("res://brackeys_platformer_assets/sprites/HeartKnight.png")
-		print("YOU DIED")
-		Engine.time_scale = 0.5
-		get_node("CollisionShape2D").queue_free()
-		
+		#Engine.time_scale = 0.5
+		#get_node("CollisionShape2D").queue_free()
 		
 	fall_damage_timer.start()
 	
@@ -165,9 +163,10 @@ func damage(enemenyPosX):
 	
 	elif healthPoints <= 0:
 		hearts1_knight.texture = ResourceLoader.load("res://brackeys_platformer_assets/sprites/HeartKnight.png")
-		print("YOU DIED")
-		Engine.time_scale = 0.5
-		get_node("CollisionShape2D").queue_free()
+		print("YOU DIED you prick")
+		#get_tree().paused = !get_tree().paused
+		#death_screen.visible = true
+		get_tree().change_scene_to_file("res://scences/gam_over.tscn")
 		
 	timer.start()
 	set_modulate(Color(1,0.3,0.3,1))
@@ -210,8 +209,6 @@ func spikesDamage1(spikePosX, spikeBounce):
 		Input.action_release("moveLeft")
 
 func spikesDamage2():
-	#canInput = false
-	#input_timer.start()
 	healthPoints -= 1
 	
 	if healthPoints == 2:
@@ -223,32 +220,28 @@ func spikesDamage2():
 	elif healthPoints <= 0:
 		hearts1_knight.texture = ResourceLoader.load("res://brackeys_platformer_assets/sprites/HeartKnight.png")
 		print("YOU DIED")
-		Engine.time_scale = 0.5
-		get_node("CollisionShape2D").queue_free()
+		#Engine.time_scale = 0.5
+		#get_node("CollisionShape2D").queue_free()
 
 	timer.start()
 
 func _on_timer_timeout():
-
 	set_modulate(Color(1,1,1,1))
 	
-	if healthPoints <= 0:
-		Engine.time_scale = 1
-		get_tree().reload_current_scene()
+	#if healthPoints <= 0:
+		#_death()
 
 func _on_fall_damage_timer_timeout():
 	if healthPoints <= 0:
-		Engine.time_scale = 1
 		Global.cameraMove = 0
-		get_tree().reload_current_scene()
+		_death()
 
 func _on_coyote_timer_timeout():
 	canJump = false
 	canDoubleJump = 2
 	doubleJump()
 	coyote_timer.stop()
-	#canDoubleJump = true
-					
+
 func _on_jump_buffer_timeout():
 	jumpBuffer = false
 	
@@ -259,7 +252,9 @@ func _on_input_timer_timeout() -> void:
 	canInput = true
 
 func _death():
-	print("Death Stuff")
-	if healthPoints <= 0:
-		Engine.time_scale = 1
-		get_tree().reload_current_scene()
+	#Engine.time_scale = 1
+	#get_tree().paused = !get_tree().paused
+	print("Why?")
+	#death_screen.visible = true
+	
+	

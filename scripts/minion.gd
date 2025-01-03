@@ -41,15 +41,11 @@ var directionY : float = 0.00
 
 func _ready():
 		minionInitPositionX = minion.global_position.x
-		print("minionInitPosition: ", minionInitPositionX)
 		player = get_tree().get_first_node_in_group("Player")
 		if player == null:
 			print("Player node not found!")
 			
 func _process(delta):
-	print("Global Position: ",minion.global_position.x)
-	print("Length of Path: ", lengthOfPath)
-	print("minionInitPosition: ", minionInitPositionX)
 	if velocity.x != 0:
 		animated_sprite_2d.play("Walking")
 		
@@ -74,13 +70,11 @@ func _physics_process(delta):
 	
 func _flipSprite():
 	if player.global_position.x > minion.global_position.x:
-		print("Player is to the right.")
 		minion.animated_sprite_2d.flip_h = false
 		if minionMovement < 0:
 			minionMovement *= -1 
 	
 	if player.global_position.x < minion.global_position.x:
-		print("Player is to the left.")
 		minion.animated_sprite_2d.flip_h = true
 		if minionMovement > 0:
 			minionMovement *= -1 
@@ -106,20 +100,17 @@ func _on_seeing_body_exited(body):
 		_normalMovement()
 
 func _on_v_detect_body_entered(body: Node2D) -> void:	
-	#print("Help me V")
 	if body.is_in_group("Player"):
 		velocity.x = 0
 		minion._vertical_attack()
 
 func _on_h_detect_body_entered(body: Node2D) -> void: 
-	#print("Help me H")
 	if body.is_in_group("Player"):
 		velocity.x = 0
 		minion._horizantal_attack()
 		
 func _on_seeing_body_entered(body):
 		if body.is_in_group("Player") and not animated_sprite_2d.animation == "HorizantalAttack" and not animated_sprite_2d.animation == "VerticalAttack":
-			print("Player detected!")
 			_flipSprite()
 				
 			velocity.x = minionMovement
@@ -192,7 +183,6 @@ func _horizantal_attack():
 		_on_animated_sprite_2d_frame_changed()
 
 func _on_can_attack_timer_timeout():
-	#print("Attack = true")
 	canAttack = true
 
 func _on_animated_sprite_2d_frame_changed():

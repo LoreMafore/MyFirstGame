@@ -6,9 +6,6 @@ extends Control
 
 func _ready() -> void:
 	death_screen.visible = false
-	
-
-
 
 func _on_yes_pressed() -> void:
 	get_tree().reload_current_scene()

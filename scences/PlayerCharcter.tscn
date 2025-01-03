@@ -255,10 +255,10 @@ drag_vertical_enabled = true
 script = ExtResource("2_euw08")
 
 [node name="DeathScreen" parent="Camera2D" instance=ExtResource("3_puu4y")]
-offset_left = -818.705
-offset_top = 18.1136
-offset_right = -818.705
-offset_bottom = 18.1136
+offset_left = -649.0
+offset_top = -170.0
+offset_right = 653.0
+offset_bottom = 162.0
 
 [node name="Control-Menu" parent="Camera2D" instance=ExtResource("3_855yv")]
 

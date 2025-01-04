@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bt8mloyktjksi"
-path="res://.godot/imported/CrumblingPlatform.png-f25f567eaecb6edf7e50247c64c4dc47.ctex"
+path="res://.godot/imported/CrumblingPlatform.png-0e4faca6f7fb3be35b31b963daaca30f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://brackeys_platformer_assets/sprites/CrumblingPlatform.png"
-dest_files=["res://.godot/imported/CrumblingPlatform.png-f25f567eaecb6edf7e50247c64c4dc47.ctex"]
+source_file="res://sprites/CrumblingPlatform.png"
+dest_files=["res://.godot/imported/CrumblingPlatform.png-0e4faca6f7fb3be35b31b963daaca30f.ctex"]
 
 [params]
 

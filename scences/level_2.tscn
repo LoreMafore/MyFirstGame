@@ -1,12 +1,12 @@
 [gd_scene load_steps=38 format=4 uid="uid://cd2joafrusdmq"]
 
 [ext_resource type="PackedScene" uid="uid://bc2g8gck620ov" path="res://scences/PlayerCharcter.tscn" id="1_ssg6g"]
-[ext_resource type="Texture2D" uid="uid://c8bj1q33fyplm" path="res://brackeys_platformer_assets/sprites/world_tileset.png" id="2_4uc7m"]
+[ext_resource type="Texture2D" uid="uid://c8bj1q33fyplm" path="res://sprites/world_tileset.png" id="2_4uc7m"]
 [ext_resource type="PackedScene" uid="uid://bx6doxwmyklov" path="res://scences/Checkpoint.tscn" id="3_n1ryo"]
-[ext_resource type="Texture2D" uid="uid://bnbcd843ikdg0" path="res://brackeys_platformer_assets/sprites/Heals.png" id="3_nllqc"]
+[ext_resource type="Texture2D" uid="uid://bnbcd843ikdg0" path="res://sprites/Heals.png" id="3_nllqc"]
 [ext_resource type="PackedScene" uid="uid://bubvbihgoc282" path="res://scences/kill_zone.tscn" id="3_ueecp"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="3_y1wun"]
-[ext_resource type="FontFile" uid="uid://jvbpo7ecvxt2" path="res://brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="4_4csn1"]
+[ext_resource type="FontFile" uid="uid://jvbpo7ecvxt2" path="res://fonts/PixelOperator8.ttf" id="4_4csn1"]
 [ext_resource type="PackedScene" uid="uid://ehjxneckwwep" path="res://scences/purple_slime.tscn" id="7_8ph5g"]
 [ext_resource type="PackedScene" uid="uid://dehjrlr87tq00" path="res://scences/statue.tscn" id="9_t50hd"]
 [ext_resource type="PackedScene" uid="uid://10pdb8lo01dk" path="res://scences/Crumbling.tscn" id="10_frikg"]
@@ -481,6 +481,7 @@ position = Vector2(-46, -5)
 
 [node name="Player" parent="." instance=ExtResource("1_ssg6g")]
 unique_name_in_owner = true
+visible = false
 position = Vector2(-772, -14)
 doubleJumpMultiplfier = 0.1
 

@@ -1,3 +1,4 @@
+ColorRect
 Camera2D
 Panel
 Node
@@ -11,5 +12,3 @@ Timer
 CollisionPolygon2D
 CharacterBody2D
 TileMapLayer
-SoldierHAttack
-SoldierSees

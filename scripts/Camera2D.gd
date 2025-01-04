@@ -9,9 +9,6 @@ var hold_threshold = .5    # Time in seconds to trigger action
 var cameraOffset: int = 50
 
 func _process(delta):
-	
-	print("Camera Position: ", self.position)
-	
 	if Global.cameraMove == 1:
 		camera_2d.zoom = Vector2(3,3)
 		camera_2d.position.y = -16

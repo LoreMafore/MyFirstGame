@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://emy2ymybte52"
-path="res://.godot/imported/SisterInCage.png-08f02994152272f4c9813f22e807c779.ctex"
+path="res://.godot/imported/SisterInCage.png-0f3e25094f47e43dfa99c5d7b5d7e8f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://brackeys_platformer_assets/sprites/SisterInCage.png"
-dest_files=["res://.godot/imported/SisterInCage.png-08f02994152272f4c9813f22e807c779.ctex"]
+source_file="res://sprites/SisterInCage.png"
+dest_files=["res://.godot/imported/SisterInCage.png-0f3e25094f47e43dfa99c5d7b5d7e8f9.ctex"]
 
 [params]
 

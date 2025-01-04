@@ -10,6 +10,7 @@ extends Control
 @onready var quit: Panel = $Background/Quit
 @onready var yesb: Button = $Background/Quit/Yes
 @onready var nob: Button = $Background/Quit/No
+var player : CharacterBody2D
 
 var settingOpened : bool = false
 var exit : int = 0
@@ -17,9 +18,10 @@ var exit : int = 0
 func _ready():
 	setting_buttons.visible = false
 	background.visible = false
+	player = get_tree().get_first_node_in_group("Player")
 
 func _input(event):
-	if event.is_action_pressed("Menu"):
+	if event.is_action_pressed("Menu") and player.GameOver == false:
 		_escape_button()
 		
 func _toggle_menu():

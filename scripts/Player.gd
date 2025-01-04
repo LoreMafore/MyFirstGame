@@ -16,6 +16,7 @@ var jumpBuffer : bool = false
 var canJump : bool = false
 var canInput : bool = true
 var deltaTime : float = 0.00
+var GameOver = false 
 
 @export var facing: bool = false 
 @export var ifHasDoubleJump : bool 
@@ -41,6 +42,10 @@ func _ready():
 		
 	else: 
 		animated_sprite.flip_h = false
+		
+	GameOver = false
+	
+	get_tree().paused = false
 
 func _physics_process(delta):
 	
@@ -136,8 +141,7 @@ func fallDamage():
 	
 	elif healthPoints <= 0:
 		hearts1_knight.texture = ResourceLoader.load("res://brackeys_platformer_assets/sprites/HeartKnight.png")
-		#Engine.time_scale = 0.5
-		#get_node("CollisionShape2D").queue_free()
+		_beforeDeath()
 		
 	fall_damage_timer.start()
 	
@@ -163,10 +167,7 @@ func damage(enemenyPosX):
 	
 	elif healthPoints <= 0:
 		hearts1_knight.texture = ResourceLoader.load("res://brackeys_platformer_assets/sprites/HeartKnight.png")
-		print("YOU DIED you prick")
-		#get_tree().paused = !get_tree().paused
-		#death_screen.visible = true
-		get_tree().change_scene_to_file("res://scences/gam_over.tscn")
+		_beforeDeath()
 		
 	timer.start()
 	set_modulate(Color(1,0.3,0.3,1))
@@ -191,9 +192,7 @@ func spikesDamage1(spikePosX, spikeBounce):
 	
 	elif healthPoints <= 0:
 		hearts1_knight.texture = ResourceLoader.load("res://brackeys_platformer_assets/sprites/HeartKnight.png")
-		print("YOU DIED")
-		Engine.time_scale = 0.5
-		get_node("CollisionShape2D").queue_free()
+		_beforeDeath()
 		
 	timer.start()
 
@@ -219,17 +218,14 @@ func spikesDamage2():
 	
 	elif healthPoints <= 0:
 		hearts1_knight.texture = ResourceLoader.load("res://brackeys_platformer_assets/sprites/HeartKnight.png")
-		print("YOU DIED")
-		#Engine.time_scale = 0.5
-		#get_node("CollisionShape2D").queue_free()
+		_beforeDeath()
 
 	timer.start()
 
 func _on_timer_timeout():
 	set_modulate(Color(1,1,1,1))
-	
-	#if healthPoints <= 0:
-		#_death()
+	if healthPoints <= 0:
+		_death()
 
 func _on_fall_damage_timer_timeout():
 	if healthPoints <= 0:
@@ -252,9 +248,11 @@ func _on_input_timer_timeout() -> void:
 	canInput = true
 
 func _death():
-	#Engine.time_scale = 1
-	#get_tree().paused = !get_tree().paused
-	print("Why?")
-	#death_screen.visible = true
-	
-	
+	Engine.time_scale = 1
+	get_tree().paused = !get_tree().paused
+	GameOver = true
+	death_screen.visible = true
+
+func _beforeDeath():
+	Engine.time_scale = 0.5
+	get_node("CollisionShape2D").queue_free()

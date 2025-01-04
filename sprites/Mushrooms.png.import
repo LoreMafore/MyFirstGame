@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ca6hch8uy5u18"
-path="res://.godot/imported/Mushrooms.png-59bce90001bd3a1c0a06c5fbd32579d5.ctex"
+path="res://.godot/imported/Mushrooms.png-e1babf9bb38b0ff6a5cb529623f8f3ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://brackeys_platformer_assets/sprites/Mushrooms.png"
-dest_files=["res://.godot/imported/Mushrooms.png-59bce90001bd3a1c0a06c5fbd32579d5.ctex"]
+source_file="res://sprites/Mushrooms.png"
+dest_files=["res://.godot/imported/Mushrooms.png-e1babf9bb38b0ff6a5cb529623f8f3ec.ctex"]
 
 [params]
 

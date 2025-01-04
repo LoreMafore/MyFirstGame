@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cx2xj75os0wyn"
-path="res://.godot/imported/Statue8.png-b1e3748fb1717678858f0535d4ba15ea.ctex"
+path="res://.godot/imported/Statue8.png-1ed12d425230c5cf971071a2051dd70e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://brackeys_platformer_assets/sprites/Statue8.png"
-dest_files=["res://.godot/imported/Statue8.png-b1e3748fb1717678858f0535d4ba15ea.ctex"]
+source_file="res://sprites/Statue8.png"
+dest_files=["res://.godot/imported/Statue8.png-1ed12d425230c5cf971071a2051dd70e.ctex"]
 
 [params]
 

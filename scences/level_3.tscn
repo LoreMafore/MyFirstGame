@@ -1,10 +1,10 @@
 [gd_scene load_steps=16 format=4 uid="uid://chrc8syle2hdn"]
 
 [ext_resource type="PackedScene" uid="uid://bc2g8gck620ov" path="res://scences/PlayerCharcter.tscn" id="1_vcc35"]
-[ext_resource type="Texture2D" uid="uid://bnbcd843ikdg0" path="res://brackeys_platformer_assets/sprites/Heals.png" id="2_p6ni1"]
+[ext_resource type="Texture2D" uid="uid://bnbcd843ikdg0" path="res://sprites/Heals.png" id="2_p6ni1"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="2_t10rw"]
-[ext_resource type="FontFile" uid="uid://jvbpo7ecvxt2" path="res://brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="3_gcfwp"]
-[ext_resource type="Texture2D" uid="uid://08xg3ajcpac0" path="res://brackeys_platformer_assets/sprites/world_tileset-Recovered.png" id="5_5ue0e"]
+[ext_resource type="FontFile" uid="uid://jvbpo7ecvxt2" path="res://fonts/PixelOperator8.ttf" id="3_gcfwp"]
+[ext_resource type="Texture2D" uid="uid://08xg3ajcpac0" path="res://sprites/world_tileset-Recovered.png" id="5_5ue0e"]
 [ext_resource type="PackedScene" uid="uid://bx6doxwmyklov" path="res://scences/Checkpoint.tscn" id="6_b24ap"]
 [ext_resource type="PackedScene" uid="uid://cv7j61s24qucs" path="res://scences/minion.tscn" id="6_wjbh5"]
 [ext_resource type="PackedScene" uid="uid://bubvbihgoc282" path="res://scences/kill_zone.tscn" id="8_emml2"]

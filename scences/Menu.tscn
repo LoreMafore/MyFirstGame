@@ -1,9 +1,360 @@
-[gd_scene format=3 uid="uid://c3sloovopxvjd"]
+[gd_scene load_steps=4 format=3 uid="uid://c3sloovopxvjd"]
 
-[node name="Control" type="Control"]
+[ext_resource type="FontFile" uid="uid://jvbpo7ecvxt2" path="res://fonts/PixelOperator8.ttf" id="1_qhec5"]
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_sf3ai"]
+[ext_resource type="Script" path="res://scripts/setting_menu.gd" id="3_fjhxq"]
+
+[node name="Menu" type="Node"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="MenuScreen" type="Control" parent="Camera2D"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_sf3ai")
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D/MenuScreen"]
+layout_mode = 0
+offset_left = -580.0
+offset_top = -325.0
+offset_right = 577.0
+offset_bottom = 323.0
+color = Color(0.384314, 1, 1, 1)
+
+[node name="Label" type="Label" parent="Camera2D/MenuScreen/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.228176
+anchor_top = 0.180556
+anchor_right = 0.738116
+anchor_bottom = 0.20679
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 42.0001
+offset_bottom = 22.0
+theme_override_colors/font_color = Color(0.333513, 0.621909, 0.757543, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_qhec5")
+theme_override_font_sizes/font_size = 40
+text = "Soldiers Lost Sister"
+
+[node name="LevelSelect" type="Button" parent="Camera2D/MenuScreen/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -121.5
+offset_top = -24.0
+offset_right = 125.5
+offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="Camera2D/MenuScreen/ColorRect/LevelSelect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.0
+offset_top = -11.0
+offset_right = 98.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.333333, 0.623529, 0.756863, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_qhec5")
+theme_override_font_sizes/font_size = 24
+text = "Level Select"
+
+[node name="Setting" type="Button" parent="Camera2D/MenuScreen/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.5
+offset_top = 47.0
+offset_right = 91.5
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsLabel" type="Label" parent="Camera2D/MenuScreen/ColorRect/Setting"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.0
+offset_top = -12.0
+offset_right = 78.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.333333, 0.623529, 0.756863, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_qhec5")
+theme_override_font_sizes/font_size = 24
+text = "Settings"
+
+[node name="QuitMAinMenu" type="Button" parent="Camera2D/MenuScreen/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.5
+offset_top = 118.0
+offset_right = 91.5
+offset_bottom = 166.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsLabel" type="Label" parent="Camera2D/MenuScreen/ColorRect/QuitMAinMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = -12.0
+offset_right = 37.5
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.333333, 0.623529, 0.756863, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_qhec5")
+theme_override_font_sizes/font_size = 24
+text = "Quit"
+
+[node name="LevelSelectMenu" type="Control" parent="Camera2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SettingMenu" type="Control" parent="Camera2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_fjhxq")
+
+[node name="Background" type="ColorRect" parent="Camera2D/SettingMenu"]
+offset_left = -580.0
+offset_top = -325.0
+offset_right = 577.0
+offset_bottom = 323.0
+color = Color(0.384314, 1, 1, 1)
+
+[node name="ExitB" type="Button" parent="Camera2D/SettingMenu/Background"]
+layout_mode = 1
+offset_right = 59.0
+offset_bottom = 63.0
+theme_override_fonts/font = ExtResource("1_qhec5")
+theme_override_font_sizes/font_size = 8
+
+[node name="Label" type="Label" parent="Camera2D/SettingMenu/Background/ExitB"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.5
+offset_top = -8.0
+offset_right = 7.5
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.333333, 0.623529, 0.756863, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_qhec5")
+theme_override_font_sizes/font_size = 32
+text = "X"
+
+[node name="SettingOptions" type="ColorRect" parent="Camera2D/SettingMenu/Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.5
+offset_top = -164.0
+offset_right = 214.5
+offset_bottom = 167.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.341176, 0.0823529, 1, 0)
+
+[node name="Audio_Visual" type="Button" parent="Camera2D/SettingMenu/Background/SettingOptions"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -235.5
+offset_right = 235.5
+offset_bottom = 43.0
+grow_horizontal = 2
+
+[node name="SettingsLabel" type="Label" parent="Camera2D/SettingMenu/Background/SettingOptions/Audio_Visual"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -78.0
+offset_top = -12.0
+offset_right = 78.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.333333, 0.623529, 0.756863, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_qhec5")
+theme_override_font_sizes/font_size = 24
+text = "Audio/Visual
+"
+
+[node name="Gameplay" type="Button" parent="Camera2D/SettingMenu/Background/SettingOptions"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -235.5
+offset_top = -21.5
+offset_right = 235.5
+offset_bottom = 21.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Gameplay" type="Label" parent="Camera2D/SettingMenu/Background/SettingOptions/Gameplay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.0
+offset_top = -11.0
+offset_right = 98.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.333333, 0.623529, 0.756863, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_qhec5")
+theme_override_font_sizes/font_size = 24
+text = "GamePlay
+"
+
+[node name="Quit" type="Button" parent="Camera2D/SettingMenu/Background/SettingOptions"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -235.5
+offset_top = -43.0
+offset_right = 235.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="SettingsLabel" type="Label" parent="Camera2D/SettingMenu/Background/SettingOptions/Quit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = -12.0
+offset_right = 37.5
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.333333, 0.623529, 0.756863, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_qhec5")
+theme_override_font_sizes/font_size = 24
+text = "Quit"
+
+[node name="Audio_VisualOptions" type="ColorRect" parent="Camera2D/SettingMenu/Background"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.5
+offset_top = -164.0
+offset_right = 214.5
+offset_bottom = 167.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="FPS" type="OptionButton" parent="Camera2D/SettingMenu/Background/Audio_VisualOptions"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -235.5
+offset_right = 235.5
+offset_bottom = 43.0
+grow_horizontal = 2
+
+[node name="ScreenDimensions" type="OptionButton" parent="Camera2D/SettingMenu/Background/Audio_VisualOptions"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -235.5
+offset_top = -21.5
+offset_right = 235.5
+offset_bottom = 21.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sound" type="HSlider" parent="Camera2D/SettingMenu/Background/Audio_VisualOptions"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -235.5
+offset_top = -43.0
+offset_right = 235.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[connection signal="pressed" from="Camera2D/MenuScreen/ColorRect/LevelSelect" to="Camera2D/MenuScreen" method="_on_level_select_pressed"]
+[connection signal="pressed" from="Camera2D/MenuScreen/ColorRect/Setting" to="Camera2D/MenuScreen" method="_on_setting_pressed"]
+[connection signal="pressed" from="Camera2D/MenuScreen/ColorRect/QuitMAinMenu" to="Camera2D/MenuScreen" method="_on_quit_m_ain_menu_pressed"]
+[connection signal="pressed" from="Camera2D/SettingMenu/Background/ExitB" to="Camera2D/MenuScreen" method="_on_exit_b_pressed"]
+[connection signal="pressed" from="Camera2D/SettingMenu/Background/SettingOptions/Audio_Visual" to="Camera2D/SettingMenu" method="_on_audio_visual_pressed"]
+[connection signal="pressed" from="Camera2D/SettingMenu/Background/SettingOptions/Gameplay" to="Camera2D/SettingMenu" method="_on_gameplay_pressed"]
+[connection signal="pressed" from="Camera2D/SettingMenu/Background/SettingOptions/Quit" to="Camera2D/SettingMenu" method="_on_quit_pressed"]

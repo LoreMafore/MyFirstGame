@@ -10,8 +10,8 @@ extends Control
 @onready var quit: Panel = $Background/Quit
 @onready var yesb: Button = $Background/Quit/Yes
 @onready var nob: Button = $Background/Quit/No
-var player : CharacterBody2D
 
+var player : CharacterBody2D
 var settingOpened : bool = false
 var exit : int = 0
 
@@ -80,5 +80,4 @@ func _exit_settings(exit_from,exit_to, bool_variable):
 		
 func _escape_button():
 	get_tree().paused = !get_tree().paused
-	print("Panel Position: ", self.position)
 	_toggle_menu()

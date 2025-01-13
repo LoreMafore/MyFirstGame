@@ -1,4 +1,3 @@
-res://scences/Menu.tscn
 res://scences/level_1.tscn
 res://scences/level_2.tscn
 res://scences/level_3.tscn
@@ -7,6 +6,6 @@ res://scences/minion.tscn
 res://scences/test.tscn
 res://scences/control_menu.tscn
 res://scences/death_screen.tscn
-res://scripts/menu.gd
-res://scripts/background.gd
+res://scences/Menu.tscn
 res://scripts/setting_menu.gd
+res://scripts/menu.gd

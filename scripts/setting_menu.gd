@@ -22,3 +22,15 @@ func _on_quit_pressed():
 func _exit_settings(exit_from,exit_to):
 	exit_from.visible = false
 	exit_to.visible = true
+
+
+func _on_fps_item_selected(index):
+	match index:
+		0: Engine.max_fps = 30
+		1: Engine.max_fps = 60
+
+
+func _on_gameplay_menu_item_selected(index):
+	match index:
+		0: DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		1: DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)

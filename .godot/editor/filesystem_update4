@@ -1,12 +1,9 @@
+res://scences/level_3.tscn
 res://scences/level_1.tscn
 res://scences/level_2.tscn
-res://scences/level_3.tscn
 res://scences/PlayerCharcter.tscn
 res://scences/minion.tscn
 res://scences/test.tscn
 res://scences/control_menu.tscn
 res://scences/death_screen.tscn
 res://scences/Menu.tscn
-res://scripts/menu.gd
-res://scripts/level_select_menu.gd
-res://scripts/Player.gd

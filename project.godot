@@ -24,6 +24,8 @@ Global="*res://scripts/Global.gd"
 
 [display]
 
+window/size/viewport_width=1150
+window/size/viewport_height=650
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="viewport"
@@ -32,6 +34,7 @@ window/stretch/mode="viewport"
 
 Player="Player Character"
 Enemies=""
+Boss=""
 
 [input]
 

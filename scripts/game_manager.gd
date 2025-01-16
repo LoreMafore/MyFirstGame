@@ -1,10 +1,13 @@
 extends Node
+@onready var player = %Player
 
 @onready var heals_label = $UI/Heals/HealsLabel
 var healCounter : int = 3
 
 func _ready():
 	heals_label.text = str(healCounter) + "X"
+	if get_tree().current_scene == preload("res://scences/level_2.tscn"):
+		Global.hasDoubleJump = false
 	
 func _process(delta):
 	if Input.is_action_just_pressed("Heal") and healCounter > 0 and healCounter < 4:

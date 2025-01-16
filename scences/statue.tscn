@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://dehjrlr87tq00"]
 
 [ext_resource type="Script" path="res://scripts/statue.gd" id="1_52m3w"]
-[ext_resource type="Texture2D" uid="uid://deifv2qbj712x" path="res://brackeys_platformer_assets/sprites/StatueSpriteSheet.png" id="2_gll3e"]
+[ext_resource type="Texture2D" uid="uid://deifv2qbj712x" path="res://sprites/StatueSpriteSheet.png" id="2_gll3e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yrk6s"]
 atlas = ExtResource("2_gll3e")

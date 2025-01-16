@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://byghhep3wnbs0"]
+
+[ext_resource type="Texture2D" uid="uid://wjajmqryj4k3" path="res://sprites/SoldierSpriteSheet.png" id="1_lu55f"]
+[ext_resource type="Script" path="res://scripts/boss.gd" id="1_yjdx7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evkw1"]
+atlas = ExtResource("1_lu55f")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ms81"]
+atlas = ExtResource("1_lu55f")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1fx3"]
+atlas = ExtResource("1_lu55f")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01inw"]
+atlas = ExtResource("1_lu55f")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wu1up"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evkw1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ms81")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1fx3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01inw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bc5vo"]
+radius = 5.0
+
+[node name="BOSS" type="CharacterBody2D" groups=["Boss"]]
+script = ExtResource("1_yjdx7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -15)
+sprite_frames = SubResource("SpriteFrames_wu1up")
+frame_progress = 0.928116
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_bc5vo")

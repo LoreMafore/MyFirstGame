@@ -1,7 +1,10 @@
+CollisionShape2D
+AnimatedSprite2D
+CharacterBody2D
+Label
 ColorRect
 Camera2D
 Button
-Label
 HSlider
 OptionButton
 Container
@@ -10,5 +13,3 @@ VBoxContainer
 Control
 TileMap
 Node
-GridContainer
-RayCast2D

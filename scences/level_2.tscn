@@ -483,8 +483,7 @@ position = Vector2(-46, -5)
 
 [node name="Player" parent="." instance=ExtResource("1_ssg6g")]
 unique_name_in_owner = true
-visible = false
-position = Vector2(-772, -14)
+position = Vector2(1729.99, -398.996)
 doubleJumpMultiplfier = 0.1
 
 [node name="GameManager" type="Node" parent="."]
@@ -894,6 +893,9 @@ rotation = -1.5708
 [node name="AnimatableBody2D5" parent="Platforms" instance=ExtResource("11_ha46i")]
 position = Vector2(4071, -773)
 rotation = -1.5708
+
+[node name="AnimatableBody2D16" parent="Platforms" instance=ExtResource("11_ha46i")]
+position = Vector2(4762, -773)
 
 [node name="AnimatableBody2D10" parent="Platforms" instance=ExtResource("11_ha46i")]
 position = Vector2(4730, -773)

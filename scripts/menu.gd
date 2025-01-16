@@ -3,10 +3,16 @@ extends Control
 @onready var level_select_menu = $"../LevelSelectMenu"
 @onready var menu_screen = $"."
 @onready var setting_menu = $"../SettingMenu"
+@onready var setting_options = $"../SettingMenu/Background/SettingOptions"
+@onready var audio_visual_options = $"../SettingMenu/Background/Audio_VisualOptions"
 
 func _ready():
+	menu_screen.visible = true
 	level_select_menu.visible = false
 	setting_menu.visible = false
+	setting_options.visible = true
+	audio_visual_options.visible = false
+	get_tree().paused = false
 
 func _on_exit_b_pressed():
 	_exit()

@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3sloovopxvjd"]
+[gd_scene load_steps=6 format=3 uid="uid://c3sloovopxvjd"]
 
 [ext_resource type="FontFile" uid="uid://jvbpo7ecvxt2" path="res://fonts/PixelOperator8.ttf" id="1_qhec5"]
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_sf3ai"]
 [ext_resource type="Script" path="res://scripts/setting_menu.gd" id="3_fjhxq"]
 [ext_resource type="Script" path="res://scripts/level_select_menu.gd" id="3_tqw58"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_om4mq"]
 
 [node name="Menu" type="Node"]
 
@@ -22,7 +24,7 @@ offset_left = -580.0
 offset_top = -325.0
 offset_right = 577.0
 offset_bottom = 323.0
-color = Color(0.384314, 1, 1, 1)
+color = Color(0, 0.469447, 0.470789, 1)
 
 [node name="Label" type="Label" parent="Camera2D/MenuScreen/ColorRect"]
 layout_mode = 1
@@ -158,7 +160,7 @@ offset_right = 537.0
 offset_bottom = 283.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.384314, 1, 1, 1)
+color = Color(0, 0.469447, 0.470789, 1)
 
 [node name="ExitB" type="Button" parent="Camera2D/LevelSelectMenu/ColorRect"]
 layout_mode = 0
@@ -239,7 +241,6 @@ grow_horizontal = 0
 grow_vertical = 2
 
 [node name="SettingMenu" type="Control" parent="Camera2D"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -252,12 +253,12 @@ offset_left = -580.0
 offset_top = -325.0
 offset_right = 577.0
 offset_bottom = 323.0
-color = Color(0.384314, 1, 1, 1)
+color = Color(0, 0.469447, 0.470789, 1)
 
 [node name="ExitB" type="Button" parent="Camera2D/SettingMenu/Background"]
 layout_mode = 1
-offset_right = 59.0
-offset_bottom = 63.0
+offset_right = 36.0
+offset_bottom = 31.0
 theme_override_fonts/font = ExtResource("1_qhec5")
 theme_override_font_sizes/font_size = 8
 
@@ -277,7 +278,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0.333333, 0.623529, 0.756863, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_qhec5")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 16
 text = "X"
 
 [node name="SettingOptions" type="ColorRect" parent="Camera2D/SettingMenu/Background"]
@@ -456,10 +457,13 @@ offset_bottom = 21.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.333333, 0.623529, 0.756863, 1)
+theme_override_fonts/font = ExtResource("1_qhec5")
 alignment = 1
 selected = 0
 item_count = 2
 popup/item_0/text = "Windowed"
+popup/item_0/icon = SubResource("ViewportTexture_om4mq")
+popup/item_0/disabled = true
 popup/item_1/text = "Fullscreen"
 popup/item_1/id = 1
 

@@ -66,7 +66,7 @@ func _on_exit_button_a_pressed() -> void:
 	_exit_settings(audio_visual, setting_buttons, true)
 
 func _on_yes_pressed() -> void:
-	get_tree().quit()
+	get_tree().change_scene_to_file("res://scences/Menu.tscn")
 	
 func _on_no_pressed() -> void:
 	_exit_settings(quit, setting_buttons, true)
@@ -81,3 +81,7 @@ func _exit_settings(exit_from,exit_to, bool_variable):
 func _escape_button():
 	get_tree().paused = !get_tree().paused
 	_toggle_menu()
+
+
+func _on_restart_pressed():
+	get_tree().reload_current_scene()

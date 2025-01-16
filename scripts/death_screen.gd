@@ -13,4 +13,4 @@ func _on_yes_pressed() -> void:
 	get_tree().reload_current_scene()
 
 func _on_no_pressed() -> void:
-	get_tree().quit()
+	get_tree().change_scene_to_file("res://scences/Menu.tscn")

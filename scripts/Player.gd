@@ -32,8 +32,10 @@ var GameOver = false
 @onready var input_timer: Timer = $InputTimer
 @onready var jump_buffer: Timer = $JumpBuffer
 @onready var death_screen = $"../GameManager/UI/ColorRect/DeathScreen"
+@onready var camera_2d = $Camera2D
 
 func _ready():
+	camera_2d.zoom = Vector2(3,3)
 	if Global.hasDoubleJump == true:
 		ifHasDoubleJump = true
 	

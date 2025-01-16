@@ -9,14 +9,12 @@ var closeToStatue: bool = false
 
 
 func _ready():
-	if Global.statueFell == false:
-		animated_sprite_2d.play("default")
-		
-	else:
-		animated_sprite_2d.play("felled")
+	animated_sprite_2d.play("default")
+	Global.statueFell = false
+	Global.hasDoubleJump = false
 
 func _process(delta):
-	if Input.is_action_just_pressed("Interact") and closeToStatue == true:
+	if Input.is_action_pressed("Interact") and closeToStatue == true:
 		animated_sprite_2d.play("Falling_apart")
 		player.doubleJumpOn()
 		Global.statueFell = true

@@ -1,10 +1,8 @@
-[gd_scene load_steps=38 format=3 uid="uid://bc2g8gck620ov"]
+[gd_scene load_steps=36 format=3 uid="uid://bc2g8gck620ov"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_sppih"]
 [ext_resource type="Texture2D" uid="uid://vqcvs3pq3p2" path="res://sprites/knight.png" id="1_uiqyb"]
 [ext_resource type="Script" path="res://scripts/Camera2D.gd" id="2_euw08"]
-[ext_resource type="PackedScene" uid="uid://d225exdhv3erq" path="res://scences/control_menu.tscn" id="3_855yv"]
-[ext_resource type="PackedScene" uid="uid://c4wtiwarled14" path="res://scences/death_screen.tscn" id="3_puu4y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k8f52"]
 atlas = ExtResource("1_uiqyb")
@@ -253,14 +251,6 @@ zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 drag_vertical_enabled = true
 script = ExtResource("2_euw08")
-
-[node name="DeathScreen" parent="Camera2D" instance=ExtResource("3_puu4y")]
-offset_left = -569.0
-offset_top = -344.0
-offset_right = 595.0
-offset_bottom = 311.0
-
-[node name="Control-Menu" parent="Camera2D" instance=ExtResource("3_855yv")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -12)

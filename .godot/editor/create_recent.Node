@@ -1,5 +1,6 @@
-Button
 ColorRect
+Camera2D
+Button
 Label
 HSlider
 OptionButton
@@ -7,7 +8,6 @@ Container
 Panel
 VBoxContainer
 Control
-Camera2D
 TileMap
 Node
 GridContainer

@@ -7,5 +7,6 @@ res://scences/test.tscn
 res://scences/control_menu.tscn
 res://scences/death_screen.tscn
 res://scences/Menu.tscn
-res://scripts/setting_menu.gd
 res://scripts/menu.gd
+res://scripts/level_select_menu.gd
+res://scripts/Player.gd

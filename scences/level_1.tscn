@@ -1,9 +1,11 @@
-[gd_scene load_steps=22 format=4 uid="uid://dp6rb1y1qt6al"]
+[gd_scene load_steps=24 format=4 uid="uid://dp6rb1y1qt6al"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_4tiv8"]
 [ext_resource type="PackedScene" uid="uid://bx6doxwmyklov" path="res://scences/Checkpoint.tscn" id="1_ypqe1"]
 [ext_resource type="PackedScene" uid="uid://bc2g8gck620ov" path="res://scences/PlayerCharcter.tscn" id="2_h3by5"]
 [ext_resource type="Texture2D" uid="uid://c8bj1q33fyplm" path="res://sprites/world_tileset.png" id="3_mgnk1"]
+[ext_resource type="PackedScene" uid="uid://c4wtiwarled14" path="res://scences/death_screen.tscn" id="3_y31ve"]
+[ext_resource type="PackedScene" uid="uid://d225exdhv3erq" path="res://scences/control_menu.tscn" id="4_3apcq"]
 [ext_resource type="Texture2D" uid="uid://bnbcd843ikdg0" path="res://sprites/Heals.png" id="4_f8lq1"]
 [ext_resource type="PackedScene" uid="uid://bubvbihgoc282" path="res://scences/kill_zone.tscn" id="4_t5ewk"]
 [ext_resource type="FontFile" uid="uid://jvbpo7ecvxt2" path="res://fonts/PixelOperator8.ttf" id="5_t01cg"]
@@ -257,7 +259,7 @@ _data = {
 unique_name_in_owner = true
 light_mask = 2
 visibility_layer = 9
-position = Vector2(-441.589, -23.5923)
+position = Vector2(-434.124, -396.974)
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
@@ -266,6 +268,24 @@ script = ExtResource("1_4tiv8")
 [node name="UI" type="CanvasLayer" parent="GameManager"]
 scale = Vector2(3, 3)
 transform = Transform2D(3, 0, 0, 3, 0, 0)
+
+[node name="ColorRect" type="ColorRect" parent="GameManager/UI"]
+offset_right = 384.0
+offset_bottom = 216.0
+color = Color(1, 1, 1, 0)
+
+[node name="Control-Menu" parent="GameManager/UI/ColorRect" instance=ExtResource("4_3apcq")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.0639954
+offset_right = 0.0639954
+
+[node name="DeathScreen" parent="GameManager/UI/ColorRect" instance=ExtResource("3_y31ve")]
+layout_mode = 1
 
 [node name="Life" type="Control" parent="GameManager/UI"]
 layout_mode = 3

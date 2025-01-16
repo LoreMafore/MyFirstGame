@@ -31,7 +31,7 @@ var GameOver = false
 @onready var coyote_timer = $CoyoteTimer
 @onready var input_timer: Timer = $InputTimer
 @onready var jump_buffer: Timer = $JumpBuffer
-@onready var death_screen: Control = $Camera2D/DeathScreen
+@onready var death_screen = $"../GameManager/UI/ColorRect/DeathScreen"
 
 func _ready():
 	if Global.hasDoubleJump == true:

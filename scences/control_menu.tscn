@@ -25,14 +25,15 @@ script = ExtResource("1_yk3c5")
 [node name="Background" type="Panel" parent="."]
 process_mode = 3
 layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.464
-anchor_top = -0.53
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1.79199
-offset_top = -1.13999
-offset_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -108.0
+offset_right = 192.0
+offset_bottom = 108.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_eyvtt")
@@ -156,9 +157,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -39.5
+offset_left = -39.0
 offset_top = -8.0
-offset_right = 39.5
+offset_right = 40.0
 offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -244,14 +245,20 @@ theme_override_font_sizes/font_size = 8
 text = "Do you want to Quit?"
 
 [node name="ExitButton" type="Button" parent="Background"]
-layout_mode = 0
-offset_left = -124.0
-offset_top = -83.0
-offset_right = -109.0
-offset_bottom = -67.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -15.0
+offset_bottom = 16.0
+grow_horizontal = 0
 theme_override_fonts/font = ExtResource("1_556rb")
 theme_override_font_sizes/font_size = 8
 text = "x"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(136, 81)
+zoom = Vector2(3, 3)
 
 [connection signal="item_selected" from="Background/Audio_Visual/FPS" to="." method="_on_option_button_item_selected"]
 [connection signal="item_selected" from="Background/Audio_Visual/Window" to="." method="_on_window_item_selected"]

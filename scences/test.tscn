@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://rohqqn5dx1o1"]
+[gd_scene load_steps=13 format=4 uid="uid://rohqqn5dx1o1"]
 
 [ext_resource type="PackedScene" uid="uid://bc2g8gck620ov" path="res://scences/PlayerCharcter.tscn" id="1_h4b5t"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="2_ncne8"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://10pdb8lo01dk" path="res://scences/Crumbling.tscn" id="6_i2ji4"]
 [ext_resource type="PackedScene" uid="uid://ehjxneckwwep" path="res://scences/purple_slime.tscn" id="6_wjdd0"]
 [ext_resource type="PackedScene" uid="uid://cv7j61s24qucs" path="res://scences/minion.tscn" id="8_bwdvw"]
+[ext_resource type="PackedScene" uid="uid://byghhep3wnbs0" path="res://scences/boss.tscn" id="8_rat6r"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8ug12"]
 load_path = "res://.godot/imported/FullKnightHearts.png-01ba0fcb9066f48d622de1a686b4aef3.ctex"
@@ -385,10 +386,6 @@ respawn = true
 [node name="Player" parent="." instance=ExtResource("1_h4b5t")]
 position = Vector2(579, -210)
 ifHasDoubleJump = true
-
-[node name="Minion" parent="." node_paths=PackedStringArray("minion") instance=ExtResource("8_bwdvw")]
-position = Vector2(762, -195)
-minion = NodePath(".")
 
 [node name="CrumblingBlock" parent="." instance=ExtResource("6_i2ji4")]
 position = Vector2(585, -100)
@@ -911,3 +908,11 @@ position = Vector2(1577, -100)
 
 [node name="CrumblingBlock64" parent="." instance=ExtResource("6_i2ji4")]
 position = Vector2(1593, -100)
+
+[node name="BOSS" parent="." node_paths=PackedStringArray("boss") instance=ExtResource("8_rat6r")]
+position = Vector2(737, -207)
+boss = NodePath(".")
+
+[node name="Minion" parent="." node_paths=PackedStringArray("minion") instance=ExtResource("8_bwdvw")]
+position = Vector2(833, -217)
+minion = NodePath(".")

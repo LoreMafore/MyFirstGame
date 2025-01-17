@@ -1,46 +1,30 @@
-[gd_scene load_steps=9 format=3 uid="uid://byghhep3wnbs0"]
+[gd_scene load_steps=8 format=3 uid="uid://byghhep3wnbs0"]
 
-[ext_resource type="Texture2D" uid="uid://wjajmqryj4k3" path="res://sprites/SoldierSpriteSheet.png" id="1_lu55f"]
 [ext_resource type="Script" path="res://scripts/boss.gd" id="1_yjdx7"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_evkw1"]
-atlas = ExtResource("1_lu55f")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2ms81"]
-atlas = ExtResource("1_lu55f")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n1fx3"]
-atlas = ExtResource("1_lu55f")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_01inw"]
-atlas = ExtResource("1_lu55f")
-region = Rect2(96, 0, 32, 32)
+[ext_resource type="Texture2D" uid="uid://j33rmysg5k3" path="res://sprites/Boss.png" id="2_v8yl0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wu1up"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_evkw1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2ms81")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n1fx3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_01inw")
+"texture": ExtResource("2_v8yl0")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_iyefj"]
+radius = 3.16228
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r2xw2"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nd7sx"]
+radius = 3.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_bc5vo"]
-radius = 5.0
+radius = 8.0
 
 [node name="BOSS" type="CharacterBody2D" groups=["Boss"]]
 script = ExtResource("1_yjdx7")
@@ -48,8 +32,110 @@ script = ExtResource("1_yjdx7")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_wu1up")
-frame_progress = 0.928116
+
+[node name="Hitboxes" type="Node" parent="AnimatedSprite2D"]
+
+[node name="HozintalAttack" type="Area2D" parent="AnimatedSprite2D/Hitboxes"]
+position = Vector2(0, -15)
+collision_layer = 8
+collision_mask = 8
+
+[node name="Attack1A" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/HozintalAttack"]
+position = Vector2(14, 8)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_iyefj")
+disabled = true
+debug_color = Color(0, 0.639216, 0.388235, 0.419608)
+
+[node name="Attack1B" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/HozintalAttack"]
+position = Vector2(26, 8)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_iyefj")
+disabled = true
+debug_color = Color(8.18223e-07, 0.637649, 0.389301, 0.42)
+
+[node name="Attack1C" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/HozintalAttack"]
+position = Vector2(38, 8)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_iyefj")
+disabled = true
+debug_color = Color(8.18223e-07, 0.637649, 0.389301, 0.42)
+
+[node name="Attack1D" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/HozintalAttack"]
+position = Vector2(50, 8)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_iyefj")
+disabled = true
+debug_color = Color(8.18223e-07, 0.637649, 0.389301, 0.42)
+
+[node name="Attack1E" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/HozintalAttack"]
+position = Vector2(62, 8)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_iyefj")
+disabled = true
+debug_color = Color(8.18223e-07, 0.637649, 0.389301, 0.42)
+
+[node name="Attack1F" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/HozintalAttack"]
+position = Vector2(74, 8)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_iyefj")
+disabled = true
+debug_color = Color(8.18223e-07, 0.637649, 0.389301, 0.42)
+
+[node name="Attack1G" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/HozintalAttack"]
+position = Vector2(86, 8)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_iyefj")
+disabled = true
+debug_color = Color(8.18223e-07, 0.637649, 0.389301, 0.42)
+
+[node name="Attack1H" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/HozintalAttack"]
+position = Vector2(98, 8)
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_iyefj")
+disabled = true
+debug_color = Color(8.18223e-07, 0.637649, 0.389301, 0.42)
+
+[node name="VericalAttack" type="Area2D" parent="AnimatedSprite2D/Hitboxes"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="V_Attack_a" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/VericalAttack"]
+position = Vector2(12, -14)
+shape = SubResource("CircleShape2D_r2xw2")
+disabled = true
+debug_color = Color(0.879932, 0.314298, 0.337483, 0.42)
+
+[node name="V_Attack_b" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/VericalAttack"]
+position = Vector2(7, -18)
+shape = SubResource("CircleShape2D_nd7sx")
+disabled = true
+debug_color = Color(0.879932, 0.314298, 0.337483, 0.42)
+
+[node name="V_Attack_c" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/VericalAttack"]
+position = Vector2(2, -19)
+shape = SubResource("CircleShape2D_nd7sx")
+disabled = true
+debug_color = Color(0.879932, 0.314298, 0.337483, 0.42)
+
+[node name="V_Attack_d" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/VericalAttack"]
+position = Vector2(-3, -19)
+shape = SubResource("CircleShape2D_nd7sx")
+disabled = true
+debug_color = Color(0.879932, 0.314298, 0.337483, 0.42)
+
+[node name="V_Attack_e" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/VericalAttack"]
+position = Vector2(-8, -17)
+shape = SubResource("CircleShape2D_nd7sx")
+disabled = true
+debug_color = Color(0.879932, 0.314298, 0.337483, 0.42)
+
+[node name="V_Attack_f" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/VericalAttack"]
+position = Vector2(-12, -14)
+shape = SubResource("CircleShape2D_nd7sx")
+disabled = true
+debug_color = Color(0.879932, 0.314298, 0.337483, 0.42)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4)
+position = Vector2(-1, -7)
 shape = SubResource("CircleShape2D_bc5vo")

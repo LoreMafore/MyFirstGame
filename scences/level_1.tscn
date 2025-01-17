@@ -259,7 +259,7 @@ _data = {
 unique_name_in_owner = true
 light_mask = 2
 visibility_layer = 9
-position = Vector2(-446.172, -16.93)
+position = Vector2(-423.663, -15.0561)
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true

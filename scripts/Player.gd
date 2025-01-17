@@ -35,7 +35,7 @@ var GameOver = false
 @onready var camera_2d = $Camera2D
 
 func _ready():
-	camera_2d.zoom = Vector2(3,3)
+	Global.cameraMove = 1
 	if Global.hasDoubleJump == true:
 		ifHasDoubleJump = true
 	
@@ -50,7 +50,6 @@ func _ready():
 	get_tree().paused = false
 
 func _physics_process(delta):
-	
 	deltaTime = delta
 	
 	if canInput == true:

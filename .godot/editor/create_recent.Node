@@ -1,3 +1,4 @@
+Node
 CollisionShape2D
 AnimatedSprite2D
 CharacterBody2D
@@ -12,4 +13,3 @@ Panel
 VBoxContainer
 Control
 TileMap
-Node

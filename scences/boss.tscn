@@ -26,8 +26,9 @@ radius = 3.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_bc5vo"]
 radius = 8.0
 
-[node name="BOSS" type="CharacterBody2D" groups=["Boss"]]
+[node name="BOSS" type="CharacterBody2D" node_paths=PackedStringArray("boss") groups=["Boss"]]
 script = ExtResource("1_yjdx7")
+boss = NodePath(".")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -15)

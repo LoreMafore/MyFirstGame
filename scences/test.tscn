@@ -909,9 +909,8 @@ position = Vector2(1577, -100)
 [node name="CrumblingBlock64" parent="." instance=ExtResource("6_i2ji4")]
 position = Vector2(1593, -100)
 
-[node name="BOSS" parent="." node_paths=PackedStringArray("boss") instance=ExtResource("8_rat6r")]
+[node name="BOSS" parent="." instance=ExtResource("8_rat6r")]
 position = Vector2(737, -207)
-boss = NodePath(".")
 
 [node name="Minion" parent="." node_paths=PackedStringArray("minion") instance=ExtResource("8_bwdvw")]
 position = Vector2(833, -217)

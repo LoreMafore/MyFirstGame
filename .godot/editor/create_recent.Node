@@ -1,5 +1,7 @@
-Node
+Timer
+Area2D
 CollisionShape2D
+Node
 AnimatedSprite2D
 CharacterBody2D
 Label
@@ -11,5 +13,3 @@ OptionButton
 Container
 Panel
 VBoxContainer
-Control
-TileMap

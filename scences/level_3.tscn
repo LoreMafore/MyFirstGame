@@ -196,7 +196,7 @@ size = Vector2(816, 20)
 position = Vector2(709, -21)
 
 [node name="Player" parent="." instance=ExtResource("1_vcc35")]
-position = Vector2(3485.91, -604.496)
+position = Vector2(3497.97, -612.867)
 ifHasDoubleJump = true
 
 [node name="GameManager" type="Node" parent="."]

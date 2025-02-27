@@ -483,7 +483,7 @@ position = Vector2(-46, -5)
 
 [node name="Player" parent="." instance=ExtResource("1_ssg6g")]
 unique_name_in_owner = true
-position = Vector2(1729.99, -398.996)
+position = Vector2(566, -67)
 doubleJumpMultiplfier = 0.1
 
 [node name="GameManager" type="Node" parent="."]
@@ -698,6 +698,8 @@ stayOnPlatform = true
 [node name="ChangeCamera" parent="SPX" instance=ExtResource("13_pb3gh")]
 position = Vector2(3774, -800)
 collision_mask = 11
+monitoring = false
+monitorable = false
 level2 = true
 cameraMove = true
 

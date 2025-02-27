@@ -17,6 +17,8 @@ var canJump : bool = false
 var canInput : bool = true
 var deltaTime : float = 0.00
 var GameOver = false 
+var can_be_damaged : bool = true
+var falling_be_damaged : bool = true
 
 @export var facing: bool = false 
 @export var ifHasDoubleJump : bool 
@@ -33,6 +35,10 @@ var GameOver = false
 @onready var jump_buffer: Timer = $JumpBuffer
 @onready var death_screen = $"../GameManager/UI/ColorRect/DeathScreen"
 @onready var camera_2d = $Camera2D
+@onready var can_be_timer = $can_be_timer
+@onready var falling_be_timer = $falling_be_timer
+
+
 
 func _ready():
 	Global.cameraMove = 1
@@ -132,17 +138,8 @@ func bounce(JumpDamaged):
 	velocity.y = JumpDamaged 
 	
 func fallDamage():
-	healthPoints -= 1
-	
-	if healthPoints == 2:
-		hearts3_knight.texture = ResourceLoader.load("res://brackeys_platformer_assets/sprites/HeartKnight.png")
-		
-	elif healthPoints == 1:
-		hearts2_knight.texture = ResourceLoader.load("res://brackeys_platformer_assets/sprites/HeartKnight.png")
-	
-	elif healthPoints <= 0:
-		hearts1_knight.texture = ResourceLoader.load("res://brackeys_platformer_assets/sprites/HeartKnight.png")
-		_beforeDeath()
+	if falling_be_damaged == true:
+		_lose_health()
 		
 	fall_damage_timer.start()
 	
@@ -155,45 +152,44 @@ func heal():
 		
 	elif healthPoints == 2:
 		hearts2_knight.texture = ResourceLoader.load("res://brackeys_platformer_assets/sprites/FullKnightHearts.png")
+
+func _lose_health():
+	healthPoints -= 1
+	
+	if healthPoints == 2:
+		hearts3_knight.texture = ResourceLoader.load("res://brackeys_platformer_assets/sprites/HeartKnight.png")
+		
+	elif healthPoints == 1:
+		hearts2_knight.texture = ResourceLoader.load("res://brackeys_platformer_assets/sprites/HeartKnight.png")
+	
+	elif healthPoints <= 0:
+		hearts1_knight.texture = ResourceLoader.load("res://brackeys_platformer_assets/sprites/HeartKnight.png")
+		_beforeDeath()
+	can_be_damaged = false
+	falling_be_damaged = false
+	can_be_timer.start()
+	falling_be_timer.start()
 	
 func damage(enemenyPosX):
-
-	healthPoints -= 1
 	
-	if healthPoints == 2:
-		hearts3_knight.texture = ResourceLoader.load("res://brackeys_platformer_assets/sprites/HeartKnight.png")
+	if can_be_damaged == true:
+		_lose_health()
+			
+		timer.start()
+		set_modulate(Color(1,0.3,0.3,1))
+		velocity.y = JUMP_DAMAGED * 0.5
+	
+		if player.global_position.x < enemenyPosX:
+			velocity.x = -800
+			Input.action_release("moveRight")
 		
-	elif healthPoints == 1:
-		hearts2_knight.texture = ResourceLoader.load("res://brackeys_platformer_assets/sprites/HeartKnight.png")
-	
-	elif healthPoints <= 0:
-		hearts1_knight.texture = ResourceLoader.load("res://brackeys_platformer_assets/sprites/HeartKnight.png")
-		_beforeDeath()
-		
-	timer.start()
-	set_modulate(Color(1,0.3,0.3,1))
-	velocity.y = JUMP_DAMAGED * 0.5
-	
-	if player.global_position.x < enemenyPosX:
-		velocity.x = -800
-		Input.action_release("moveRight")
-	
-	elif player.global_position.x > enemenyPosX:
-		velocity.x += 800
-		Input.action_release("moveLeft")
+		elif player.global_position.x > enemenyPosX:
+			velocity.x += 800
+			Input.action_release("moveLeft")
 
 func spikesDamage1(spikePosX, spikeBounce):
-	healthPoints -= 1
 	
-	if healthPoints == 2:
-		hearts3_knight.texture = ResourceLoader.load("res://brackeys_platformer_assets/sprites/HeartKnight.png")
-		
-	elif healthPoints == 1:
-		hearts2_knight.texture = ResourceLoader.load("res://brackeys_platformer_assets/sprites/HeartKnight.png")
-	
-	elif healthPoints <= 0:
-		hearts1_knight.texture = ResourceLoader.load("res://brackeys_platformer_assets/sprites/HeartKnight.png")
-		_beforeDeath()
+	_lose_health()
 		
 	timer.start()
 
@@ -209,17 +205,7 @@ func spikesDamage1(spikePosX, spikeBounce):
 		Input.action_release("moveLeft")
 
 func spikesDamage2():
-	healthPoints -= 1
-	
-	if healthPoints == 2:
-		hearts3_knight.texture = ResourceLoader.load("res://brackeys_platformer_assets/sprites/HeartKnight.png")
-		
-	elif healthPoints == 1:
-		hearts2_knight.texture = ResourceLoader.load("res://brackeys_platformer_assets/sprites/HeartKnight.png")
-	
-	elif healthPoints <= 0:
-		hearts1_knight.texture = ResourceLoader.load("res://brackeys_platformer_assets/sprites/HeartKnight.png")
-		_beforeDeath()
+	_lose_health()
 
 	timer.start()
 
@@ -257,3 +243,11 @@ func _death():
 func _beforeDeath():
 	Engine.time_scale = 0.5
 	get_node("CollisionShape2D").queue_free()
+
+
+func _on_can_be_timer_timeout():
+	can_be_damaged = true
+
+
+func _on_falling_be_timer_timeout():
+	falling_be_damaged = true

@@ -277,9 +277,16 @@ wait_time = 0.2
 [node name="InputTimer" type="Timer" parent="."]
 wait_time = 0.12
 
+[node name="can_be_timer" type="Timer" parent="."]
+
+[node name="falling_be_timer" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="FallDamageTimer" to="." method="_on_fall_damage_timer_timeout"]
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
 [connection signal="timeout" from="JumpBuffer" to="." method="_on_jump_buffer_timeout"]
 [connection signal="timeout" from="InputTimer" to="." method="_on_input_timer_timeout"]
+[connection signal="timeout" from="can_be_timer" to="." method="_on_can_be_timer_timeout"]
+[connection signal="timeout" from="falling_be_timer" to="." method="_on_falling_be_timer_timeout"]

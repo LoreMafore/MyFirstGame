@@ -2,20 +2,18 @@ extends CharacterBody2D
 
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
-@onready var attack_1a = $AnimatedSprite2D/Hitboxes/HozintalAttack/Attack1A
-@onready var attack_1b = $AnimatedSprite2D/Hitboxes/HozintalAttack/Attack1B
-@onready var attack_1c = $AnimatedSprite2D/Hitboxes/HozintalAttack/Attack1C
-@onready var attack_1d = $AnimatedSprite2D/Hitboxes/HozintalAttack/Attack1D
-@onready var attack_1e = $AnimatedSprite2D/Hitboxes/HozintalAttack/Attack1E
-@onready var attack_1f = $AnimatedSprite2D/Hitboxes/HozintalAttack/Attack1F
-@onready var attack_1g = $AnimatedSprite2D/Hitboxes/HozintalAttack/Attack1G
-@onready var attack_1h = $AnimatedSprite2D/Hitboxes/HozintalAttack/Attack1H
+@onready var h_attack_collision = $AnimatedSprite2D/Hitboxes/HozintalAttack/h_attack_collision
+@onready var h_detect = $AnimatedSprite2D/Hitboxes/hDetect
 @onready var h_can_attack = $AnimatedSprite2D/Hitboxes/hDetect/h_can_attack
 @onready var attack_cooldown = $AttackCooldown
-@onready var v_attack_a = $AnimatedSprite2D/Hitboxes/VericalAttack/V_Attack_a
-@onready var v_attack_b = $AnimatedSprite2D/Hitboxes/VericalAttack/V_Attack_b
-@onready var v_attack_c = $AnimatedSprite2D/Hitboxes/VericalAttack/V_Attack_c
-@onready var v_attack_d = $AnimatedSprite2D/Hitboxes/VericalAttack/V_Attack_d
+@onready var verical_attack = $AnimatedSprite2D/Hitboxes/VericalAttack
+@onready var v_detect = $AnimatedSprite2D/Hitboxes/vDetect
+@onready var v_attack_collision = $AnimatedSprite2D/Hitboxes/VericalAttack/V_Attack_collision
+@onready var v_can_attack = $AnimatedSprite2D/Hitboxes/vDetect/v_can_attack
+@onready var collision_shape_2d = $AnimatedSprite2D/Hitboxes/bossCollision/CollisionShape2D
+@onready var boss_collision = $AnimatedSprite2D/Hitboxes/bossCollisionArea/bossCollision
+
+
 
 
 @export var boss : CharacterBody2D
@@ -33,15 +31,9 @@ func _ready():
 		print("Player in NULL line 23")
 		get_tree().quit()
 		
-
-	#horizontal attack collisions
-	HA_collisions = [attack_1a, attack_1b, attack_1c, attack_1d,
-					 attack_1e, attack_1f, attack_1g, attack_1h]
-					
-	VA_collisions = [v_attack_a, v_attack_b, v_attack_c, v_attack_d,]
-
 func _process(delta):
 	_walking_animation()
+	#_vertical_enabled_attack()
 
 func _physics_process(delta):
 	
@@ -51,6 +43,7 @@ func _physics_process(delta):
 	
 	velocity.x = boss_x_spd * facing_right
 	
+	_boss_collision()
 	_horizantal_attack_collison_position()
 	_vertical_attack_collison_position()
 	
@@ -85,69 +78,82 @@ func _move_boss(delta):
 		_walking_animation()
 
 func _horizantal_attack_collison_position():
-	#sets postion of all vertical hitboxes for the bosses attacks
+	#sets postion of all horizantal hitboxes for the bosses attacks
 	if animated_sprite_2d.flip_h == false:
 		var collision_pos : Vector2 = Vector2(boss.global_position.x + 14,boss.global_position.y +7)
 		
+		h_attack_collision.position = Vector2(collision_pos.x+41, collision_pos.y +.5)
 		h_can_attack.position = Vector2(collision_pos.x + 15, collision_pos.y - 15)
 		
-		for i in range(HA_collisions.size()):
-			if HA_collisions[i] == null:
-				print("Warning: HA_collisions[", i, "] is null")
-				return 
-			HA_collisions[i].position = Vector2(collision_pos.x, collision_pos.y)
-			collision_pos.x += 12
 	
 	if animated_sprite_2d.flip_h == true:
 		
 		var collision_pos : Vector2 = Vector2(boss.global_position.x - 14,boss.global_position.y +7)
 		
+		h_attack_collision.position = Vector2(collision_pos.x-41, collision_pos.y + .5)
 		h_can_attack.position = Vector2(collision_pos.x - 15, collision_pos.y - 15)
 		
-		for i in range(HA_collisions.size()):
-			if HA_collisions[i] == null:
-				print("Warning: HA_collisions[", i, "] is null")
-				return 
-			HA_collisions[i].position = Vector2(collision_pos.x, collision_pos.y)
-			collision_pos.x -= 12
-
 func _vertical_attack_collison_position():
+	#sets postion of all vertical hitboxes for the bosses attacks
+	v_attack_collision.position = Vector2(boss.global_position.x, boss.global_position.y - 62)
+	v_can_attack.position = Vector2(boss.global_position.x, boss.global_position.y - 51.5)
 	
-	var collision_pos : Vector2 = Vector2(boss.global_position.x , boss.global_position.y - 28)
+func _boss_collision():
+	boss_collision.position = Vector2(boss.global_position.x, boss.global_position.y - 7)
 	
-	for i in range(VA_collisions.size()):
-		
-		VA_collisions[i].position =  Vector2(collision_pos)
-		collision_pos.y -= 12
-	
-		
-		
-
 func _on_h_detect_body_entered(body):
 	#enables attack and then has a short attack cool down
 	if body == player and can_attack == true:
-		for i in range(HA_collisions.size()):
-			HA_collisions[i].disabled = false
+		h_attack_collision.disabled = false
+		_horizontal_enabled_attack()
 		h_can_attack.disabled = true
 		can_attack = false
 		attack_cooldown.start()
 			
+func _on_v_detect_body_entered(body):
+	if body == player and can_attack == true:
+		v_attack_collision.disabled = false
+		_vertical_enabled_attack()
+		v_can_attack.disabled = true
+		can_attack = false
+		attack_cooldown.start()
 
-#isnt working but got to move on
-func _on_hozintal_attack_body_entered(body):
-	print("Help")
-	if body == player:
-		print("Gay")
-		body.damage(boss.global_position.x)  
+func _on_boss_collision_area_body_entered(body):
+	if body == player and can_attack == true:
+		body.damage(boss.global_position.x)
+		can_attack = false
+		attack_cooldown.start()
 
+func _horizontal_enabled_attack():
+	#called in v_detect_body_entered
+	#damages the palyer
+	if h_attack_collision.disabled == false:
+		#comeback to this later, i would like this to be hozintal attack
+		var bodies = h_detect.get_overlapping_bodies()
+		for body in bodies:
+			if body == player:
+				body.damage(boss.global_position.x)
 
+func _vertical_enabled_attack():
+	#called in v_detect_body_entered
+	#damages the palyer
+	if v_attack_collision.disabled == false:
+		#comeback to this later, i wouild like this to be vertical attack
+		var bodies = v_detect.get_overlapping_bodies()
+		for body in bodies:
+			if body == player:
+				body.damage(boss.global_position.x)
+				
 func _on_attack_cooldown_timeout():
 	#disables attacks and allows for boss to attack again
-	for i in range(HA_collisions.size()):
-		HA_collisions[i].disabled = true
-	h_can_attack.disabled = false
+
+	if h_can_attack.disabled == true:
+		h_attack_collision.disabled = true
+		h_can_attack.disabled = false
+		
+	elif v_can_attack.disabled == true:
+		v_attack_collision.disabled = true
+		v_can_attack.disabled = false
+	
 	can_attack = true
-	
-	
-	
 	

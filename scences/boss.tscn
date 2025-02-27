@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://byghhep3wnbs0"]
+[gd_scene load_steps=11 format=3 uid="uid://byghhep3wnbs0"]
 
 [ext_resource type="Script" path="res://scripts/boss.gd" id="1_yjdx7"]
 [ext_resource type="Texture2D" uid="uid://j33rmysg5k3" path="res://sprites/Boss.png" id="2_v8yl0"]
@@ -14,12 +14,26 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_iyefj"]
-radius = 3.16228
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c31ia"]
+radius = 7.0
+height = 96.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1qv3d"]
+radius = 6.0
+height = 82.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4ohlq"]
 radius = 7.0
 height = 44.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xor7r"]
+size = Vector2(20, 57)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lk5mo"]
+radius = 8.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h5rmh"]
+size = Vector2(87, 57)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bc5vo"]
 radius = 8.0
@@ -41,93 +55,23 @@ collision_mask = 8
 monitoring = false
 monitorable = false
 
-[node name="Attack1A" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/HozintalAttack"]
-position = Vector2(14, 8)
-scale = Vector2(2, 2)
-shape = SubResource("CircleShape2D_iyefj")
+[node name="h_attack_collision" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/HozintalAttack"]
+position = Vector2(55, 7.5)
+rotation = 4.71239
+shape = SubResource("CapsuleShape2D_c31ia")
 disabled = true
-debug_color = Color(0, 0.639216, 0.388235, 0.419608)
-
-[node name="Attack1B" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/HozintalAttack"]
-position = Vector2(26, 8)
-scale = Vector2(2, 2)
-shape = SubResource("CircleShape2D_iyefj")
-disabled = true
-debug_color = Color(8.18223e-07, 0.637649, 0.389301, 0.42)
-
-[node name="Attack1C" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/HozintalAttack"]
-position = Vector2(38, 8)
-scale = Vector2(2, 2)
-shape = SubResource("CircleShape2D_iyefj")
-disabled = true
-debug_color = Color(8.18223e-07, 0.637649, 0.389301, 0.42)
-
-[node name="Attack1D" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/HozintalAttack"]
-position = Vector2(50, 8)
-scale = Vector2(2, 2)
-shape = SubResource("CircleShape2D_iyefj")
-disabled = true
-debug_color = Color(8.18223e-07, 0.637649, 0.389301, 0.42)
-
-[node name="Attack1E" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/HozintalAttack"]
-position = Vector2(62, 8)
-scale = Vector2(2, 2)
-shape = SubResource("CircleShape2D_iyefj")
-disabled = true
-debug_color = Color(8.18223e-07, 0.637649, 0.389301, 0.42)
-
-[node name="Attack1F" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/HozintalAttack"]
-position = Vector2(74, 8)
-scale = Vector2(2, 2)
-shape = SubResource("CircleShape2D_iyefj")
-disabled = true
-debug_color = Color(8.18223e-07, 0.637649, 0.389301, 0.42)
-
-[node name="Attack1G" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/HozintalAttack"]
-position = Vector2(86, 8)
-scale = Vector2(2, 2)
-shape = SubResource("CircleShape2D_iyefj")
-disabled = true
-debug_color = Color(8.18223e-07, 0.637649, 0.389301, 0.42)
-
-[node name="Attack1H" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/HozintalAttack"]
-position = Vector2(98, 8)
-scale = Vector2(2, 2)
-shape = SubResource("CircleShape2D_iyefj")
-disabled = true
-debug_color = Color(8.18223e-07, 0.637649, 0.389301, 0.42)
+debug_color = Color(1, 0.00784314, 0.0470588, 0.145098)
 
 [node name="VericalAttack" type="Area2D" parent="AnimatedSprite2D/Hitboxes"]
 collision_layer = 8
 collision_mask = 8
 
-[node name="V_Attack_a" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/VericalAttack"]
-position = Vector2(-1, -28)
-scale = Vector2(2, 2)
-shape = SubResource("CircleShape2D_iyefj")
+[node name="V_Attack_collision" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/VericalAttack"]
+position = Vector2(-1, -62)
+rotation = 3.14159
+shape = SubResource("CapsuleShape2D_1qv3d")
 disabled = true
-debug_color = Color(8.18223e-07, 0.637649, 0.389301, 0.42)
-
-[node name="V_Attack_b" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/VericalAttack"]
-position = Vector2(-1, -40)
-scale = Vector2(2, 2)
-shape = SubResource("CircleShape2D_iyefj")
-disabled = true
-debug_color = Color(8.18223e-07, 0.637649, 0.389301, 0.42)
-
-[node name="V_Attack_c" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/VericalAttack"]
-position = Vector2(-1, -52)
-scale = Vector2(2, 2)
-shape = SubResource("CircleShape2D_iyefj")
-disabled = true
-debug_color = Color(8.18223e-07, 0.637649, 0.389301, 0.42)
-
-[node name="V_Attack_d" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/VericalAttack"]
-position = Vector2(-1, -64)
-scale = Vector2(2, 2)
-shape = SubResource("CircleShape2D_iyefj")
-disabled = true
-debug_color = Color(8.18223e-07, 0.637649, 0.389301, 0.42)
+debug_color = Color(1, 0.00784314, 0.0470588, 0.145098)
 
 [node name="hDetect" type="Area2D" parent="AnimatedSprite2D/Hitboxes"]
 collision_layer = 8
@@ -138,12 +82,38 @@ position = Vector2(29, -7)
 rotation = 4.71239
 shape = SubResource("CapsuleShape2D_4ohlq")
 
+[node name="vDetect" type="Area2D" parent="AnimatedSprite2D/Hitboxes"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="v_can_attack" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/vDetect"]
+position = Vector2(-1, -51.5)
+shape = SubResource("RectangleShape2D_xor7r")
+
+[node name="bossCollisionArea" type="Area2D" parent="AnimatedSprite2D/Hitboxes"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="bossCollision" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/bossCollisionArea"]
+position = Vector2(-1, -7)
+shape = SubResource("CircleShape2D_lk5mo")
+debug_color = Color(1, 0.00784314, 0.0470588, 0.145098)
+
+[node name="chargeDetect" type="Area2D" parent="AnimatedSprite2D/Hitboxes"]
+
+[node name="chare_can_attack" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/chargeDetect"]
+position = Vector2(268, -29)
+shape = SubResource("RectangleShape2D_h5rmh")
+
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-1, -7)
 shape = SubResource("CircleShape2D_bc5vo")
+debug_color = Color(0.439216, 0.580392, 0.419608, 0.741176)
 
 [node name="AttackCooldown" type="Timer" parent="."]
 
-[connection signal="body_entered" from="AnimatedSprite2D/Hitboxes/HozintalAttack" to="." method="_on_hozintal_attack_body_entered"]
 [connection signal="body_entered" from="AnimatedSprite2D/Hitboxes/hDetect" to="." method="_on_h_detect_body_entered"]
+[connection signal="body_entered" from="AnimatedSprite2D/Hitboxes/vDetect" to="." method="_on_v_detect_body_entered"]
+[connection signal="body_entered" from="AnimatedSprite2D/Hitboxes/bossCollisionArea" to="." method="_on_boss_collision_area_body_entered"]
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

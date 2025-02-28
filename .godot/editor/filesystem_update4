@@ -12,3 +12,5 @@ res://scences/Menu.tscn
 res://scences/statue.tscn
 res://scripts/background.gd
 res://scripts/Player.gd
+res://scripts/minion.gd
+res://scripts/purple_slime.gd

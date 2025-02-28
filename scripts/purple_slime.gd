@@ -65,7 +65,7 @@ func _on_top_checker_body_entered(body):
 	dead.start()
 
 func _on_sides_checkers_body_entered(body):
-	body.damage(position.x)
+	body.damage(position.x, 0.5, 1)
 
 func _on_timer_timeout():
 	purple_slime.position = Vector2(ogPosition)

@@ -170,21 +170,27 @@ func _lose_health():
 	can_be_timer.start()
 	falling_be_timer.start()
 	
-func damage(enemenyPosX):
+func damage(enemenyPosX, y_extreme, x_extreme):
+	
 	
 	if can_be_damaged == true:
 		_lose_health()
 			
 		timer.start()
 		set_modulate(Color(1,0.3,0.3,1))
-		velocity.y = JUMP_DAMAGED * 0.5
+		#0.5 is usally
+		velocity.y = JUMP_DAMAGED * y_extreme
+		
+		if canDoubleJump <= 0:
+			canDoubleJump = 1
 	
+		#this needs work but 1 usually
 		if player.global_position.x < enemenyPosX:
-			velocity.x = -800
+			velocity.x = -800 * x_extreme
 			Input.action_release("moveRight")
 		
 		elif player.global_position.x > enemenyPosX:
-			velocity.x += 800
+			velocity.x += 800 * x_extreme
 			Input.action_release("moveLeft")
 
 func spikesDamage1(spikePosX, spikeBounce):

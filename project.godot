@@ -35,6 +35,7 @@ window/stretch/mode="viewport"
 Player="Player Character"
 Enemies=""
 Boss=""
+FinalSpikes="Final Level Spikes they will do damage to both the player and boss"
 
 [input]
 

@@ -166,10 +166,10 @@ func _raycast_position():
 		wall.rotation = 135.1
 
 func _on_hozintal_attack_body_entered(body):
-	body.damage(minion.global_position.x)     
+	body.damage(minion.global_position.x, 0.5, 1)     
 	
 func _on_verical_attack_body_entered(body):
-	body.damage(minion.global_position.x)
+	body.damage(minion.global_position.x, 0.5, 1)
 
 func _vertical_attack():
 	if canAttack == true:

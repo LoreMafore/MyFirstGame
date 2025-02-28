@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://byghhep3wnbs0"]
+[gd_scene load_steps=12 format=3 uid="uid://byghhep3wnbs0"]
 
 [ext_resource type="Script" path="res://scripts/boss.gd" id="1_yjdx7"]
 [ext_resource type="Texture2D" uid="uid://j33rmysg5k3" path="res://sprites/Boss.png" id="2_v8yl0"]
@@ -33,7 +33,10 @@ size = Vector2(20, 57)
 radius = 8.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h5rmh"]
-size = Vector2(87, 57)
+size = Vector2(27.5, 57)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y6n8f"]
+size = Vector2(87, 7)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bc5vo"]
 radius = 8.0
@@ -41,6 +44,7 @@ radius = 8.0
 [node name="BOSS" type="CharacterBody2D" node_paths=PackedStringArray("boss") groups=["Boss"]]
 script = ExtResource("1_yjdx7")
 boss = NodePath(".")
+boss_x_spd = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -15)
@@ -52,8 +56,6 @@ sprite_frames = SubResource("SpriteFrames_wu1up")
 position = Vector2(0, -15)
 collision_layer = 8
 collision_mask = 8
-monitoring = false
-monitorable = false
 
 [node name="h_attack_collision" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/HozintalAttack"]
 position = Vector2(55, 7.5)
@@ -100,10 +102,39 @@ shape = SubResource("CircleShape2D_lk5mo")
 debug_color = Color(1, 0.00784314, 0.0470588, 0.145098)
 
 [node name="chargeDetect" type="Area2D" parent="AnimatedSprite2D/Hitboxes"]
+collision_layer = 8
+collision_mask = 8
 
-[node name="chare_can_attack" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/chargeDetect"]
-position = Vector2(268, -29)
+[node name="charge_can_attack" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/chargeDetect"]
+position = Vector2(300, -29)
 shape = SubResource("RectangleShape2D_h5rmh")
+
+[node name="SlamAttack" type="Area2D" parent="AnimatedSprite2D/Hitboxes"]
+position = Vector2(0, -15)
+collision_layer = 8
+collision_mask = 8
+
+[node name="s_attack_collision_R" type="CollisionPolygon2D" parent="AnimatedSprite2D/Hitboxes/SlamAttack"]
+position = Vector2(110, -17)
+rotation = -6.28319
+scale = Vector2(3.24306, 1.63487)
+polygon = PackedVector2Array(-29.9101, 16.5151, -31.7602, 19.5734, -28.3683, 19.5734, -27.7516, 14.6801, -27.7516, 4.89336, -27.7516, -9.17505, -28.6767, -22.6318, -30.2184, -28.7485, -29.9101, -13.4567, -29.6017, 9.78672)
+disabled = true
+
+[node name="s_attack_collision_R2" type="CollisionPolygon2D" parent="AnimatedSprite2D/Hitboxes/SlamAttack"]
+position = Vector2(-114, -17)
+rotation = 6.28319
+scale = Vector2(3.243, 1.635)
+polygon = PackedVector2Array(29.91, 16.515, 31.76, 19.573, 28.368, 19.573, 27.752, 14.68, 27.752, 4.893, 27.752, -9.175, 28.677, -22.632, 30.2189, -28.7462, 29.91, -13.457, 29.602, 9.787)
+disabled = true
+
+[node name="slamDetect" type="Area2D" parent="AnimatedSprite2D/Hitboxes"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="slam_can_attack" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/slamDetect"]
+position = Vector2(215, -4)
+shape = SubResource("RectangleShape2D_y6n8f")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 visible = false
@@ -116,4 +147,7 @@ debug_color = Color(0.439216, 0.580392, 0.419608, 0.741176)
 [connection signal="body_entered" from="AnimatedSprite2D/Hitboxes/hDetect" to="." method="_on_h_detect_body_entered"]
 [connection signal="body_entered" from="AnimatedSprite2D/Hitboxes/vDetect" to="." method="_on_v_detect_body_entered"]
 [connection signal="body_entered" from="AnimatedSprite2D/Hitboxes/bossCollisionArea" to="." method="_on_boss_collision_area_body_entered"]
+[connection signal="body_entered" from="AnimatedSprite2D/Hitboxes/chargeDetect" to="." method="_on_charge_detect_body_entered"]
+[connection signal="body_entered" from="AnimatedSprite2D/Hitboxes/SlamAttack" to="." method="_on_slam_attack_body_entered"]
+[connection signal="body_entered" from="AnimatedSprite2D/Hitboxes/slamDetect" to="." method="_on_slam_detect_body_entered"]
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

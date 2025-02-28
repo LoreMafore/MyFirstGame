@@ -1,5 +1,4 @@
 res://scences/level_1.tscn
-res://scripts/boss.gd
 res://scences/level_2.tscn
 res://scences/level_3.tscn
 res://scences/PlayerCharcter.tscn
@@ -10,7 +9,3 @@ res://scences/control_menu.tscn
 res://scences/death_screen.tscn
 res://scences/Menu.tscn
 res://scences/statue.tscn
-res://scripts/background.gd
-res://scripts/Player.gd
-res://scripts/minion.gd
-res://scripts/purple_slime.gd

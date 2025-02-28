@@ -14,10 +14,11 @@ extends CharacterBody2D
 @onready var boss_collision = $AnimatedSprite2D/Hitboxes/bossCollisionArea/bossCollision
 @onready var charge_detect = $AnimatedSprite2D/Hitboxes/chargeDetect
 @onready var charge_can_attack = $AnimatedSprite2D/Hitboxes/chargeDetect/charge_can_attack
-@onready var slam_detectect = $AnimatedSprite2D/Hitboxes/slamDetect
+@onready var slam_detect = $AnimatedSprite2D/Hitboxes/slamDetect
 @onready var slam_can_attack = $AnimatedSprite2D/Hitboxes/slamDetect/slam_can_attack
 @onready var slam_attack = $AnimatedSprite2D/Hitboxes/SlamAttack
-@onready var s_attack_collision = $AnimatedSprite2D/Hitboxes/SlamAttack/s_attack_collision
+@onready var s_attack_collision_r = $AnimatedSprite2D/Hitboxes/SlamAttack/s_attack_collision_R
+@onready var s_attack_collision_l = $AnimatedSprite2D/Hitboxes/SlamAttack/s_attack_collision_L
 
 
 
@@ -25,6 +26,7 @@ extends CharacterBody2D
 @export var boss_x_spd : int = 45
 @export_range(-1,1) var facing_right : int = 1
 
+const JMPSPD = -250
 var stored_spd : int = 0
 var player : CharacterBody2D
 var can_attack : bool = true
@@ -126,13 +128,13 @@ func _charge_attack_collision_position():
 
 func _slam_attack_coollision_position():
 	if animated_sprite_2d.flip_h == false:
-		s_attack_collision.position = Vector2(boss.global_position.x + 110 , boss.global_position.y-17)
 		slam_can_attack.position = Vector2(boss.global_position.x + 215, boss.global_position.y -5)
 
 	if animated_sprite_2d.flip_h == true:
-		s_attack_collision.position = Vector2(boss.global_position.x - 110 , boss.global_position.y-17)
 		slam_can_attack.position = Vector2(boss.global_position.x - 215, boss.global_position.y- 5)
-
+		
+	s_attack_collision_r.position = Vector2(boss.global_position.x + 110 , boss.global_position.y-17)
+	s_attack_collision_l.position = Vector2(boss.global_position.x - 114 , boss.global_position.y-17)
 
 func _on_h_detect_body_entered(body):
 	#enables attack and then has a short attack cool down
@@ -186,8 +188,21 @@ func _on_charge_detect_body_entered(body):
 		current_action = actions.CHARGE
 	
 func _on_slam_detect_body_entered(body):
-	pass # Replace with function body.
+	if can_attack == true:
+		current_action = actions.SLAM
+		boss_x_spd *= 0
+		boss.velocity.y = JMPSPD
+		slam_detect.monitoring = false
+		slam_detect.monitorable = false
+		slam_can_attack.disabled = true
+	_slam_attack_logic()
 	
+func _on_slam_attack_body_entered(body):
+	if body == player and can_attack == true:
+		body.damage(boss.global_position.x, 0.5, 2)
+		can_attack = false
+		attack_cooldown.start()
+		
 func _horizontal_enabled_attack():
 	#called in v_detect_body_entered
 	#damages the palyer
@@ -232,10 +247,6 @@ func _on_attack_cooldown_timeout():
 		current_action = actions.WALK
 		can_attack = true
 		
-
-
-func _on_slam_attack_body_entered(body):
-	if body == player and can_attack == true:
-		body.damage(boss.global_position.x, 0.5, 2)
-		can_attack = false
-		attack_cooldown.start()
+func _slam_attack_logic():
+	print("true")
+	#if can_attack = true

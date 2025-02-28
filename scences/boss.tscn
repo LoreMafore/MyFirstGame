@@ -121,7 +121,7 @@ scale = Vector2(3.24306, 1.63487)
 polygon = PackedVector2Array(-29.9101, 16.5151, -31.7602, 19.5734, -28.3683, 19.5734, -27.7516, 14.6801, -27.7516, 4.89336, -27.7516, -9.17505, -28.6767, -22.6318, -30.2184, -28.7485, -29.9101, -13.4567, -29.6017, 9.78672)
 disabled = true
 
-[node name="s_attack_collision_R2" type="CollisionPolygon2D" parent="AnimatedSprite2D/Hitboxes/SlamAttack"]
+[node name="s_attack_collision_L" type="CollisionPolygon2D" parent="AnimatedSprite2D/Hitboxes/SlamAttack"]
 position = Vector2(-114, -17)
 rotation = 6.28319
 scale = Vector2(3.243, 1.635)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://fdayry1fkrdn"]
 
 [ext_resource type="Script" path="res://scripts/spikes.gd" id="1_2davd"]
-[ext_resource type="Texture2D" uid="uid://xo2wqqdnlfom" path="res://brackeys_platformer_assets/sprites/Spikes.png" id="1_ncvyo"]
+[ext_resource type="Texture2D" uid="uid://xo2wqqdnlfom" path="res://sprites/Spikes.png" id="1_ncvyo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_leh0l"]
 atlas = ExtResource("1_ncvyo")
@@ -30,7 +30,9 @@ size = Vector2(0, 2)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3kntu"]
 size = Vector2(0, 2)
 
-[node name="Spikes" type="AnimatableBody2D"]
+[node name="Spikes" type="AnimatableBody2D" groups=["FinalSpikes"]]
+collision_layer = 129
+collision_mask = 129
 script = ExtResource("1_2davd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -41,7 +43,8 @@ position = Vector2(-0.5, 7)
 shape = SubResource("RectangleShape2D_nv4ny")
 
 [node name="Tips" type="Area2D" parent="."]
-collision_mask = 2
+collision_layer = 137
+collision_mask = 136
 
 [node name="Tips" type="CollisionShape2D" parent="Tips"]
 position = Vector2(-0.5, 4)

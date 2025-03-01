@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://7f5ustq5kl83"]
+
+[ext_resource type="Script" path="res://scripts/slam_left.gd" id="1_kx84d"]
+
+[node name="SlamLeft" type="CharacterBody2D"]
+script = ExtResource("1_kx84d")
+
+[node name="s_attack_collision_l" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -32)
+scale = Vector2(3.24306, 1.63487)
+polygon = PackedVector2Array(29.91, 16.515, 31.76, 19.573, 28.368, 19.573, 27.752, 14.68, 27.752, 4.893, 27.752, -9.175, 28.677, -22.632, 30.218, -28.749, 29.91, -13.457, 29.602, 9.787)
+
+[node name="SlamAttack" type="Area2D" parent="."]
+position = Vector2(0, -15)
+collision_layer = 136
+collision_mask = 136
+
+[node name="s_attack_collision" type="CollisionPolygon2D" parent="SlamAttack"]
+visible = false
+position = Vector2(0, -17)
+rotation = -6.28319
+scale = Vector2(3.24306, 1.63487)
+polygon = PackedVector2Array(29.91, 16.515, 31.76, 19.573, 28.368, 19.573, 27.752, 14.68, 27.752, 4.893, 27.752, -9.175, 28.677, -22.632, 30.218, -28.749, 29.91, -13.457, 29.602, 9.787)

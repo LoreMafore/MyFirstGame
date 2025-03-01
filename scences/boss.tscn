@@ -1,7 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://byghhep3wnbs0"]
+[gd_scene load_steps=14 format=3 uid="uid://byghhep3wnbs0"]
 
 [ext_resource type="Script" path="res://scripts/boss.gd" id="1_yjdx7"]
 [ext_resource type="Texture2D" uid="uid://j33rmysg5k3" path="res://sprites/Boss.png" id="2_v8yl0"]
+[ext_resource type="PackedScene" uid="uid://6o5ft161qga8" path="res://scences/slam.tscn" id="3_3p307"]
+[ext_resource type="PackedScene" uid="uid://7f5ustq5kl83" path="res://scences/slam_left.tscn" id="4_mbodd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wu1up"]
 animations = [{
@@ -93,8 +95,8 @@ position = Vector2(-1, -51.5)
 shape = SubResource("RectangleShape2D_xor7r")
 
 [node name="bossCollisionArea" type="Area2D" parent="AnimatedSprite2D/Hitboxes"]
-collision_layer = 8
-collision_mask = 8
+collision_layer = 136
+collision_mask = 136
 
 [node name="bossCollision" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/bossCollisionArea"]
 position = Vector2(-1, -7)
@@ -109,24 +111,15 @@ collision_mask = 8
 position = Vector2(300, -29)
 shape = SubResource("RectangleShape2D_h5rmh")
 
-[node name="SlamAttack" type="Area2D" parent="AnimatedSprite2D/Hitboxes"]
-position = Vector2(0, -15)
-collision_layer = 8
-collision_mask = 8
+[node name="Slam" parent="AnimatedSprite2D/Hitboxes" instance=ExtResource("3_3p307")]
+position = Vector2(-1, 0)
+collision_layer = 136
+collision_mask = 136
 
-[node name="s_attack_collision_R" type="CollisionPolygon2D" parent="AnimatedSprite2D/Hitboxes/SlamAttack"]
-position = Vector2(110, -17)
-rotation = -6.28319
-scale = Vector2(3.24306, 1.63487)
-polygon = PackedVector2Array(-29.9101, 16.5151, -31.7602, 19.5734, -28.3683, 19.5734, -27.7516, 14.6801, -27.7516, 4.89336, -27.7516, -9.17505, -28.6767, -22.6318, -30.2184, -28.7485, -29.9101, -13.4567, -29.6017, 9.78672)
-disabled = true
-
-[node name="s_attack_collision_L" type="CollisionPolygon2D" parent="AnimatedSprite2D/Hitboxes/SlamAttack"]
-position = Vector2(-114, -17)
-rotation = 6.28319
-scale = Vector2(3.243, 1.635)
-polygon = PackedVector2Array(29.91, 16.515, 31.76, 19.573, 28.368, 19.573, 27.752, 14.68, 27.752, 4.893, 27.752, -9.175, 28.677, -22.632, 30.2189, -28.7462, 29.91, -13.457, 29.602, 9.787)
-disabled = true
+[node name="SlamLeft" parent="AnimatedSprite2D/Hitboxes" instance=ExtResource("4_mbodd")]
+position = Vector2(-114, 0)
+collision_layer = 129
+collision_mask = 129
 
 [node name="slamDetect" type="Area2D" parent="AnimatedSprite2D/Hitboxes"]
 collision_layer = 8
@@ -144,10 +137,13 @@ debug_color = Color(0.439216, 0.580392, 0.419608, 0.741176)
 
 [node name="AttackCooldown" type="Timer" parent="."]
 
+[node name="slamcooldown" type="Timer" parent="."]
+wait_time = 3.0
+
 [connection signal="body_entered" from="AnimatedSprite2D/Hitboxes/hDetect" to="." method="_on_h_detect_body_entered"]
 [connection signal="body_entered" from="AnimatedSprite2D/Hitboxes/vDetect" to="." method="_on_v_detect_body_entered"]
 [connection signal="body_entered" from="AnimatedSprite2D/Hitboxes/bossCollisionArea" to="." method="_on_boss_collision_area_body_entered"]
 [connection signal="body_entered" from="AnimatedSprite2D/Hitboxes/chargeDetect" to="." method="_on_charge_detect_body_entered"]
-[connection signal="body_entered" from="AnimatedSprite2D/Hitboxes/SlamAttack" to="." method="_on_slam_attack_body_entered"]
 [connection signal="body_entered" from="AnimatedSprite2D/Hitboxes/slamDetect" to="." method="_on_slam_detect_body_entered"]
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
+[connection signal="timeout" from="slamcooldown" to="." method="_on_slamcooldown_timeout"]

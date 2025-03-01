@@ -19,9 +19,12 @@ extends CharacterBody2D
 @onready var slam_attack = $AnimatedSprite2D/Hitboxes/SlamAttack
 @onready var s_attack_collision_r = $AnimatedSprite2D/Hitboxes/SlamAttack/s_attack_collision_R
 @onready var s_attack_collision_l = $AnimatedSprite2D/Hitboxes/SlamAttack/s_attack_collision_L
+@onready var slamcooldown = $slamcooldown
+@onready var slam = $AnimatedSprite2D/Hitboxes/Slam
+@onready var slam_left = $AnimatedSprite2D/Hitboxes/SlamLeft
 
 
-
+@export var weight: float = 0.01
 @export var boss : CharacterBody2D
 @export var boss_x_spd : int = 45
 @export_range(-1,1) var facing_right : int = 1
@@ -35,8 +38,12 @@ var VA_collisions : Array = []
 enum actions { WALK, HORIZ, VERT, CHARGE, SLAM}
 var current_action
 var health = 3
+var right_slam : bool = false
+var left_slam : bool = false
+var random_number : int = 0
 
 func _ready():
+	
 	player = get_tree().get_first_node_in_group("Player")
 	if player == null:
 		print("Player in NULL line 23")
@@ -46,10 +53,21 @@ func _ready():
 	current_action = actions.WALK
 		
 func _process(delta):
-	print(current_action)
-	#if current_action == actions.WALK:
-		#_walking_animation()
-	#_vertical_enabled_attack()
+	
+	print("rs: ", slam.right_slam)
+	print("ls: ", slam_left.left_slam)
+
+	if slam.right_slam == false:
+		right_slam = false
+
+	if slam_left.left_slam == false:
+		left_slam = false
+
+	if right_slam == true:
+		slam.position.x += 2
+			
+	if left_slam == true:
+		slam_left.position.x -= 2
 
 func _physics_process(delta):
 	
@@ -57,18 +75,13 @@ func _physics_process(delta):
 	
 	_move_boss(delta)
 	
-	velocity.x = boss_x_spd * facing_right
-	
+	velocity.x = boss_x_spd * facing_right * 0
 	
 	_boss_collision_position()
 	_horizantal_attack_collison_position()
 	_vertical_attack_collison_position()
 	_charge_attack_collision_position()
 	_slam_attack_coollision_position()
-	
-	
-	#jump and then shockwave
-	#running move where he runs into wall
 
 func _walking_animation():
 	#This function is called in _move_boss
@@ -132,9 +145,10 @@ func _slam_attack_coollision_position():
 
 	if animated_sprite_2d.flip_h == true:
 		slam_can_attack.position = Vector2(boss.global_position.x - 215, boss.global_position.y- 5)
-		
-	s_attack_collision_r.position = Vector2(boss.global_position.x + 110 , boss.global_position.y-17)
-	s_attack_collision_l.position = Vector2(boss.global_position.x - 114 , boss.global_position.y-17)
+
+	if right_slam == false:
+		slam.global_position = Vector2(boss.global_position.x + 50, boss.global_position.y)
+		slam_left.global_position = Vector2(boss.global_position.x - 165, boss.global_position.y)
 
 func _on_h_detect_body_entered(body):
 	#enables attack and then has a short attack cool down
@@ -167,7 +181,9 @@ func _on_boss_collision_area_body_entered(body):
 	
 	#if charge missing and runns into spikes
 	if current_action == actions.CHARGE and body.is_in_group("FinalSikes"):
+		print(health)
 		health -= 1
+		print("yo: ", health)
 		boss_x_spd *= 0
 		charge_can_attack.disabled = true
 		can_attack = false
@@ -188,20 +204,21 @@ func _on_charge_detect_body_entered(body):
 		current_action = actions.CHARGE
 	
 func _on_slam_detect_body_entered(body):
-	if can_attack == true:
-		current_action = actions.SLAM
+	random_number = randi_range(1, 3)
+	if can_attack == true and random_number == 3:
 		boss_x_spd *= 0
 		boss.velocity.y = JMPSPD
-		slam_detect.monitoring = false
-		slam_detect.monitorable = false
+		slam_detect.set_deferred("monitorable", false)
+		slam_detect.set_deferred("monitoring", false)
 		slam_can_attack.disabled = true
-	_slam_attack_logic()
-	
-func _on_slam_attack_body_entered(body):
-	if body == player and can_attack == true:
-		body.damage(boss.global_position.x, 0.5, 2)
+		current_action = actions.SLAM
 		can_attack = false
+		slam.right_slam = true
+		slam_left.left_slam = true
+		right_slam = true
+		left_slam = true
 		attack_cooldown.start()
+		slamcooldown.start()
 		
 func _horizontal_enabled_attack():
 	#called in v_detect_body_entered
@@ -225,7 +242,6 @@ func _vertical_enabled_attack():
 				
 func _on_attack_cooldown_timeout():
 	#disables attacks and allows for boss to attack again
-	print("why")
 	
 	if current_action == actions.HORIZ and h_can_attack.disabled == true:
 		h_attack_collision.disabled = true
@@ -247,6 +263,15 @@ func _on_attack_cooldown_timeout():
 		current_action = actions.WALK
 		can_attack = true
 		
-func _slam_attack_logic():
-	print("true")
-	#if can_attack = true
+	elif current_action == actions.SLAM and slam_can_attack.disabled == true:
+		can_attack = true
+
+func _on_slamcooldown_timeout():
+
+	if current_action == actions.SLAM and slam_can_attack.disabled == true:
+		print("goy")
+		slam_detect.set_deferred("monitorable", true)
+		slam_detect.set_deferred("monitoring", true)
+		slam_can_attack.disabled = false
+		boss_x_spd = stored_spd
+		current_action = actions.WALK

@@ -9,3 +9,12 @@ res://scences/control_menu.tscn
 res://scences/death_screen.tscn
 res://scences/Menu.tscn
 res://scences/statue.tscn
+res://scripts/boss.gd
+res://scences/slam.tscn
+res://scripts/slam.gd
+res://scences/slam_left.tscn
+res://scripts/slam_left.gd
+res://scripts/spikes.gd
+res://scences/spikes.tscn
+res://static_body_2d.gd
+res://scences/final_spikes.tscn

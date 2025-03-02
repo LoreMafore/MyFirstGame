@@ -54,8 +54,8 @@ func _ready():
 		
 func _process(delta):
 	
-	print("rs: ", slam.right_slam)
-	print("ls: ", slam_left.left_slam)
+	#print("rs: ", slam.right_slam)
+	#print("ls: ", slam_left.left_slam)
 
 	if slam.right_slam == false:
 		right_slam = false
@@ -75,7 +75,7 @@ func _physics_process(delta):
 	
 	_move_boss(delta)
 	
-	velocity.x = boss_x_spd * facing_right * 0
+	velocity.x = boss_x_spd * facing_right 
 	
 	_boss_collision_position()
 	_horizantal_attack_collison_position()
@@ -147,8 +147,10 @@ func _slam_attack_coollision_position():
 		slam_can_attack.position = Vector2(boss.global_position.x - 215, boss.global_position.y- 5)
 
 	if right_slam == false:
-		slam.global_position = Vector2(boss.global_position.x + 50, boss.global_position.y)
-		slam_left.global_position = Vector2(boss.global_position.x - 165, boss.global_position.y)
+		slam.global_position = Vector2(boss.global_position.x, boss.global_position.y + 1)
+		
+	if left_slam == false:
+		slam_left.global_position = Vector2(boss.global_position.x - 116, boss.global_position.y + 1)
 
 func _on_h_detect_body_entered(body):
 	#enables attack and then has a short attack cool down
@@ -205,6 +207,7 @@ func _on_charge_detect_body_entered(body):
 	
 func _on_slam_detect_body_entered(body):
 	random_number = randi_range(1, 3)
+	print("ls: ", slam_left.left_slam)
 	if can_attack == true and random_number == 3:
 		boss_x_spd *= 0
 		boss.velocity.y = JMPSPD
@@ -217,6 +220,7 @@ func _on_slam_detect_body_entered(body):
 		slam_left.left_slam = true
 		right_slam = true
 		left_slam = true
+		print("ls in function: ",  slam_left.left_slam, "\n")
 		attack_cooldown.start()
 		slamcooldown.start()
 		

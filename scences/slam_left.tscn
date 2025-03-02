@@ -1,14 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://7f5ustq5kl83"]
+[gd_scene load_steps=5 format=3 uid="uid://7f5ustq5kl83"]
 
 [ext_resource type="Script" path="res://scripts/slam_left.gd" id="1_kx84d"]
+[ext_resource type="Texture2D" uid="uid://dy11irqkb8gqs" path="res://sprites/slam.png" id="2_kfk1q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pua0p"]
+atlas = ExtResource("2_kfk1q")
+region = Rect2(0, 0, 36, 145)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uu7lf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pua0p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="SlamLeft" type="CharacterBody2D"]
 script = ExtResource("1_kx84d")
 
 [node name="s_attack_collision_l" type="CollisionPolygon2D" parent="."]
+visible = false
 position = Vector2(0, -32)
 scale = Vector2(3.24306, 1.63487)
 polygon = PackedVector2Array(29.91, 16.515, 31.76, 19.573, 28.368, 19.573, 27.752, 14.68, 27.752, 4.893, 27.752, -9.175, 28.677, -22.632, 30.218, -28.749, 29.91, -13.457, 29.602, 9.787)
+disabled = true
 
 [node name="SlamAttack" type="Area2D" parent="."]
 position = Vector2(0, -15)
@@ -21,3 +39,10 @@ position = Vector2(0, -17)
 rotation = -6.28319
 scale = Vector2(3.24306, 1.63487)
 polygon = PackedVector2Array(29.91, 16.515, 31.76, 19.573, 28.368, 19.573, 27.752, 14.68, 27.752, 4.893, 27.752, -9.175, 28.677, -22.632, 30.218, -28.749, 29.91, -13.457, 29.602, 9.787)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(102, -42)
+scale = Vector2(-0.779278, 0.581034)
+sprite_frames = SubResource("SpriteFrames_uu7lf")
+
+[connection signal="body_entered" from="SlamAttack" to="." method="_on_slam_attack_body_entered"]

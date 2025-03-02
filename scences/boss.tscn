@@ -1,9 +1,71 @@
-[gd_scene load_steps=14 format=3 uid="uid://byghhep3wnbs0"]
+[gd_scene load_steps=31 format=3 uid="uid://byghhep3wnbs0"]
 
 [ext_resource type="Script" path="res://scripts/boss.gd" id="1_yjdx7"]
 [ext_resource type="Texture2D" uid="uid://j33rmysg5k3" path="res://sprites/Boss.png" id="2_v8yl0"]
 [ext_resource type="PackedScene" uid="uid://6o5ft161qga8" path="res://scences/slam.tscn" id="3_3p307"]
+[ext_resource type="Texture2D" uid="uid://dytu08iiyc488" path="res://sprites/boss_horizontal_attacks.png" id="3_iuuih"]
 [ext_resource type="PackedScene" uid="uid://7f5ustq5kl83" path="res://scences/slam_left.tscn" id="4_mbodd"]
+[ext_resource type="Texture2D" uid="uid://bgqcj8temphhu" path="res://sprites/boss_vertical_attacks.png" id="4_psp4l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvblx"]
+atlas = ExtResource("3_iuuih")
+region = Rect2(0, 0, 250, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8a8p"]
+atlas = ExtResource("3_iuuih")
+region = Rect2(0, 320, 250, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63vht"]
+atlas = ExtResource("3_iuuih")
+region = Rect2(0, 384, 250, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppnec"]
+atlas = ExtResource("3_iuuih")
+region = Rect2(0, 384, 250, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qh02x"]
+atlas = ExtResource("3_iuuih")
+region = Rect2(0, 448, 250, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmvli"]
+atlas = ExtResource("3_iuuih")
+region = Rect2(0, 448, 250, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mftu0"]
+atlas = ExtResource("3_iuuih")
+region = Rect2(0, 544, 250, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02k3k"]
+atlas = ExtResource("3_iuuih")
+region = Rect2(0, 672, 250, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bem5h"]
+atlas = ExtResource("4_psp4l")
+region = Rect2(0, 0, 32, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jb846"]
+atlas = ExtResource("4_psp4l")
+region = Rect2(64, 0, 32, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7e6vg"]
+atlas = ExtResource("4_psp4l")
+region = Rect2(128, 0, 32, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n384a"]
+atlas = ExtResource("4_psp4l")
+region = Rect2(192, 0, 32, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktaf1"]
+atlas = ExtResource("4_psp4l")
+region = Rect2(256, 0, 32, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5rg3"]
+atlas = ExtResource("4_psp4l")
+region = Rect2(448, 0, 32, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6myf5"]
+atlas = ExtResource("4_psp4l")
+region = Rect2(640, 0, 32, 240)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wu1up"]
 animations = [{
@@ -14,6 +76,61 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvblx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8a8p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63vht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppnec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qh02x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmvli")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mftu0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_02k3k")
+}],
+"loop": true,
+"name": &"h_attack_animation",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bem5h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jb846")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7e6vg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n384a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktaf1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5rg3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6myf5")
+}],
+"loop": true,
+"name": &"v_attack_animation",
+"speed": 7.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c31ia"]

@@ -22,8 +22,8 @@ func _on_spikes_damaged_body_entered(body):
 	if body == player:
 		body.damage(self.position.x, 0.5,1.5)
 		
-	else:
-		print(\"die\")
+	#else:
+		#print(\"die\")
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_crl1f"]
@@ -45,8 +45,8 @@ position = Vector2(3, -1)
 shape = SubResource("RectangleShape2D_crl1f")
 
 [node name="spikes_damaged" type="Area2D" parent="."]
-collision_layer = 128
-collision_mask = 128
+collision_layer = 136
+collision_mask = 136
 
 [node name="damage_collision" type="CollisionPolygon2D" parent="spikes_damaged"]
 position = Vector2(0, 1)

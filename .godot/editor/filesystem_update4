@@ -11,3 +11,4 @@ res://scences/spikes.tscn
 res://scripts/slam.gd
 res://scripts/boss.gd
 res://scripts/slam_left.gd
+res://scripts/game_manager.gd

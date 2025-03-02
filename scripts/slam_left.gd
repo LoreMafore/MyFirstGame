@@ -30,7 +30,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _on_slam_attack_body_entered(body):
-	print("gay")
+
 	if body == player:
 		body.damage(self.global_position.x, 0.5, 0.5)
 		slam_attack.set_deferred("monitoring", false)

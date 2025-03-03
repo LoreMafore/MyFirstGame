@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb06vtbp7om0l"
-path="res://.godot/imported/Level3Tilemap.png-27713b15a2502f9baeec151489818cf6.ctex"
+uid="uid://2io48mrpy78g"
+path="res://.godot/imported/bigUIMushroom.png-a43db83b4bfba08479b0bfa002af8e1e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://brackeys_platformer_assets/sprites/Level3Tilemap.png"
-dest_files=["res://.godot/imported/Level3Tilemap.png-27713b15a2502f9baeec151489818cf6.ctex"]
+source_file="res://brackeys_platformer_assets/sprites/bigUIMushroom.png"
+dest_files=["res://.godot/imported/bigUIMushroom.png-a43db83b4bfba08479b0bfa002af8e1e.ctex"]
 
 [params]
 

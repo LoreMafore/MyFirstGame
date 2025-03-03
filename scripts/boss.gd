@@ -62,7 +62,6 @@ func _process(delta):
 		slam_spd = 2
 		charge_spd = 100
 		
-		
 	elif health == 2:
 		slam_spd = 4
 		charge_spd = 250
@@ -72,8 +71,6 @@ func _process(delta):
 		slam_spd = 6
 		charge_spd = 350
 		set_modulate(Color(1,0,0,1))
-	
-	
 
 	if slam.right_slam == false:
 		right_slam = false
@@ -87,8 +84,6 @@ func _process(delta):
 	if left_slam == true:
 		slam_left.position.x -= slam_spd
 		
-	
-
 func _physics_process(delta):
 	
 	move_and_slide()

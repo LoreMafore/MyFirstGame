@@ -13,8 +13,6 @@ func _process(delta):
 func _on_audio_visual_pressed():
 	_exit_settings(setting_options,audio_visual_options)
 
-func _on_gameplay_pressed():
-	pass # Replace with function body.
 
 func _on_quit_pressed():
 	get_tree().quit()

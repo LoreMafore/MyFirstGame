@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb06vtbp7om0l"
-path="res://.godot/imported/Level3Tilemap.png-27713b15a2502f9baeec151489818cf6.ctex"
+uid="uid://0k1qayxhmj4e"
+path="res://.godot/imported/slimeUI.png-0f226b592bee9594331f9554ba8dde29.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://brackeys_platformer_assets/sprites/Level3Tilemap.png"
-dest_files=["res://.godot/imported/Level3Tilemap.png-27713b15a2502f9baeec151489818cf6.ctex"]
+source_file="res://brackeys_platformer_assets/sprites/slimeUI.png"
+dest_files=["res://.godot/imported/slimeUI.png-0f226b592bee9594331f9554ba8dde29.ctex"]
 
 [params]
 

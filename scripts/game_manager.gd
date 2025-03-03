@@ -12,6 +12,5 @@ func _ready():
 	
 func _process(delta):
 	if Input.is_action_just_pressed("Heal") and healCounter > 0 and healCounter < 4:
-		if player.healthPoints != 3:
-			healCounter -= 1
-			heals_label.text = str(healCounter) + "X"
+		healCounter -= 1
+		heals_label.text = str(healCounter) + "X"

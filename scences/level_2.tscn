@@ -483,13 +483,14 @@ position = Vector2(-46, -5)
 
 [node name="Player" parent="." instance=ExtResource("1_ssg6g")]
 unique_name_in_owner = true
-position = Vector2(566, -67)
+position = Vector2(2203.61, -393.7)
 doubleJumpMultiplfier = 0.1
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("3_y1wun")
 
 [node name="UI" type="CanvasLayer" parent="GameManager"]
+visible = false
 scale = Vector2(3, 3)
 transform = Transform2D(3, 0, 0, 3, 0, 0)
 
@@ -969,6 +970,12 @@ libraries = {
 "": SubResource("AnimationLibrary_tavxv")
 }
 autoplay = "move"
+
+[node name="AnimatedSprite2D47" parent="Platforms" instance=ExtResource("10_frikg")]
+position = Vector2(5788, -904)
+
+[node name="AnimatedSprite2D48" parent="Platforms" instance=ExtResource("10_frikg")]
+position = Vector2(5959, -934)
 
 [node name="LV2Door" parent="." instance=ExtResource("13_no0p1")]
 position = Vector2(-770, -33)
